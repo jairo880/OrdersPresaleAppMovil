@@ -16,10 +16,14 @@ angular.module('starter.controllers', [])
     ContraseniaDeUsuario:''
   };
 
-  $scope.OB_Establecimiento={Nombre_Establecimiento:'',Nombre_Encargado:'', Nit:'' ,Telfono_Establecimiento:'' ,Direccion_Establecimiento:'',Municipio_Establecimiento:'' , FK_ID_Usuario:''};
-  $scope.OB_Registro_Usuario={Primer_Nombre:'', segundo_nombre:'', apellido:'', segundo_apellido:'', Departamento:'', Municipio:'', Telefono_celular:'', sexo:'', tipo_cliente:'',Correo_Electronico:'', Contrasenia:'',Imagen_Usuario:'', Fondo_Perfil_Usuario:'', Disponibilidad:'', Posee_Empresa:'', Estado_Cuenta:'',FK_ID_Rol:'', Nombre_Usuario:''};  
+  $scope.OB_Registro_Usuario={Primer_Nombre:'', segundo_nombre:'', apellido:'', segundo_apellido:'', Departamento:'', Municipio:'', Telefono_celular:'', sexo:'', tipo_cliente:'',Correo_Electronico:'', Contrasenia:'',Imagen_Usuario:'', Fondo_Perfil_Usuario:'', Disponibilidad:'', Posee_Empresa:'', Estado_Cuenta:'',FK_ID_Rol:'', Nombre_Usuario:'', PK_ID_Establecimiento:'', Nombre_Establecimiento:'',Nombre_Encargado:'',Nit:'',Telefono_Establecimiento:'',Direccion_Establecimiento:'',Municipio_Establecimiento:''};  
   $scope.Estado_Logeo=false;
 
+
+
+
+
+  console.log($scope.OB_Registro_Usuario);
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -107,17 +111,17 @@ $scope.FN_Consultar_Cotizaciones=function(){
 }
 
 $scope.FN_Registrar_Usuario=function(){
+ $http.post('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/registro_usuario', $scope.OB_Registro_Usuario)
+ .success(function(result){
+  console.log(result);
+  console.log(result, null, status);
 
-  $http.post('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/registro_usuario', $scope.OB_Registro_Usuario)
-  .success(function(result){
-    console.log(result);
-    console.log($scope.OB_Registro_Usuario);
-  })
+})
 
-  .error(function(result, status){
-    console.log(result)
+ .error(function(result, status){
+  console.log(result)
 
-  });
+});
 
 }
 
