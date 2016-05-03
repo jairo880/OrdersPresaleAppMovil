@@ -26,7 +26,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('app', {
+  .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
@@ -37,7 +37,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: '/registro',
     views: {
       'menuContent': {
-        templateUrl: 'templates/registro.html',
+        templateUrl: 'templates/Usuario/registro.html',
         controller:'AppCtrl'
 
       }
@@ -45,42 +45,53 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
   .state('app.productos', {
-      url: '/productos',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/productos.html',
-            controller: 'controllerproductos'
+    url: '/productos',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/Productos/productos.html',
+        controller: 'controllerproductos'
 
-        }
       }
-    })
-    .state('app.informacion', {
-      url: '/informacion',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/informacion.html',
+    }
+  })
+  .state('app.informacion', {
+    url: '/informacion',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/Informacion/informacion.html',
         
-        }
       }
-    })
+    }
+  })
 
   .state('app.informacionproyecto', {
     url: '/informacionproyecto',
     views: {
       'menuContent': {
-        templateUrl: 'templates/informacionproyecto.html',
+        templateUrl: 'templates/Informacion/informacionproyecto.html',
       }
     }
   })
+
   .state('app.cotizaciones', {
     url: '/cotizaciones',
     views: {
       'menuContent': {
-        templateUrl: 'templates/cotizaciones.html',
+        templateUrl: 'templates/cotizaciones/cotizaciones.html',
         controller: 'AppCtrl'
       }
     }
   })
+
+  .state('cotizaciones.detalles', {
+   url : '/detalles',
+   templateUrl : 'templates/cotizaciones/detallescotizacion.html',
+   abstract : true,
+   controller : 'FstController'
+ })
+
+
+
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/informacion');

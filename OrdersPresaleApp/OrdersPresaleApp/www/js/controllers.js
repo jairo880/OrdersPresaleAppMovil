@@ -26,7 +26,7 @@ angular.module('starter.controllers', [])
   console.log($scope.OB_Registro_Usuario);
 
   // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
+  $ionicModal.fromTemplateUrl('templates/Usuario/login.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
