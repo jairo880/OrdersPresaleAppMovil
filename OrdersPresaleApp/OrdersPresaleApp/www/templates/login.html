@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="../css/style.css">
+
+<ion-modal-view>
+<ion-header-bar>
+<h1 class="title">Login</h1>
+<div class="buttons">
+  <button class="button button-clear" ng-click="closeLogin()">Close</button>
+</div>
+</ion-header-bar>
+<ion-content>
+<div >
+  <div class="card">
+    <div class="list">
+      <img id="logo" src="../img/LogoAllopColor.png" alt="">
+      <label class="item item-input item-floating-label"><span class="input-label">Nombre De Usuario</span><input ng-model="Persona.NombreDeUsuario" type="text" placeholder="Nombre De Usuario" minlength="3"></label>
+
+      <label class="item item-input item-floating-label"><span class="input-label">Contraseña</span><input ng-model="Persona.ContraseniaDeUsuario"  type="password" placeholder="Contraseña" minlength="3" ></label>
+      <br>
+      <div class="Botones">
+        <button class="button button-dark button-full" ng-disabled="!Persona.NombreDeUsuario || !Persona.ContraseniaDeUsuario" ng-click="FN_Login()">Iniciar Sessión</button><br>
+        <button class="button button-royal button-full" >Recordar Contraseña</button>
+      </div>
+    </div>  
+  </div>
+</div>
+</ion-content>
+</ion-modal-view>

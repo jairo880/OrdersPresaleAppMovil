@@ -1,0 +1,43 @@
+<ion-view view-title="Productos">
+<ion-content>
+<div class=" card ">
+<ion-list ng-repeat="ob in Productos">
+
+<ion-checkbox>
+
+<a class="item item-thumbnail-left" href="#" >
+  <img src="{{ob.Ruta_Imagen_Producto}}">
+
+  
+  <p>
+   Codigo De Producto:
+ </p>
+ <h2>
+  {{ob.PK_ID_Producto}}
+
+</h2>
+<p>
+ Nombre De Producto:
+</p>
+<h2>
+ {{ob.Nombre_Producto}}
+
+</h2>
+<p>
+ Costo De Producto:
+
+</p>
+<h2>
+  {{ob.Valor_Unitario}}
+
+</h2>
+</a>
+</ion-checkbox>
+
+
+</ion-list>
+
+</div>
+</ion-content>
+</ion-view>
+
