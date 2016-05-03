@@ -83,12 +83,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-  .state('cotizaciones.detalles', {
-   url : '/detalles',
-   templateUrl : 'templates/cotizaciones/detallescotizacion.html',
-   abstract : true,
-   controller : 'FstController'
- })
+ //  .state('cotizaciones.detalles', {
+ //   url : '/detalles',
+ //   templateUrl : 'templates/cotizaciones/detallescotizacion.html',
+ //   abstract : true,
+ //   controller : 'FstController'
+ // })
 
 
 
