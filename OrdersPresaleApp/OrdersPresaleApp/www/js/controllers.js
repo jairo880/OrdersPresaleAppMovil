@@ -111,6 +111,7 @@ $scope.FN_Registrar_Usuario=function(){
   $http.post('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/registro_usuario', $scope.OB_Registro_Usuario)
   .success(function(result){
     console.log(result);
+    console.log($scope.OB_Registro_Usuario);
   })
 
   .error(function(result, status){
