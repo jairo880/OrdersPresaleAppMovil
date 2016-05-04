@@ -71,7 +71,6 @@ angular.module('starter.controllers', [])
        $scope.Estado_Logeo=true;
        $scope.Datos_Usuario=$scope.Cuentas[i];
        $scope.modal.hide();
-       console.log($scope.Datos_Usuario);
        break;
 
      }else{
@@ -100,9 +99,7 @@ $scope.FN_Consultar_Cotizaciones=function(){
   $http.post('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_cotizaciones',$scope.Datos_Usuario)    
   .success(function(result){
     $scope.Cotizaciones=result;
-    console.log($scope.Cotizaciones);
   })
-
   .error(function(result){
     alert("No se pudo consumir el Servicio")
   });
@@ -126,6 +123,29 @@ $scope.FN_Registrar_Usuario=function(){
 }
 
 
+$scope.FN_Detalles_Cotizacion=function($index){
+
+var indice = $index;
+$scope.FK_ID_Cotizacion_Usuario=$scope.Cotizaciones[indice]['PK_ID_Cotizacion_Usuario'];
+  
+
+   $http.post('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_dll_cotizacion', $scope.FK_ID_Cotizacion_Usuario)
+
+  .success(function(result){
+
+
+    $scope.OB_Detalles_Cotizacion=result;
+    console.log($scope.OB_Detalles_Cotizacion);
+  })
+
+  .error(function(result, status){
+    console.log(result);
+
+  });
+
+}
+
+
 })
 
 
@@ -133,6 +153,7 @@ $scope.FN_Registrar_Usuario=function(){
 
  /* $http.get('http://opapp-octoapp.rhcloud.com/Controlador/consultar_productos')  */  
  $http.get('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_productos')
+
  .success(function(result){
   $scope.Productos=result;
 })
