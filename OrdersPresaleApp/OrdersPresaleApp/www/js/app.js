@@ -73,22 +73,28 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+
+/*VI*/
   .state('app.cotizaciones', {
     url: '/cotizaciones',
     views: {
       'menuContent': {
-        templateUrl: 'templates/cotizaciones/cotizaciones.html',
+        templateUrl: 'templates/Cotizaciones/cotizaciones.html',
         controller: 'AppCtrl'
       }
     }
   })
 
- //  .state('cotizaciones.detalles', {
- //   url : '/detalles',
- //   templateUrl : 'templates/cotizaciones/detallescotizacion.html',
- //   abstract : true,
- //   controller : 'FstController'
- // })
+    .state('app.dllcotizacion', {
+    url: '/cotizaciones/:detallescotizacion',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/Cotizaciones/detallescotizacion.html',
+        controller: 'AppCtrl'
+      }
+    }
+  })
+
 
 
 
