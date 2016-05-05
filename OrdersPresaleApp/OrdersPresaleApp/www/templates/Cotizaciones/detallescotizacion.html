@@ -1,11 +1,40 @@
-<ion-view view-title="Detalles Cotizacion">
-<ion-content>
+<ion-view view-title="Detalles Cotización">
 <div class="card">
+	<ion-list ng-repeat="c in Obb_Detalles_Cotizacion">
 
+	<img src="{{c.Ruta_Imagen_Producto}}" alt="">
 	<h2>
-		Hola Mundo Desde Detalles De Cotizaciones.
+		Nombre de producto:
 	</h2>
 
+	<p>
+		{{c.Nombre_Producto}}
+	</p>
+
+	<h2>
+		Cantidad de producto:
+	</h2>
+	<p>
+		{{c.Cantidad_Productos}}
+	</p>
+
+	<h2>
+		Subtotal:
+	</h2>
+
+	<p>
+		{{c.Sub_Total}}
+	</p>
+
+	<h2>
+		Valor Unitario:
+	</h2>
+
+	<p>
+		{{c.Valor_Unitario}}
+	</p>
+
+</ion-list>
 </div>
-</ion-content>
+
 </ion-view>

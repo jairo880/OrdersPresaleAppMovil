@@ -54,6 +54,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
+
+
+  /*VISTAS INFORMACIÓN*/
   .state('app.informacion', {
     url: '/informacion',
     views: {
@@ -74,7 +77,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
 
-/*VI*/
+/*VISTAS ANIDADAS COTIZACIONES*/
   .state('app.cotizaciones', {
     url: '/cotizaciones',
     views: {
@@ -86,7 +89,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
     .state('app.dllcotizacion', {
-    url: '/cotizaciones/:detallescotizacion',
+    url: '/cotizaciones/:detallecotizacion',
     views: {
       'menuContent': {
         templateUrl: 'templates/Cotizaciones/detallescotizacion.html',

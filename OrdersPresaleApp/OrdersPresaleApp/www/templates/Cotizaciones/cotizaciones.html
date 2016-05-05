@@ -15,11 +15,48 @@
 				<p>{{C.Direccion_entrega}}</p>
 				<h2>Telefono_Entrega:</h2>
 				<p>{{C.Telefono_Entrega}}</p>
-
 			</a>
 		</div>
 	</div>
+</div>
 
+
+<div class="card">
+	<ion-list ng-repeat="c in Obb_Detalles_Cotizacion">
+
+	<img src="{{c.Ruta_Imagen_Producto}}" alt="">
+	<h2>
+		Nombre de producto:
+	</h2>
+
+	<p>
+		{{c.Nombre_Producto}}
+	</p>
+
+	<h2>
+		Cantidad de producto:
+	</h2>
+	<p>
+		{{c.Cantidad_Productos}}
+	</p>
+
+	<h2>
+		Subtotal:
+	</h2>
+
+	<p>
+		{{c.Sub_Total}}
+	</p>
+
+	<h2>
+		Valor Unitario:
+	</h2>
+
+	<p>
+		{{c.Valor_Unitario}}
+	</p>
+
+</ion-list>
 </div>
 </ion-content>
 </ion-view>

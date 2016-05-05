@@ -15,6 +15,7 @@ angular.module('starter.controllers', [])
     NombreDeUsuario:'',
     ContraseniaDeUsuario:''
   };
+  $scope.OB_Detalles_Cotizacion="";
 
   $scope.OB_Registro_Usuario={Primer_Nombre:'', segundo_nombre:'', apellido:'', segundo_apellido:'', Departamento:'', Municipio:'', Telefono_celular:'', sexo:'', tipo_cliente:'',Correo_Electronico:'', Contrasenia:'',Imagen_Usuario:'', Fondo_Perfil_Usuario:'', Disponibilidad:'', Posee_Empresa:'', Estado_Cuenta:'',FK_ID_Rol:'', Nombre_Usuario:'', PK_ID_Establecimiento:'', Nombre_Establecimiento:'',Nombre_Encargado:'',Nit:'',Telefono_Establecimiento:'',Direccion_Establecimiento:'',Municipio_Establecimiento:''};  
   $scope.Estado_Logeo=false;
@@ -23,7 +24,7 @@ angular.module('starter.controllers', [])
 
 
 
-  console.log($scope.OB_Registro_Usuario);
+  // console.log($scope.OB_Registro_Usuario);
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/Usuario/login.html', {
@@ -91,7 +92,8 @@ angular.module('starter.controllers', [])
     ContraseniaDeUsuario:''
   };
   $scope.Datos_Usuario="";
-  $state.go('app');
+  $scope.OB_Detalles_Cotizacion="";
+  $scope.OB_Registro_Usuario={Primer_Nombre:'', segundo_nombre:'', apellido:'', segundo_apellido:'', Departamento:'', Municipio:'', Telefono_celular:'', sexo:'', tipo_cliente:'',Correo_Electronico:'', Contrasenia:'',Imagen_Usuario:'', Fondo_Perfil_Usuario:'', Disponibilidad:'', Posee_Empresa:'', Estado_Cuenta:'',FK_ID_Rol:'', Nombre_Usuario:'', PK_ID_Establecimiento:'', Nombre_Establecimiento:'',Nombre_Encargado:'',Nit:'',Telefono_Establecimiento:'',Direccion_Establecimiento:'',Municipio_Establecimiento:''};  
 }
 
 
@@ -124,25 +126,21 @@ $scope.FN_Registrar_Usuario=function(){
 
 
 $scope.FN_Detalles_Cotizacion=function($index){
-
-var indice = $index;
-$scope.FK_ID_Cotizacion_Usuario=$scope.Cotizaciones[indice]['PK_ID_Cotizacion_Usuario'];
+  var indice = $index;
+  $scope.FK_ID_Cotizacion_Usuario=$scope.Cotizaciones[indice]['PK_ID_Cotizacion_Usuario'];
   
 
-   $http.post('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_dll_cotizacion', $scope.FK_ID_Cotizacion_Usuario)
+  $http.post('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_dll_cotizacion', $scope.FK_ID_Cotizacion_Usuario)
 
   .success(function(result){
-
-
-    $scope.OB_Detalles_Cotizacion=result;
-    console.log($scope.OB_Detalles_Cotizacion);
+    $scope.Obb_Detalles_Cotizacion=result;
+    console.log($scope.Obb_Detalles_Cotizacion);
   })
 
   .error(function(result, status){
-    console.log(result);
+    console.log(result, null, status);
 
   });
-
 }
 
 
