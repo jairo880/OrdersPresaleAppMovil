@@ -4,32 +4,47 @@ var app = angular.module('starter.controllers', [])
 /*FACTORY PARA GESTIONAR LOS DATOS Y OBJETOS DE FORMA GLOBAL PUDIENDO SER ACCEDIDO POR DIVERSOS CONTROLADORES*/
 app.service('Factory', ['$http', function($http){
   var servicio={
-    objeto:{Nombre:'Jairo',
-      OB_Productos:[],
-      Consultar_Productos:function(){
+    objeto:{OB_Productos:[],
+      OB_Datos_Usuario:[],
+    Cargar_Datos_Usuario:function(Datos_Usuario){
+      servicio.objeto.OB_Datos_Usuario=Datos_Usuario;
+      console.log(servicio.objeto.OB_Datos_Usuario);
+   
+    },
+    Consultar_Productos:function(){
 
-        $http.get('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_productos')
+      $http.get('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_productos')
 
-        .success(function(result){
-          servicio.objeto.OB_Productos=result;
-          console.log(servicio.objeto.OB_Productos);
+      .success(function(result){
+        servicio.objeto.OB_Productos=result;
+        console.log(servicio.objeto.OB_Productos);
 
-        })
+      })
 
-        .error(function(result, status){
-          alert("Error al consumir el servicio para productos");
-          console.log(result, null, status);
-        });
-      }
-
+      .error(function(result, status){
+        alert("Error al consumir el servicio para productos");
+        console.log(result, null, status);
+      });
+    },
+    FN_Consultar_Cotizaciones:function(Datos_Usuario){
+      $http.post('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_cotizaciones',Datos_Usuario)    
+      .success(function(result){
+        console.log(result);
+        alert("Se pudo ejecutar la función");
+      })
+      .error(function(result){
+        alert("No se pudo consumir el Servicio")
+      });
     }
 
-  };
+  }
 
-  return servicio;
+};
+
+return servicio;
 }])
 
-app.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http) {
+app.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http, Factory) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -107,6 +122,8 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http) {
        $scope.Estado_Logeo=false; 
      }
    }
+
+   Factory.objeto.Cargar_Datos_Usuario($scope.Datos_Usuario);
  })
    .error(function(res,status){
     alert("Error al consumir el servicio para Login");
@@ -127,13 +144,8 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http) {
 
 
 $scope.FN_Consultar_Cotizaciones=function(){
-  $http.post('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_cotizaciones',$scope.Datos_Usuario)    
-  .success(function(result){
-    $scope.Cotizaciones=result;
-  })
-  .error(function(result){
-    alert("No se pudo consumir el Servicio")
-  });
+
+  Factory.objeto.FN_Consultar_Cotizaciones($scope.Datos_Usuario);
 
 
 }
@@ -176,7 +188,7 @@ $scope.FN_Detalles_Cotizacion=function($index){
 })
 
 
-
+/*CONTROLADOR DE CATALOGO O PRODUCTOS*/
 app.controller('controllerproductos', ['$scope', 'Factory', function ($scope, Factory) 
 {
   Factory.objeto.Consultar_Productos();
