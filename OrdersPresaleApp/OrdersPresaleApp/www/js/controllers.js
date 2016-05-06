@@ -6,42 +6,45 @@ app.service('Factory', ['$http', function($http){
   var servicio={
     objeto:{OB_Productos:[],
       OB_Datos_Usuario:[],
-    Cargar_Datos_Usuario:function(Datos_Usuario){
-      servicio.objeto.OB_Datos_Usuario=Datos_Usuario;
-      console.log(servicio.objeto.OB_Datos_Usuario);
-   
-    },
-    Consultar_Productos:function(){
+      OB_Dll_Cotizacion:[],
+      OB_Cotizaciones:[],
+      Cargar_Datos_Usuario:function(Datos_Usuario){
+        servicio.objeto.OB_Datos_Usuario=Datos_Usuario;
+        console.log(servicio.objeto.OB_Datos_Usuario);
 
-      $http.get('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_productos')
+      },
+      Consultar_Productos:function(){
 
-      .success(function(result){
-        servicio.objeto.OB_Productos=result;
-        console.log(servicio.objeto.OB_Productos);
+        $http.get('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_productos')
 
-      })
+        .success(function(result){
+          servicio.objeto.OB_Productos=result;
+          console.log(servicio.objeto.OB_Productos);
 
-      .error(function(result, status){
-        alert("Error al consumir el servicio para productos");
-        console.log(result, null, status);
-      });
-    },
-    FN_Consultar_Cotizaciones:function(Datos_Usuario){
-      $http.post('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_cotizaciones',Datos_Usuario)    
-      .success(function(result){
-        console.log(result);
-        alert("Se pudo ejecutar la función");
-      })
-      .error(function(result){
-        alert("No se pudo consumir el Servicio")
-      });
+        })
+
+        .error(function(result, status){
+          alert("Error al consumir el servicio para productos");
+          console.log(result, null, status);
+        });
+      },
+      FN_Consultar_Cotizaciones:function(Datos_Usuario){
+        $http.post('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_cotizaciones',Datos_Usuario)    
+        .success(function(result){
+          servicio.objeto.OB_Cotizaciones=result;
+          console.log(servicio.objeto.OB_Cotizaciones);
+
+        })
+        .error(function(result){
+          alert("No se pudo consumir el Servicio")
+        });
+      }
+
     }
 
-  }
+  };
 
-};
-
-return servicio;
+  return servicio;
 }])
 
 app.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http, Factory) {
@@ -147,7 +150,8 @@ $scope.FN_Consultar_Cotizaciones=function(){
 
   Factory.objeto.FN_Consultar_Cotizaciones($scope.Datos_Usuario);
 
-
+  // $scope.Dato = Factory.objeto;
+  // console.log(Factory.objeto);
 }
 
 $scope.FN_Registrar_Usuario=function(){
