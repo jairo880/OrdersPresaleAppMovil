@@ -1,19 +1,21 @@
 <ion-view view-title="Productos">
 <ion-content>
+
+
 <div class="card">
-	<ion-list ng-repeat="c in Productos">
+	<ion-list ng-repeat="P in Dato.OB_Productos">
 
 	<ion-checkbox>
 
 	<a class="item item-thumbnail-left" href="#" >
-		<img src="{{c.Ruta_Imagen_Producto}}">
+		<img src="{{P.Ruta_Imagen_Producto}}">
 
 		<h2>
 			Codigo De Producto:
 		</h2>
 
 		<p>
-			{{c.PK_ID_Producto}}
+			{{P.PK_ID_Producto}}
 		</p>
 
 
@@ -22,7 +24,7 @@
 		</h2>
 
 		<p>
-			{{c.Nombre_Producto}}
+			{{P.Nombre_Producto}}
 		</p>
 
 		<h2>
@@ -30,7 +32,7 @@
 		</h2>
 
 		<p>
-			{{c.Valor_Unitario}}
+			{{P.Valor_Unitario}}
 
 		</p>
 	</a>

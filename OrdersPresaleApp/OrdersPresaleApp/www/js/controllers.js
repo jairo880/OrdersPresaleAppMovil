@@ -1,6 +1,35 @@
-angular.module('starter.controllers', [])
+var app = angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http) {
+
+/*FACTORY PARA GESTIONAR LOS DATOS Y OBJETOS DE FORMA GLOBAL PUDIENDO SER ACCEDIDO POR DIVERSOS CONTROLADORES*/
+app.service('Factory', ['$http', function($http){
+  var servicio={
+    objeto:{Nombre:'Jairo',
+      OB_Productos:[],
+      Consultar_Productos:function(){
+
+        $http.get('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_productos')
+
+        .success(function(result){
+          servicio.objeto.OB_Productos=result;
+          console.log(servicio.objeto.OB_Productos);
+
+        })
+
+        .error(function(result, status){
+          alert("Error al consumir el servicio para productos");
+          console.log(result, null, status);
+        });
+      }
+
+    }
+
+  };
+
+  return servicio;
+}])
+
+app.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -147,20 +176,17 @@ $scope.FN_Detalles_Cotizacion=function($index){
 })
 
 
-.controller('controllerproductos', ['$http','$scope', function($http, $scope){
 
- /* $http.get('http://opapp-octoapp.rhcloud.com/Controlador/consultar_productos')  */  
- $http.get('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_productos')
+app.controller('controllerproductos', ['$scope', 'Factory', function ($scope, Factory) 
+{
+  Factory.objeto.Consultar_Productos();
 
- .success(function(result){
-  $scope.Productos=result;
-})
 
- .error(function(result, status){
-  alert("Error al consumir el servicio para productos");
-  console.log(result, null, status);
-});
-}])
+  $scope.Dato = Factory.objeto;
+  console.log($scope.Productos);
+}]);
+
+
 
 
 
