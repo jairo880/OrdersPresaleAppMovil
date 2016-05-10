@@ -1,4 +1,5 @@
 {
   "name": "OrdersPresaleApp",
-  "app_id": ""
+  "app_id": "",
+   "proxyUrl": "http://proxy2.sena.edu.co:80"
 }

@@ -93,7 +93,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'menuContent': {
         templateUrl: 'templates/Cotizaciones/detallescotizacion.html',
-        controller: 'AppCtrl'
+        controller: 'controller_dll_cot'
       }
     }
   })

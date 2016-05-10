@@ -9,47 +9,53 @@ app.service('Factory', ['$http', function($http){
       OB_Dll_Cotizacion:[],
       OB_Cotizaciones:[],
       Estado_Logeo:'',
-      Cargar_Estado_Logeo:function(Estado_Logeo){
-        servicio.objeto.Estado_Logeo=Estado_Logeo;
-        console.log(servicio.objeto.Estado_Logeo);
-      },
-      Cargar_Datos_Usuario:function(Datos_Usuario){
-        servicio.objeto.OB_Datos_Usuario=Datos_Usuario;
-        console.log(servicio.objeto.OB_Datos_Usuario);
+      Cargar_Dll_Cotizacion:function(result){
+       servicio.objeto.OB_Dll_Cotizacion=result;
+       console.log(servicio.objeto.OB_Dll_Cotizacion);
 
-      },
-      Consultar_Productos:function(){
+     }
+     ,
+     Cargar_Estado_Logeo:function(Estado_Logeo){
+      servicio.objeto.Estado_Logeo=Estado_Logeo;
+      console.log(servicio.objeto.Estado_Logeo);
+    },
+    Cargar_Datos_Usuario:function(Datos_Usuario){
+      servicio.objeto.OB_Datos_Usuario=Datos_Usuario;
+      console.log(servicio.objeto.OB_Datos_Usuario);
 
-        $http.get('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_productos')
+    },
+    Consultar_Productos:function(){
 
-        .success(function(result){
-          servicio.objeto.OB_Productos=result;
-          console.log(servicio.objeto.OB_Productos);
+      $http.get('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_productos')
 
-        })
+      .success(function(result){
+        servicio.objeto.OB_Productos=result;
+        console.log(servicio.objeto.OB_Productos);
 
-        .error(function(result, status){
-          alert("Error al consumir el servicio para productos");
-          console.log(result, null, status);
-        });
-      },
-      FN_Consultar_Cotizaciones:function(Datos_Usuario){
-        $http.post('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_cotizaciones',Datos_Usuario)    
-        .success(function(result){
-          servicio.objeto.OB_Cotizaciones=result;
-          console.log(servicio.objeto.OB_Cotizaciones);
+      })
 
-        })
-        .error(function(result){
-          alert("No se pudo consumir el Servicio")
-        });
-      }
+      .error(function(result, status){
+        alert("Error al consumir el servicio para productos");
+        console.log(result, null, status);
+      });
+    },
+    FN_Consultar_Cotizaciones:function(Datos_Usuario){
+      $http.post('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_cotizaciones',Datos_Usuario)    
+      .success(function(result){
+        servicio.objeto.OB_Cotizaciones=result;
+        console.log(servicio.objeto.OB_Cotizaciones);
 
+      })
+      .error(function(result){
+        alert("No se pudo consumir el Servicio")
+      });
     }
 
-  };
+  }
 
-  return servicio;
+};
+
+return servicio;
 }])
 
 app.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http, Factory, $state) {
@@ -148,6 +154,8 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http, Factory
     NombreDeUsuario:'',
     ContraseniaDeUsuario:''
   };
+  Factory.objeto.OB_Cotizaciones = [];
+  Factory.objeto.OB_Dll_Cotizacion=[];
   $scope.Datos_Usuario="";
   $scope.OB_Detalles_Cotizacion="";
   $scope.OB_Registro_Usuario={Primer_Nombre:'', segundo_nombre:'', apellido:'', segundo_apellido:'', Departamento:'', Municipio:'', Telefono_celular:'', sexo:'', tipo_cliente:'',Correo_Electronico:'', Contrasenia:'',Imagen_Usuario:'', Fondo_Perfil_Usuario:'', Disponibilidad:'', Posee_Empresa:'', Estado_Cuenta:'',FK_ID_Rol:'', Nombre_Usuario:'', PK_ID_Establecimiento:'', Nombre_Establecimiento:'',Nombre_Encargado:'',Nit:'',Telefono_Establecimiento:'',Direccion_Establecimiento:'',Municipio_Establecimiento:''};
@@ -161,8 +169,9 @@ $scope.FN_Consultar_Cotizaciones=function(){
 
   Factory.objeto.FN_Consultar_Cotizaciones($scope.Datos_Usuario);
 
-  // $scope.Dato = Factory.objeto;
-  // console.log(Factory.objeto);
+  $scope.Dato = Factory.objeto;
+  console.log($scope.Dato.OB_Cotizaciones);
+  
 }
 
 $scope.FN_Registrar_Usuario=function(){
@@ -183,17 +192,20 @@ $scope.FN_Registrar_Usuario=function(){
 
 $scope.FN_Detalles_Cotizacion=function($index){
   var indice = $index;
-  $scope.FK_ID_Cotizacion_Usuario=$scope.Cotizaciones[indice]['PK_ID_Cotizacion_Usuario'];
   
+  $scope.FK_ID_Cotizacion_Usuario=$scope.Dato.OB_Cotizaciones[indice]['FK_ID_Usuario'];
 
   $http.post('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_dll_cotizacion', $scope.FK_ID_Cotizacion_Usuario)
 
   .success(function(result){
-    $scope.Obb_Detalles_Cotizacion=result;
-    console.log($scope.Obb_Detalles_Cotizacion);
-  })
+
+   $scope.OB_DLL_Cotizacion=result;
+
+   Factory.objeto.Cargar_Dll_Cotizacion(result);
+ })
 
   .error(function(result, status){
+    alert("No se pudo consumir el servicio mostrar detalles de cotización");
     console.log(result, null, status);
 
   });
@@ -226,20 +238,39 @@ app.controller('controllerproductos', ['$scope', 'Factory', '$http', function ($
 
   }
 
-  $scope.FN_Enviar_Cotizacion=function(){
-   $http.post('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/registrar_cotizacion', $scope.OB_Productos_Cotizacion)
-   .success(function(result, status){
-    alert("Se pudo realizar la petición registrar cotización correctamente");
-  })
+ //  $scope.FN_Enviar_Cotizacion=function(){
+ //   $http.post('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/registrar_cotizacion', $scope.OB_Productos_Cotizacion)
+ //   .success(function(result, status){
+ //    alert("Se pudo realizar la petición registrar cotización correctamente");
+ //  })
 
-   .error(function(result, status){
-    console.log("No se pudo realizar la peticion registrar cotizacion");
-    console.log(resutl, null, status);
-  });
+ //   .error(function(result, status){
+ //    console.log("No se pudo realizar la peticion registrar cotizacion");
+ //    console.log(resutl, null, status);
+ //  });
 
- }
+ // }
 
 }]);
+
+
+
+app.controller('controller_dll_cot', ['$scope', 'Factory', '$http', function ($scope, Factory, $http) 
+{
+
+ $scope.Dato=[];
+
+ $scope.CargarDllCotizacion=function(){
+
+  console.log(Factory.objeto.OB_Dll_Cotizacion);
+  $scope.Dato = Factory.objeto;
+}
+
+
+
+
+}]);
+
 
 
 

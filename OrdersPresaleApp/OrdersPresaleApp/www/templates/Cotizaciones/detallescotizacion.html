@@ -1,40 +1,50 @@
-<ion-view view-title="Detalles Cotización">
-<div class="card">
-	<ion-list ng-repeat="c in Obb_Detalles_Cotizacion">
+<ion-view view-title="Detalles Cotización" ng-init="CargarDllCotizacion()">
 
-	<img src="{{c.Ruta_Imagen_Producto}}" alt="">
-	<h2>
-		Nombre de producto:
-	</h2>
+<ion-content>
+<div class="card" ng-repeat="DLL in Dato.OB_Dll_Cotizacion">
 
-	<p>
-		{{c.Nombre_Producto}}
-	</p>
+	<a class="item item-thumbnail-left" href="#">
+		<img src="{{DLL.Ruta_Imagen_Producto}}">
 
-	<h2>
-		Cantidad de producto:
-	</h2>
-	<p>
-		{{c.Cantidad_Productos}}
-	</p>
+		<h2>
+			Codigo De Producto:
+		</h2>
 
-	<h2>
-		Subtotal:
-	</h2>
+		<p>
+			{{DLL.PK_ID_Producto}}
+		</p>
 
-	<p>
-		{{c.Sub_Total}}
-	</p>
 
-	<h2>
-		Valor Unitario:
-	</h2>
+		<h2>
+			Nombre De Producto:
+		</h2>
 
-	<p>
-		{{c.Valor_Unitario}}
-	</p>
+		<p>
+			{{DLL.Nombre_Producto}}
+		</p>
+		<h2>
+			Cantidad de productos:
+		</h2>
+		<p>
+			{{DLL.Cantidad_Productos}}
+		</p>
 
-</ion-list>
+		<h2>
+			Costo De Producto:
+		</h2>
+
+		<p>
+			{{DLL.Valor_Unitario}}
+
+		</p>
+		<h2>
+			Subtotal orden:
+		</h2>
+		<p>
+			{{DLL.Sub_Total}}
+		</p>
+	</a>
+
 </div>
-
+</ion-content>
 </ion-view>
