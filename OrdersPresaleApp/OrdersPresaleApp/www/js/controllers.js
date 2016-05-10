@@ -183,7 +183,7 @@ $scope.FN_Registrar_Usuario=function(){
 })
 
  .error(function(result, status){
-  console.log(result)
+  console.log(result, null, status)
 
 });
 

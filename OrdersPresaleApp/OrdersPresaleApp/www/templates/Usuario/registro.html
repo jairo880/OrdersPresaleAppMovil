@@ -23,26 +23,6 @@
         <option value="NO",ng-click="OB_Registro_Usuario.Posee_Empresa = 'NO'">NO</option>
       </select>
       <hr>
-      <div class="list"  ng-show="OB_Registro_Usuario.Posee_Empresa=='SI'">
-        <h2>
-          Datos De La Empresa
-        </h2>
-        <label class="item item-input item-floating-label"><span class="input-label">Nombre Del Establecimiento</span><input ng-model="OB_Establecimiento.Nombre_Establecimiento" type="text" placeholder="Nombre Del Establecimiento" minlength="3"></label>
-
-        <label class="item item-input item-floating-label"><span class="input-label">Nombre Del Encargado</span><input ng-model="OB_Establecimiento.Nombre_Encargado" type="text" placeholder="Nombre Del Encargado" minlength="3"></label>
-
-
-        <label class="item item-input item-floating-label"><span class="input-label">Nit</span><input ng-model="OB_Establecimiento.Nit" type="text" placeholder="Nit" minlength="3"></label>
-
-
-        <label class="item item-input item-floating-label"><span class="input-label">Telefono Del Establecimiento</span><input ng-model="OB_Establecimiento.Telefono_Establecimiento" type="text" placeholder="Telefono Del Establecimiento" minlength="3"></label>
-
-        <label class="item item-input item-floating-label"><span class="input-label">Dirección Del Establecimiento</span><input ng-model="OB_Establecimiento.Direccion_Establecimiento" type="text" placeholder="Dirección Del Establecimiento" minlength="3"></label>
-
-        <label class="item item-input item-floating-label"><span class="input-label">Municipio</span><input ng-model="OB_Establecimiento.Municipio_Establecimiento" type="text" placeholder="Municipio" minlength="3"></label>
-
-      </div> 
-
       <br>
       <div class="Botones">
         <button class="button button-dark button-full" ng-disabled="!OB_Registro_Usuario.Nombre_Usuario || !OB_Registro_Usuario.Contrasenia ||  !OB_Registro_Usuario.Correo_Electronico || !OB_Registro_Usuario.Municipio || !OB_Registro_Usuario.Departamento || !OB_Registro_Usuario.Telefono_celular" ng-click="FN_Registrar_Usuario()">Registrarse</button>
