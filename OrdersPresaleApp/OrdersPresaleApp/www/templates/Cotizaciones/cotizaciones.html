@@ -1,26 +1,27 @@
 <ion-view view-title="Cotizaciones">
 <ion-content>
-<div class="card">
-	<div class="list"  >		
-		<div class="list">
 
-			<a class="item item-thumbnail-left" ng-click="FN_Detalles_Cotizacion($index)" href="#/app/cotizaciones/dllcotizacion" ng-repeat="C in Cotizaciones">
-				<h2>Codigo De Cotizacion:</h2>
-				<p>{{C.PK_ID_Cotizacion_Usuario}}</p>
-				<h2>Codigo De Usuario:</h2>
-				<p>{{C.FK_ID_Usuario}}</p>
-				<h2>Fecha De Cotizacion:</h2>
-				<p>{{C.Fecha_Cotizacion}}</p>
-				<h2>Dirección De Entrega:</h2>
-				<p>{{C.Direccion_entrega}}</p>
-				<h2>Telefono_Entrega:</h2>
-				<p>{{C.Telefono_Entrega}}</p>
-			</a>
-		</div>
+<div class="card" >		
+	<div class="list">
+
+		<a class="item item-thumbnail-left" ng-click="FN_Detalles_Cotizacion($index)" href="#/app/cotizaciones/dllcotizacion" ng-repeat="Co in Cotizaciones">
+			<h2>Codigo De Cotizacion:</h2>
+			<p>{{Co.PK_ID_Cotizacion_Usuario}}</p>
+			<h2>Codigo De Usuario:</h2>
+			<p>{{Co.FK_ID_Usuario}}</p>
+			<h2>Fecha De Cotizacion:</h2>
+			<p>{{Co.Fecha_Cotizacion}}</p>
+			<h2>Dirección De Entrega:</h2>
+			<p>{{Co.Direccion_entrega}}</p>
+			<h2>Telefono_Entrega:</h2>
+			<p>{{Co.Telefono_Entrega}}</p>
+		</a>
 	</div>
 </div>
 
 
+
+<!--
 <div class="card">
 	<ion-list ng-repeat="c in Obb_Detalles_Cotizacion">
 
@@ -58,5 +59,6 @@
 
 </ion-list>
 </div>
+-->
 </ion-content>
 </ion-view>

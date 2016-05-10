@@ -1,8 +1,29 @@
 #logo{
-width: 100%;
+	width: 100%;
 }
 
 a{
 	text-decoration: none;
 	color:black;
+}
+
+.BtnRefrescar{
+	bottom: 10%;
+	right: 2%;
+	border-radius: 100%;
+	z-index: 1000;
+	height: 7%;
+	width: 10%;
+	position: fixed;
+	cursor: pointer;
+}
+.BtnEnviar{
+	bottom: 0%;
+	right: 2%;
+	border-radius: 100%;
+	z-index: 1000;
+	height: 7%;
+	width: 10%;
+	position: fixed;
+	cursor:pointer;
 }

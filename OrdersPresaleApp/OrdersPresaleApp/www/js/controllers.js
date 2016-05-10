@@ -8,6 +8,11 @@ app.service('Factory', ['$http', function($http){
       OB_Datos_Usuario:[],
       OB_Dll_Cotizacion:[],
       OB_Cotizaciones:[],
+      Estado_Logeo:'',
+      Cargar_Estado_Logeo:function(Estado_Logeo){
+        servicio.objeto.Estado_Logeo=Estado_Logeo;
+        console.log(servicio.objeto.Estado_Logeo);
+      },
       Cargar_Datos_Usuario:function(Datos_Usuario){
         servicio.objeto.OB_Datos_Usuario=Datos_Usuario;
         console.log(servicio.objeto.OB_Datos_Usuario);
@@ -47,7 +52,7 @@ app.service('Factory', ['$http', function($http){
   return servicio;
 }])
 
-app.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http, Factory) {
+app.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http, Factory, $state) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -127,11 +132,14 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http, Factory
    }
 
    Factory.objeto.Cargar_Datos_Usuario($scope.Datos_Usuario);
+   Factory.objeto.Cargar_Estado_Logeo($scope.Estado_Logeo);
+   console.log($scope.Estado_Logeo);
  })
    .error(function(res,status){
     alert("Error al consumir el servicio para Login");
   })
  };
+
 
 
  $scope.FN_Cerrar_Session=function(){
@@ -142,7 +150,10 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http, Factory
   };
   $scope.Datos_Usuario="";
   $scope.OB_Detalles_Cotizacion="";
-  $scope.OB_Registro_Usuario={Primer_Nombre:'', segundo_nombre:'', apellido:'', segundo_apellido:'', Departamento:'', Municipio:'', Telefono_celular:'', sexo:'', tipo_cliente:'',Correo_Electronico:'', Contrasenia:'',Imagen_Usuario:'', Fondo_Perfil_Usuario:'', Disponibilidad:'', Posee_Empresa:'', Estado_Cuenta:'',FK_ID_Rol:'', Nombre_Usuario:'', PK_ID_Establecimiento:'', Nombre_Establecimiento:'',Nombre_Encargado:'',Nit:'',Telefono_Establecimiento:'',Direccion_Establecimiento:'',Municipio_Establecimiento:''};  
+  $scope.OB_Registro_Usuario={Primer_Nombre:'', segundo_nombre:'', apellido:'', segundo_apellido:'', Departamento:'', Municipio:'', Telefono_celular:'', sexo:'', tipo_cliente:'',Correo_Electronico:'', Contrasenia:'',Imagen_Usuario:'', Fondo_Perfil_Usuario:'', Disponibilidad:'', Posee_Empresa:'', Estado_Cuenta:'',FK_ID_Rol:'', Nombre_Usuario:'', PK_ID_Establecimiento:'', Nombre_Establecimiento:'',Nombre_Encargado:'',Nit:'',Telefono_Establecimiento:'',Direccion_Establecimiento:'',Municipio_Establecimiento:''};
+  Factory.objeto.Cargar_Estado_Logeo($scope.Estado_Logeo);
+  $state.go('app.informacion');
+
 }
 
 
@@ -193,13 +204,41 @@ $scope.FN_Detalles_Cotizacion=function($index){
 
 
 /*CONTROLADOR DE CATALOGO O PRODUCTOS*/
-app.controller('controllerproductos', ['$scope', 'Factory', function ($scope, Factory) 
+app.controller('controllerproductos', ['$scope', 'Factory', '$http', function ($scope, Factory, $http) 
 {
-  Factory.objeto.Consultar_Productos();
+
+  $scope.OB_Productos_Cotizacion=[];
+  $scope.Dato=[];
+
+  $scope.FN_Consultar_Productos=function(){
+    Factory.objeto.Consultar_Productos();
+    $scope.Dato = Factory.objeto;
+    console.log($scope.Productos);
+
+  }
 
 
-  $scope.Dato = Factory.objeto;
-  console.log($scope.Productos);
+  $scope.FN_Agregar_Productos_Cotizacion=function($index){
+
+    $scope.OB_Productos_Cotizacion+=$scope.Dato.OB_Productos[$index];
+    console.log($scope.OB_Productos_Cotizacion);
+
+
+  }
+
+  $scope.FN_Enviar_Cotizacion=function(){
+   $http.post('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/registrar_cotizacion', $scope.OB_Productos_Cotizacion)
+   .success(function(result, status){
+    alert("Se pudo realizar la petición registrar cotización correctamente");
+  })
+
+   .error(function(result, status){
+    console.log("No se pudo realizar la peticion registrar cotizacion");
+    console.log(resutl, null, status);
+  });
+
+ }
+
 }]);
 
 

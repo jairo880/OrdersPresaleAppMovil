@@ -1,13 +1,16 @@
 <ion-view view-title="Productos">
-<ion-content>
+<img class="BtnRefrescar" ng-click="FN_Consultar_Productos()" src="../../img/refresh-button.png" alt="">
+<img ng-if="Estado_Logeo==true" ng-click="FN_Enviar_Cotizacion()" class="BtnEnviar" src="../../img/send.png" alt="">
+
+<ion-content ng-init="FN_Consultar_Productos()">
 
 
 <div class="card">
 	<ion-list ng-repeat="P in Dato.OB_Productos">
 
-	<ion-checkbox>
+	<ion-checkbox ng-click="FN_Agregar_Productos_Cotizacion($index)">
 
-	<a class="item item-thumbnail-left" href="#" >
+	<a class="item item-thumbnail-left" href="#">
 		<img src="{{P.Ruta_Imagen_Producto}}">
 
 		<h2>
@@ -40,7 +43,6 @@
 
 
 </ion-list>
-
 </div>
 </ion-content>
 </ion-view>
