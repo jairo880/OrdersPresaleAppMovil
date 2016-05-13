@@ -1,63 +1,5 @@
 var app = angular.module('starter.controllers', [])
 
-
-/*FACTORY PARA GESTIONAR LOS DATOS Y OBJETOS DE FORMA GLOBAL PUDIENDO SER ACCEDIDO POR DIVERSOS CONTROLADORES*/
-app.service('Factory', ['$http', function($http){
-  var servicio={
-    objeto:{OB_Productos:[],
-      OB_Datos_Usuario:[],
-      OB_Dll_Cotizacion:[],
-      OB_Cotizaciones:[],
-      Estado_Logeo:'',
-      Cargar_Dll_Cotizacion:function(result){
-       servicio.objeto.OB_Dll_Cotizacion=result;
-       console.log(servicio.objeto.OB_Dll_Cotizacion);
-
-     }
-     ,
-     Cargar_Estado_Logeo:function(Estado_Logeo){
-      servicio.objeto.Estado_Logeo=Estado_Logeo;
-      console.log(servicio.objeto.Estado_Logeo);
-    },
-    Cargar_Datos_Usuario:function(Datos_Usuario){
-      servicio.objeto.OB_Datos_Usuario=Datos_Usuario;
-      console.log(servicio.objeto.OB_Datos_Usuario);
-
-    },
-    Consultar_Productos:function(){
-
-      $http.get('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_productos')
-
-      .success(function(result){
-        servicio.objeto.OB_Productos=result;
-        console.log(servicio.objeto.OB_Productos);
-
-      })
-
-      .error(function(result, status){
-        alert("Error al consumir el servicio para productos");
-        console.log(result, null, status);
-      });
-    },
-    FN_Consultar_Cotizaciones:function(Datos_Usuario){
-      $http.post('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/consultar_cotizaciones',Datos_Usuario)    
-      .success(function(result){
-        servicio.objeto.OB_Cotizaciones=result;
-        console.log(servicio.objeto.OB_Cotizaciones);
-
-      })
-      .error(function(result){
-        alert("No se pudo consumir el Servicio")
-      });
-    }
-
-  }
-
-};
-
-return servicio;
-}])
-
 app.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http, Factory, $state) {
 
   // With the new view caching in Ionic, Controllers are only called
@@ -215,61 +157,8 @@ $scope.FN_Detalles_Cotizacion=function($index){
 })
 
 
-/*CONTROLADOR DE CATALOGO O PRODUCTOS*/
-app.controller('controllerproductos', ['$scope', 'Factory', '$http', function ($scope, Factory, $http) 
-{
-
-  $scope.OB_Productos_Cotizacion=[];
-  $scope.Dato=[];
-
-  $scope.FN_Consultar_Productos=function(){
-    Factory.objeto.Consultar_Productos();
-    $scope.Dato = Factory.objeto;
-    console.log($scope.Productos);
-
-  }
 
 
-  $scope.FN_Agregar_Productos_Cotizacion=function($index){
-
-    $scope.OB_Productos_Cotizacion+=$scope.Dato.OB_Productos[$index];
-    console.log($scope.OB_Productos_Cotizacion);
-
-
-  }
-
- //  $scope.FN_Enviar_Cotizacion=function(){
- //   $http.post('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/registrar_cotizacion', $scope.OB_Productos_Cotizacion)
- //   .success(function(result, status){
- //    alert("Se pudo realizar la petición registrar cotización correctamente");
- //  })
-
- //   .error(function(result, status){
- //    console.log("No se pudo realizar la peticion registrar cotizacion");
- //    console.log(resutl, null, status);
- //  });
-
- // }
-
-}]);
-
-
-
-app.controller('controller_dll_cot', ['$scope', 'Factory', '$http', function ($scope, Factory, $http) 
-{
-
- $scope.Dato=[];
-
- $scope.CargarDllCotizacion=function(){
-
-  console.log(Factory.objeto.OB_Dll_Cotizacion);
-  $scope.Dato = Factory.objeto;
-}
-
-
-
-
-}]);
 
 
 

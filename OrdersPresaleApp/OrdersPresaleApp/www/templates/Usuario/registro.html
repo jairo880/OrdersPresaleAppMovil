@@ -22,7 +22,7 @@
         <option value="SI",ng-click="OB_Registro_Usuario.Posee_Empresa = 'SI'">SI</option>
         <option value="NO",ng-click="OB_Registro_Usuario.Posee_Empresa = 'NO'">NO</option>
       </select>
-      <hr>
+      
       <br>
       <div class="Botones">
         <button class="button button-dark button-full" ng-disabled="!OB_Registro_Usuario.Nombre_Usuario || !OB_Registro_Usuario.Contrasenia ||  !OB_Registro_Usuario.Correo_Electronico || !OB_Registro_Usuario.Municipio || !OB_Registro_Usuario.Departamento || !OB_Registro_Usuario.Telefono_celular" ng-click="FN_Registrar_Usuario()">Registrarse</button>

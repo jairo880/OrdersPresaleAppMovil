@@ -8,7 +8,7 @@
 <div class="card">
 	<ion-list ng-repeat="P in Dato.OB_Productos">
 
-	<ion-checkbox ng-checked="FN_Agregar_Productos_Cotizacion($index)">
+	<ion-checkbox  ng-model="Bool_Productos_OB_Cotizacion"  ng-click="FN_Control_Tareas_OB_Cotizacion($index, Bool_Productos_OB_Cotizacion)">
 
 	<a class="item item-thumbnail-left" href="#">
 		<img src="{{P.Ruta_Imagen_Producto}}">
