@@ -10,7 +10,6 @@ app.controller('controllerproductos', ['$scope', 'Factory', '$http', function ($
     Factory.objeto.Consultar_Productos();
     $scope.Dato = Factory.objeto;
     console.log($scope.Productos);
-
   }
 
 
