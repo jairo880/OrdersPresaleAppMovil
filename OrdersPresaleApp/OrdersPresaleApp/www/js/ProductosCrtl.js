@@ -5,6 +5,8 @@ app.controller('controllerproductos', ['$scope', 'Factory', '$http', function ($
 
   $scope.OB_Productos_Cotizacion=[];
   $scope.Dato=[];
+  $scope.OB_Datos_Usuario=[];
+
 
   $scope.FN_Consultar_Productos=function(){
     Factory.objeto.Consultar_Productos();
@@ -29,18 +31,20 @@ app.controller('controllerproductos', ['$scope', 'Factory', '$http', function ($
 
 
 
- //  $scope.FN_Enviar_Cotizacion=function(){
- //   $http.post('http://localhost/Trabajos/OrdersPresaleWebService/Controlador/registrar_cotizacion', $scope.OB_Productos_Cotizacion)
- //   .success(function(result, status){
- //    alert("Se pudo realizar la petición registrar cotización correctamente");
- //  })
+$scope.FN_Enviar_Cotizacion=function(){
 
- //   .error(function(result, status){
- //    console.log("No se pudo realizar la peticion registrar cotizacion");
- //    console.log(resutl, null, status);
- //  });
+  $scope.OB_Datos_Usuario=Factory.objeto.OB_Datos_Usuario;
+  console.log($scope.OB_Datos_Usuario);
 
- // }
+  if ($scope.OB_Productos_Cotizacion.length > 0){
+    $scope.FK_ID_Usuario=$scope.OB_Datos_Usuario['PK_ID_Usuario'];
+    console.log($scope.FK_ID_Usuario);
+
+  }else{
+    alert("Por favor seleccione productos antes de enviar");
+  }
+
+}
 
 }]);
 
