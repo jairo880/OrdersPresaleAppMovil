@@ -6,6 +6,7 @@ app.controller('controllerproductos', ['$scope', 'Factory', '$http', function ($
   $scope.OB_Productos_Cotizacion=[];
   $scope.Dato=[];
   $scope.OB_Datos_Usuario=[];
+  $scope.BOOL_MODAL_ENVIAR_COT=false;
 
 
   $scope.FN_Consultar_Productos=function(){
@@ -29,24 +30,48 @@ app.controller('controllerproductos', ['$scope', 'Factory', '$http', function ($
 }
 
 
+$scope.FN_Control_Modal_Info_Cot=function(){
+  /*MOFIFICACIÓN DE VARIABLE PARA CONTRO DE MODAL QUE CONTIENE LA DIRECCION Y EL TELEFONO A DONDE SE VA A ENVIAR LA COTIZACION*/
 
+
+
+console.log($scope.BOOL_MODAL_ENVIAR_COT);
+
+}
 
 $scope.FN_Enviar_Cotizacion=function(){
 
   $scope.OB_Datos_Usuario=Factory.objeto.OB_Datos_Usuario;
   console.log($scope.OB_Datos_Usuario);
 
-  if ($scope.OB_Productos_Cotizacion.length > 0){
-    $scope.FK_ID_Usuario=$scope.OB_Datos_Usuario['PK_ID_Usuario'];
-    console.log($scope.FK_ID_Usuario);
 
-  }else{
-    alert("Por favor seleccione productos antes de enviar");
-  }
+  if ($scope.OB_Productos_Cotizacion.length > 0){
+   $scope.FK_ID_Usuario=$scope.OB_Datos_Usuario['PK_ID_Usuario'];
+
+   $http.post("http://localhost/Trabajos/OrdersPresaleWebService/Controlador/registrar_cotizacion")
+   .success(function(result, status){
+    alert("El servicio registrar cotización se pudo consumir");
+  })
+   .error(function(result, status){
+    alert("Error al consumir el servicio registrar cotización");
+    console.log(restult, null ,status);
+  })
+
+
+ }else{
+  alert("Por favor seleccione productos antes de enviar");
+}
 
 }
 
+
+
+
+
+
 }]);
+
+
 
 
 

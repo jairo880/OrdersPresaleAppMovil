@@ -1,49 +1,58 @@
 <ion-view view-title="Productos">
-<img class="BtnRefrescar" ng-click="FN_Consultar_Productos()" src="../../img/refresh-button.png" alt="">
-<img ng-if="Estado_Logeo==true" ng-click="FN_Enviar_Cotizacion()" class="BtnEnviar" src="../../img/send.png" alt="">
+	<img class="BtnRefrescar" ng-click="FN_Consultar_Productos()" src="../../img/refresh-button.png" alt="">
+	<img ng-if="Estado_Logeo==true" ng-click="FN_Enviar_Cotizacion(); FN_Control_Modal_Info_Cot()" class="BtnEnviar" src="../../img/send.png" alt="">
 
-<ion-content ng-init="FN_Consultar_Productos()">
-
-
-<div class="card">
-	<ion-list ng-repeat="P in Dato.OB_Productos">
-
-	<ion-checkbox  ng-model="Bool_Productos_OB_Cotizacion"  ng-click="FN_Control_Tareas_OB_Cotizacion($index, Bool_Productos_OB_Cotizacion)">
-
-	<a class="item item-thumbnail-left" href="#">
-		<img src="{{P.Ruta_Imagen_Producto}}">
-
-		<h2>
-			Codigo De Producto:
-		</h2>
-
-		<p>
-			{{P.PK_ID_Producto}}
-		</p>
+	<ion-content ng-init="FN_Consultar_Productos()">
 
 
-		<h2>
-			Nombre De Producto:
-		</h2>
+		<div class="card">
+			<ion-list ng-repeat="P in Dato.OB_Productos">
 
-		<p>
-			{{P.Nombre_Producto}}
-		</p>
+				<ion-checkbox  ng-model="Bool_Productos_OB_Cotizacion"  ng-click="FN_Control_Tareas_OB_Cotizacion($index, Bool_Productos_OB_Cotizacion)">
 
-		<h2>
-			Costo De Producto:
-		</h2>
+					<a class="item item-thumbnail-left" href="#">
+						<img src="{{P.Ruta_Imagen_Producto}}">
+						<h2>
+							Codigo De Producto:
+						</h2>
 
-		<p>
-			{{P.Valor_Unitario}}
-
-		</p>
-	</a>
-</ion-checkbox>
+						<p>
+							{{P.PK_ID_Producto}}
+						</p>
 
 
-</ion-list>
-</div>
-</ion-content>
+						<h2>
+							Nombre De Producto:
+						</h2>
+
+						<p>
+							{{P.Nombre_Producto}}
+						</p>
+
+						<h2>
+							Costo De Producto:
+						</h2>
+
+						<p>
+							{{P.Valor_Unitario}}
+
+						</p>
+					</a>
+				</ion-checkbox>
+			</ion-list>
+		</div>
+
+		<div id="Modal_Info_Cot" ng-show="BOOL_MODAL_ENVIAR_COT == true">
+			
+			<label class="item item-input item-floating-label"><span class="input-label">Departamento</span><input ng-model="OB_Registro_Usuario.Departamento" type="text" placeholder="Departamento" minlength="3"></label>
+
+
+			<label class="item item-input item-floating-label"><span class="input-label">Telefono Celular</span><input ng-model="OB_Registro_Usuario.Telefono_celular" type="text" placeholder="Telefono Celular" minlength="3"></label>
+			<div class="Botones">
+				<button class="button button-dark button-full" ng-disabled="!OB_Registro_Usuario.Nombre_Usuario || !OB_Registro_Usuario.Contrasenia ||  !OB_Registro_Usuario.Correo_Electronico || !OB_Registro_Usuario.Municipio || !OB_Registro_Usuario.Departamento || !OB_Registro_Usuario.Telefono_celular" ng-click="FN_Registrar_Usuario()">Registrarse</button>
+
+			</div>
+		</div>
+	</ion-content>
 </ion-view>
 
