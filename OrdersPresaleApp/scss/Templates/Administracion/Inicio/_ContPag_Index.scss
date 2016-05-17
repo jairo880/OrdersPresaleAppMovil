@@ -1,0 +1,79 @@
+//scss para guardar los mixin que contendran las partes de la pagina
+@mixin ContenidoPagina() {
+
+  .CL_CONT_Principal_Cotizacion
+  {
+    height: 550px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    & .CL_CONT_Tablero_Cotizacion
+    {
+      height: 100%;
+      @include MX_Box_Shadow(0px, 0px, 2px, 0px,rgba(0,0,0,3/10));
+
+    }
+
+  }
+  .CL_CONT_Cotizacion_Usuarios
+  {
+    height: 100%;
+    background-color: $Color_6;
+
+
+  }
+  .CL_CONT_Cotizacion_Tablero_Cotizaciones
+  {
+    height: 100%;
+    background-color:  rgba($Color_3,.1);
+    overflow-y: auto;
+    overflow-x:hidden;
+
+
+  }
+
+  .CL_Cabezera_Cotizacion
+  {
+    height: 60px;
+    background-color: $Color_27;
+    border-left:solid 1px rgba($Color_3,.1);
+  }
+  .CL_CONT_Buscador_Usuarios
+  {
+    height: 50px;
+    border-top: solid 1px rgba($Color_3,.1);
+    background-color: $Color_27;
+
+  }
+  .CL_CONT_Usuarios
+  {
+    overflow-y: auto;
+    overflow-x:hidden;
+    height: 440px;
+  }
+
+  .CL_Informacion_Usuario
+  {
+    height: 70px;
+    cursor: pointer;
+
+
+    & .CL_Informacion_Datos
+    {
+      border-top: solid 1px rgba($Color_3,.1);
+      border-bottom: solid 1px rgba($Color_3,.1);
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+  .CL_Informacion_Imagen
+  {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+  }
+  #CONT_Footer
+  {
+    display: none;
+  }
+}

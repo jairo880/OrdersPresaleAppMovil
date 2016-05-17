@@ -1,0 +1,183 @@
+@mixin MX_Login_Registro {
+  /*CODIGO DEL CONTENEDOR LOGIN*/
+  #CONT_Login {
+    width: 100%;
+    height: 116%;
+    position: fixed;
+    left: 0;
+  }
+  #CONT_Login {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    cursor: default;
+    z-index: 99999;
+    @include MX_Animacion_Normal(0.3, ease, 0.3);
+
+
+    &.ng-hide-add {
+      animation: 0.5s Ng_show_Final_4 ease;
+    }
+    /* when showing the picture */
+    &.ng-hide-remove {
+      animation: 0.5s Ng_show_Incial_4 ease;
+    }
+  }
+
+  #FORM_Login {
+    /*flex estilos*/
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: auto;
+    padding: 0 20px 96px;
+    width: 100%;
+    @include MX_Box-Sizing(border-box);
+
+    &.ng-hide-add {
+      animation: 0.5s Ng_show_Final_4 ease;
+    }
+    /* when showing the picture */
+    &.ng-hide-remove {
+      animation: 0.5s Ng_show_Incial_4 ease;
+    }
+
+
+
+  }
+  #CONT_Login_Form {
+    background: $Color_6;
+    /*Incluido*/
+    @include MX_Box_Shadow(0, 2px, 10px, 2px,rgba(0,0,0,10/5));
+    @include Texto_Estilo_1(13px,$Color_6,100,left);
+    @include MX_Animacion_Normal(0.5, ease, 0.5);
+    @include MX_Bor_Radius(1px,0);
+    position: relative;
+    overflow: hidden;
+    padding-top: 30px;
+    z-index: 99999;
+    height:550px;
+    & a
+    {
+      margin-right: 3px;
+    }
+    & label
+    {
+      color: $Color_11;
+    }
+    & input
+    {
+      margin: 10px 0px;
+      padding: 8px;
+      font-size: 12px;
+    }
+
+    & .CL_Img_Login
+    {
+      width: 50px;
+      height: 50px;
+      @include MX_Bor_Radius(50%,0);
+      margin-top: 5px;
+    }
+  }
+
+
+
+
+  #CONT_Btnes {
+    border-top: solid 1px $Color_7;
+    margin: 50px auto;
+    padding-top: 10px;
+    cursor: default;
+    width: 100%;
+    height: 55px;
+    /*flex estilos*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    & a
+
+    {
+      margin-top: 10px;
+    }
+
+
+  }
+  .Opcion_Login,
+  .Opcion_Login_Recup {
+    padding: 5px 10px;
+    background-color: $Color_10;
+    /*Incluido*/
+    @include Text_nav1(16px,$Color_6,100,center);
+    @include MX_Bor_Radius(2px,0);
+  }
+  .Opcion_Login_Recup {
+    background-color: $Color_5;
+  }
+  .Opcion_Login:hover,
+  .Opcion_Login_Recup:hover {
+    opacity: 0.8;
+  }
+
+  #CONT_Mensaje_Validacion
+  {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #fff;
+    background-color: #c26565;
+    border-color: #953b39;
+    border-left: solid 6px #fff;
+    border-width: 1px;
+    width: auto;
+    padding-right: 20px;
+    height: auto;
+    position: relative;
+    @include Texto_Estilo_1(13px,$Color_6,100,center);
+
+    @include MX_Box-Sizing(border-box);
+    @include MX_Flecha(2,before);
+    @include MX_Bor_Radius(3px,5);
+
+    &.ng-hide-add {
+      animation: 0.5s Ng_Show_Orden_Contenedor_Final ease;
+    }
+    /* when showing the picture */
+    &.ng-hide-remove {
+      animation: 0.5s Ng_Show_Orden_Contenedor_Inicial ease;
+    }
+    &:before
+    {
+      top: -7px;
+      left: 0px;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 8px solid #c26565;
+    }
+
+
+
+    & p{
+
+      margin: 0px;
+      padding: 6px;
+
+
+      &:before
+      {
+        margin-right: 15px;
+        color:#953b39;
+        font-size: 17px;
+      }
+    }
+
+  }
+
+}

@@ -1,0 +1,369 @@
+//scss para guardar los mixin que contendran las partes de la pagina
+@mixin ContenidoPagina() {
+  #CONT_C_Contenedor
+  {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+
+  #CONT_C_Portada
+  {
+    height: 200px;
+    width: 100%;
+    position: relative;
+    
+
+    & .CL_Btn_Opciones
+    {
+      opacity: 0;
+      @include MX_Animacion_Normal(0.3, ease, 0.3);
+
+    }
+
+    &:hover .CL_Btn_Opciones
+    {
+      opacity: 1;
+      @include MX_Animacion_Normal(0.3, ease, 0.3);
+
+    }
+  }
+  #CONT_C_Imagen_Portada
+  {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  #CONT_C_ImageUsuario,#CONT_C_Edit
+  {
+    height: auto;
+    z-index: 100;
+    @include MX_Box-Sizing(border-box);
+
+  }
+
+  .CL_C_Imagen
+  {
+    position: relative;
+    width: auto;
+    & .CL_C_Imagen_Usuario
+    {
+      width: 80px;
+      height: 80px;
+      @include MX_Bor_Radius(50%,0);
+
+    }
+    & .CL_C_Activo,.CL_C_Inactivo
+    {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: $Color_6;
+      top: 10px;
+      left: 0px;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      @include MX_Bor_Radius(50%,0);
+
+      & p
+      {
+        padding: 5px;
+
+        @include MX_Bor_Radius(50%,0);
+
+      }
+
+
+    }
+    & .CL_C_Activo
+    {
+      & p
+      {
+        background: $Color_14;
+      }
+    }
+    & .CL_C_Inactivo
+    {
+      & p
+      {
+        background-color: $Color_10;
+      }
+    }
+  }
+
+
+ 
+ 
+  #C_Datos_Negocio,#CONT_C_Datos_Perfil,#C_Datos_Actualizar_Contrasenia
+  {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border:solid 1px $Color_2;
+    display: flex;
+    background-color: $Color_2;
+    align-items: center;
+    justify-content: space-around;
+    @include MX_Box-Sizing(border-box);
+
+    &.ng-hide-add {
+      animation: 0.5s Ng_show_Final_4 ease;
+    }
+    /* when showing the picture */
+    &.ng-hide-remove {
+      animation: 0.5s Ng_show_Incial_4 ease;
+    }
+
+  }
+  #FORM_Registro
+  {
+    background: $Color_6;
+    width: 95%;
+    padding: 20px;
+    padding-bottom: 50px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    @include MX_Box-Sizing(border-box);
+    & #CONT_Activar_Edicion
+    {
+      width: 100%;
+      padding: 0px 0px 20px 0px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      overflow: hidden;
+      @include MX_Box-Sizing(border-box);
+
+      & .CL_Activar_Btns
+      {
+        display: none;
+      }
+      & label
+      {
+        @include Texto_Estilo_1(16px,$Color_6,100,left);
+        overflow: hidden;
+        & p
+        {
+          margin: 0px;
+          &.ng-hide-add {
+            animation: none;
+          }
+          /* when showing the picture */
+          &.ng-hide-remove {
+            animation: none;
+          }
+        }
+
+        &:hover
+        {
+          opacity: 0.9;
+        }
+
+      }
+    }
+    & #CONT_Izquierda, & #CONT_Derecha
+    {
+      padding: 5px;
+      @include MX_Box-Sizing(border-box);
+
+      & label
+      {
+        margin-top: 15px;
+        @include Texto_Estilo_1(12px,$Color_12,100,left);
+        &:before
+        {
+          margin-right: 3px;
+        }
+
+
+      }
+
+      & #Genero
+      {
+        margin-top: 10px;
+      }
+    }
+    & .Btn_Estilo_1
+    {
+      &.ng-hide-add {
+        animation: 0.5s Ng_show_Final_4 ease;
+      }
+      /* when showing the picture */
+      &.ng-hide-remove {
+        animation: 0.5s Ng_show_Incial_4 ease;
+      }
+    }
+
+  }
+
+  #CONT_C_Imagenes
+  {
+    position: fixed;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    z-index: 100003;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    &.ng-hide-add {
+      animation: 0.5s Ng_show_Final_4 ease;
+    }
+    /* when showing the picture */
+    &.ng-hide-remove {
+      animation: 0.5s Ng_show_Incial_4 ease;
+    }
+
+  }
+  #CONT_Contenido
+  {
+    width: 100%;
+    height: 95%;
+    z-index: 200;
+    background-color: $Color_6;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    @include MX_Box_Shadow(0px, 0px, 5px, 1px,rgba(0,0,0,2/10));
+
+
+
+  }
+  #CONT_C_Modificar_Img_Perfil,#CONT_C_Modificar_Fondo_Perfil
+  {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-flow: column wrap;
+    height: 80%;
+    width: 100%;
+    padding: 10px;
+    overflow: auto;
+    @include MX_Box-Sizing(border-box);
+
+    &.ng-hide-add {
+      animation: 0.5s Ng_show_Final_4 ease;
+    }
+    /* when showing the picture */
+    &.ng-hide-remove {
+      animation: 0.5s Ng_show_Incial_4 ease;
+    }
+
+
+    & #CONT_C_Imagenes_Seleccion
+    {
+      width: 150px;
+      border: solid 1px $Color_7;
+      background-color: $Color_2;
+      margin: 5px;
+      padding: 5px;
+      cursor: pointer;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      @include MX_Box-Sizing(border-box);
+      @include MX_Box_Shadow(0px, 0px, 2px, 0px,rgba(0,0,0,2/10));
+      @include MX_Animacion_Normal(0.1, ease, 0.1);
+
+
+      & img {
+        max-width: 100%;
+        height: 100%;
+
+      }
+      &:hover
+      {
+        opacity: 0.8;
+        border:solid 1px $Color_12;
+      }
+      &:hover:before
+      {
+        content: 's';
+        width: 20px;
+        height: 20px;
+        font-size: 25px;
+        position: absolute;
+        top: -2px;
+        left: 0px;
+        font-family: ordes-presale;
+      }
+    }
+  }
+
+  #CONT_C_Modificar_Fondo_Perfil  #CONT_C_Imagenes_Seleccion
+  {
+    width: 200px;
+    height: 190px;
+  }
+  .CL_Seleccionado
+  {
+    @include MX_Animacion_Normal(0.2, ease, 0.2);
+
+    border:solid 4px $Color_10 !important;
+    &:before
+    {
+      content: 's';
+      width: 20px;
+      height: 20px;
+      font-size: 25px;
+      position: absolute;
+      top: -2px;
+      left: 0px;
+      font-family: ordes-presale;
+      color: $Color_10;
+    }
+  }
+  #CONT_C_Header
+  {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom:solid 1px $Color_2;
+    @include MX_Box-Sizing(border-box);
+
+    & a
+    {
+      margin-right: 20px
+    }
+  }
+  #CONT_C_Footer
+  {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: solid 1px $Color_2;
+    & a
+    {
+      margin-right: 20px
+    }
+  }
+  #CONT_C_Estado_Cuenta
+  {
+    background-color: $Color_6;
+  }
+}

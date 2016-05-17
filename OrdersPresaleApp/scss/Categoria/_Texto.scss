@@ -1,0 +1,820 @@
+//Texto usados en la web
+//COMO LLAMAR LAS FUENTES DE GOOGLE FONTS
+
+/*
+
+font-family: 'Ubuntu', sans-serif;
+font-family: 'Lato', sans-serif;
+font-family: 'Roboto Slab', serif;
+font-family: 'Merriweather Sans', sans-serif;
+
+*/
+@mixin Texto_Btn_1($Tamaño_Fuente,$Color)
+{
+
+  color:$Color;
+  cursor: pointer;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: $Tamaño_Fuente;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+@mixin Text_nav1($Tamaño_Fuente,$Color,$Font_Weight,$Aline)
+{
+
+  color:$Color;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  font-size: $Tamaño_Fuente;
+  font-weight: $Font_Weight;
+  text-align: $Aline;
+  text-decoration: none;
+
+}
+
+
+@mixin Text_Bold($Tamaño_Fuente,$Color,$Aline)
+{
+
+  color:$Color;
+  cursor: pointer;
+  font-family: 'Roboto Slab', serif;
+  font-size: $Tamaño_Fuente;
+  text-align: $Aline;
+  text-decoration: none;
+
+}
+
+
+@mixin Texto_Estilo_1($Tamaño_Fuente,$Color,$Font_Weight,$Aline)
+{
+
+  color:$Color;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: $Tamaño_Fuente;
+  font-weight: $Font_Weight;
+  text-align: $Aline;
+
+}
+
+
+@mixin Texto_Estilo_2($Tamaño_Fuente,$Color,$Font_Weight,$Aline)
+{
+
+  color:$Color;
+  font-family: 'Lato', sans-serif;
+  font-size: $Tamaño_Fuente;
+  font-weight: $Font_Weight;
+  text-align: $Aline;
+
+}
+
+
+@mixin Texto_Estilo_3($Tamaño_Fuente,$Color,$Font_Weight,$Aline)
+{
+
+  color:$Color;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: $Tamaño_Fuente;
+  font-weight: $Font_Weight;
+  text-align: $Aline;
+
+}
+
+
+@mixin Texto_Estilo_4($Tamaño_Fuente,$Color,$Font_Weight,$Aline)
+{
+
+  color:$Color;
+  font-family: 'Roboto Slab', serif;
+  font-size: $Tamaño_Fuente;
+  font-weight: $Font_Weight;
+  text-align: $Aline;
+
+}
+
+@mixin MX_Texto_Enlaces()
+{
+  %PH_Texto_Enlace
+  {
+
+    text-decoration: none;
+    margin:5px;
+    cursor:pointer;
+    // width: -moz-max-content;
+    // width: max-content;
+
+    &:hover
+    {
+      opacity: 0.9;
+    }
+
+  }
+  .CL_TXT_Enlace_1
+  {
+    font-size: 12px;
+    @extend %PH_Texto_Enlace;
+
+  }
+  .CL_TXT_Enlace_2
+  {
+
+    font-size: 14px;
+    @extend %PH_Texto_Enlace;
+
+  }
+  .CL_TXT_Enlace_3
+  {
+
+    font-size: 18px;
+    @extend %PH_Texto_Enlace;
+
+  }
+  .CL_TXT_Enlace_4
+  {
+
+    font-size: 24px;
+    @extend %PH_Texto_Enlace;
+
+  }
+  .CL_TXT_Enlace_5
+  {
+
+    font-size: 30px;
+    @extend %PH_Texto_Enlace;
+
+  }
+  
+  .CL_TXT_Enlace_6
+  {
+
+    font-size: 36px;
+    @extend %PH_Texto_Enlace;
+
+  }
+
+}
+
+
+@mixin MX_Texto()
+{
+  %PH_Texto
+  {
+    margin:5px;
+    cursor:default;
+    width: 100%;
+    border:transparent;
+    background-color: transparent;
+    text-rendering: auto;
+    word-wrap: break-word;
+    //font-family: 'Ubuntu', sans-serif;
+    font-family: 'Lato', sans-serif;
+    // width: -moz-max-content;
+    // width: -webkit-max-content;
+    // width: max-content;
+    //font-family: 'Roboto Slab', serif;
+    //font-family: 'Merriweather Sans', sans-serif;
+
+    &:hover
+    {
+      opacity: 0.9;
+    }
+    &:before
+    {
+      margin-right: 5px;
+      color: $Color_22;
+    }
+  }
+  .left
+  {
+    text-align: left;
+  }
+  .center
+  {
+    text-align: center;
+  }
+  .right
+  {
+    text-align: right;
+  }
+  .border_bottom_1
+  {
+    border-bottom: solid 1px $Color_2;
+    padding-bottom: 10px;
+  }
+  .border_bottom_1_1
+  {
+    border-bottom: solid 2px $Color_2;
+    padding-bottom: 10px;
+  }
+  .border_bottom_1_2
+  {
+    border-bottom: solid 3px $Color_2;
+    padding-bottom: 10px;
+  }
+  .border_bottom_2
+  {
+    border-bottom: solid 1px $Color_7;
+    padding-bottom: 10px;
+  }
+  .border_bottom_3
+  {
+    border-bottom: solid 1px $Color_8;
+    padding-bottom: 10px;
+  }
+  .CL_TXT_Texto_1
+  {
+    font-size: 12px;
+    @extend %PH_Texto;
+
+  }
+  .CL_TXT_Texto_2
+  {
+
+    font-size: 14px;
+    @extend %PH_Texto;
+
+
+  }
+  .CL_TXT_Texto_3
+  {
+
+    font-size: 15px;
+    @extend %PH_Texto;
+
+    @include desde(movil) {
+      font-size: 12px;
+
+    }
+    @include desde(tablet) {
+      font-size: 14px;
+
+    }
+    @include desde(web) {
+      font-size: 16px;
+
+    }
+    @include desde(Hd) {
+      font-size: 18px;
+
+    }
+
+
+
+
+
+  }
+  .CL_TXT_Texto_4
+  {
+
+    font-size: 17px;
+    @extend %PH_Texto;
+
+    @include desde(movil) {
+      font-size: 17px;
+
+    }
+    @include desde(tablet) {
+      font-size: 19px;
+
+    }
+    @include desde(web) {
+      font-size: 21px;
+
+    }
+    @include desde(Hd) {
+      font-size: 22px;
+
+    }
+
+
+  }
+  .CL_TXT_Texto_5
+  {
+
+    font-size: 19px;
+    @extend %PH_Texto;
+
+    @include desde(movil) {
+      font-size: 19px;
+
+    }
+    @include desde(tablet) {
+      font-size: 22px;
+
+    }
+    @include desde(web) {
+      font-size: 24px;
+
+    }
+    @include desde(Hd) {
+      font-size: 26px;
+
+    }
+
+
+  }
+  .CL_TXT_Texto_6
+  {
+
+    font-size: 21px;
+    @extend %PH_Texto;
+
+    @include desde(movil) {
+      font-size: 21px;
+
+    }
+    @include desde(tablet) {
+      font-size: 23px;
+
+    }
+    @include desde(web) {
+      font-size: 25px;
+
+    }
+    @include desde(Hd) {
+      font-size: 27px;
+
+    }
+
+
+  }
+  .CL_TXT_Texto_Bold
+  {
+    font-weight: bold;
+  }
+  .CL_TXT_Blanco
+  {
+    color:$Color_6 !important;
+  }
+  .CL_TXT_Gris
+  {
+   color: $Color_8 !important;
+ }
+ .CL_TXT_Gris_2
+ {
+   color: $Color_2 !important;
+ }
+  .CL_TXT_Rojo
+ {
+   color: $Color_10 !important;
+ }
+
+ .CL_TXT_Rojo_2
+ {
+   color: $Color_24 !important;
+ }
+
+
+ //Icono colores
+ %PH_Icono_Estilo
+ {
+  margin-right: 10px !important;
+  margin-left: 10px !important;
+}
+.CL_TXT_Icon_Blanco
+{
+  &:before
+  {
+    color: $Color_6 !important;
+    @extend %PH_Icono_Estilo;
+  }
+}
+.CL_TXT_Icon_Gris
+{
+  &:before
+  {
+    color: $Color_8 !important;
+    @extend %PH_Icono_Estilo;
+  }
+}
+
+.CL_TXT_Icon_Rojo_2
+{
+  &:before
+  {
+    color: $Color_24 !important;
+    @extend %PH_Icono_Estilo;
+  }
+}
+.CL_TXT_Icon_Azul
+{
+  &:before
+  {
+    color: $Color_21 !important;
+    @extend %PH_Icono_Estilo;
+  }
+}
+///
+}
+
+
+
+
+
+@mixin MX_Alertas()
+{
+  %PH_Alerta
+  {
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    margin: 10px 0px;
+    font-size: 13px;
+
+    @include MX_Box-Sizing(border-box);
+    // font-family: 'Ubuntu', sans-serif;
+    font-family: 'Lato', sans-serif;
+    // font-family: 'Roboto Slab', serif;
+    // font-family: 'Merriweather Sans', sans-serif;
+    &:before
+    {
+      margin-right: 10px;
+    }
+    & ul
+    {
+      background-color: $Color_6;
+      & li
+      {
+        list-style: circle !important;
+        font-size: 12px !important;
+        margin: 2px !important;
+        padding: 1px !important;
+        background-color: transparent !important;
+        color: $Color_12 !important;
+        @include desde(movil) {
+          font-size: 15px;
+
+        }
+        @include desde(tablet) {
+          font-size: 17px;
+
+        }
+        @include desde(web) {
+          font-size: 19px;
+
+        }
+        @include desde(Hd) {
+          font-size: 21px;
+
+        }
+
+
+      }
+
+
+
+    }
+
+    & .CONT_Figura {
+      width: 200px;
+      height: 45px;
+      display: flex;
+      align-items:center;
+      justify-content:center;
+      position: relative;
+      margin-right: 20px;
+      & span:nth-child(1){
+        animation: CONT_Icon_Cargando_1 1.5s infinite ease-in-out;
+      }
+      & span:nth-child(2){
+        left:20px;
+        animation: CONT_Icon_Cargando_2 1.5s infinite ease-in-out;
+
+      }
+      & span:nth-child(3){
+        top:0px;
+        animation: CONT_Icon_Cargando_3 1.5s infinite ease-in-out;
+      }
+      & span:nth-child(4){
+        top:0px;
+        left:20px;
+        animation: CONT_Icon_Cargando_4 1.5s infinite ease-in-out;
+      }
+
+      & span {
+        display:block;
+        bottom:0px;
+        width: 20px;
+        height: 20px;
+        background:$Color_11;
+        position:absolute;
+        top: 22px;
+        left: -2px;
+
+      }
+    }
+    @include desde(movil) {
+      font-size: 15px;
+
+    }
+    @include desde(tablet) {
+      font-size: 17px;
+
+    }
+    @include desde(web) {
+      font-size: 19px;
+
+    }
+    @include desde(Hd) {
+      font-size: 21px;
+
+    }
+
+
+
+
+
+  }
+  .CL_Alerta_1
+  {
+    color: #558b2f;
+    background-color: #f1f8e9;
+    border-color: #c5e1a5;
+    // border-left: solid 6px #558b2f;
+    @extend %PH_Alerta;
+    & p
+    {
+      color: #558b2f;
+    }
+
+  }
+  .CL_Alerta_2
+  {
+
+    color: #00838f;
+    background-color: #e0f7fa;
+    border-color: #80deea;
+    // border-left: solid 6px #00838f;
+    @extend %PH_Alerta;
+    & p
+    {
+      color: #00838f;
+    }
+
+  }
+  .CL_Alerta_3
+  {
+
+    color: #826430;
+    background-color: #efe1b3;;
+    border-color: #dfb56c;
+    // border-left: solid 6px #826430;
+    @extend %PH_Alerta;
+    & p
+    {
+      color: #826430;
+    }
+
+  }
+  .CL_Alerta_4
+  {
+
+    color: #fff;
+    background-color: #c26565;
+    border-color: #953b39;
+    // border-left: solid 6px #953b39;
+    @extend %PH_Alerta;
+    & p
+    {
+      color: #fff;
+    }
+
+  }
+
+  .CL_Alerta_5
+  {
+
+    color: $Color_12;
+    background-color: #FAFAFA;
+    border-color: #EFEFEF;
+    // border-left: solid 6px $Color_12;
+    @extend %PH_Alerta;
+    & p
+    {
+      color: rgba($Color_11,.7);
+    }
+
+  }
+  .CL_Alerta_6
+  {
+
+    color: $Color_6;
+    background-color: #404040 ;
+    border-color: #383838 ;
+    @extend %PH_Alerta;
+    & p
+    {
+      color: rgba($Color_6,1);
+    }
+
+  }
+
+  .CL_Alerta_Codigo
+  {
+
+    color: $Color_12;
+    background-color: #FAFAFA;
+    border-color: #EFEFEF;
+    overflow: auto;
+    max-height: 400px;
+    border-width: 1px;
+    border-style: solid;
+    margin: 10px 0px;
+    font-size: 15px;
+    border-left: solid 3px;
+    line-height: 2;
+    cursor: text;
+    & p
+    {
+      color: rgba($Color_11,.7);
+    }
+
+  }
+
+
+}
+
+
+@mixin MX_Cerrar_Icono()
+
+{
+  %PH_Icono_Eliminar
+  {
+    position: absolute;
+    @include Texto_Estilo_3(15px,$Color_6,100,center);
+    color: $Color_7;
+    right: 18px;
+    top: 10px;
+    cursor: pointer;
+    padding: 3px 9px 4px 9px;
+    margin: 0px;
+    border:solid 1px transparent;
+    display: flex;
+    align-itemns:center;
+    justify-content:center;
+    @include MX_Box-Sizing(border-box);
+    @include MX_Bor_Radius(50%, 0);
+
+    &:before{
+
+      content: 'J';
+      font-family: ordes-presale;
+
+
+    }
+
+
+
+
+  }
+
+  .CL_Eliminar_1
+  {
+    @extend %PH_Icono_Eliminar;
+    color: $Color_6;
+    background-color: $Color_8;
+
+    &:hover{
+
+      opacity: 0.9;
+    }
+  }
+  .CL_Eliminar_2
+  {
+    @extend %PH_Icono_Eliminar;
+    color: $Color_6;
+    background-color: $Color_3;
+
+    &:hover{
+      opacity: 0.9;
+    }
+
+  }
+  .CL_Eliminar_3
+  {
+    @extend %PH_Icono_Eliminar;
+    color: $Color_6;
+    background-color: $Color_21;
+
+    &:hover{
+
+      opacity: 0.9;
+    }
+
+  }
+  .CL_Eliminar_5
+  {
+    @extend %PH_Icono_Eliminar;
+    color: rgba($Color_12, .4);
+    background-color: transparent;
+    border:solid 1px rgba($Color_12, .4);
+
+    &:hover{
+
+      opacity: 0.9;
+      border: solid 1px $Color_21;
+      color: $Color_21;
+    }
+
+  }
+  .CL_Eliminar_6
+  {
+    @extend %PH_Icono_Eliminar;
+    color: $Color_6;
+    background-color: transparent;
+    border:solid 1px $Color_6;
+
+    &:hover{
+
+      opacity: 0.9;
+      border: solid 1px rgba($Color_6,.8);
+      color: rgba($Color_6,.8);
+    }
+
+  }
+  .CL_Eliminar_4
+  {
+    @extend %PH_Icono_Eliminar; @extend %PH_Icono_Eliminar;
+    color: $Color_6;
+    background-color: $Color_10;
+
+    &:hover{
+
+      opacity: 0.9;
+    }
+
+  }
+  .CL_Eliminar_1_1
+  {
+    @extend %PH_Icono_Eliminar;
+    color: $Color_8;
+
+    &:hover{
+
+      opacity: 0.9;
+    }
+  }
+  .CL_Eliminar_2_2
+  {
+    @extend %PH_Icono_Eliminar;
+    color: $Color_3;
+
+    &:hover{
+
+      opacity: 0.9;
+    }
+  }
+  .CL_Eliminar_3_3
+  {
+    @extend %PH_Icono_Eliminar;
+    color: $Color_21;
+
+    &:hover{
+
+      opacity: 0.9;
+    }
+  }
+  .CL_Eliminar_4_4
+  {
+    @extend %PH_Icono_Eliminar;
+    color: $Color_10;
+
+    &:hover{
+
+      opacity: 0.9;
+    }
+  }
+  .CL_Eliminar_5_5
+  {
+    @extend %PH_Icono_Eliminar;
+    color: rgba($Color_12, .4);
+    background-color: transparent;
+    border:solid 1px transparent;
+
+    &:hover{
+
+      opacity: 0.9;
+      border: solid 1px transparent;
+      color: $Color_21;
+    }
+
+  }
+  .CL_Eliminar_6_6
+  {
+    @extend %PH_Icono_Eliminar;
+    color: $Color_6;
+    background-color: transparent;
+    border:solid 1px transparent;
+
+    &:hover{
+
+      opacity: 0.9;
+      border: solid 1px transparent;
+      color: rgba($Color_6,.8);
+    }
+
+  }
+}

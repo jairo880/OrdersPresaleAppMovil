@@ -1,0 +1,15 @@
+ion-view( view-title="Detalles Cotización" ng-init="CargarDllCotizacion()" )
+	ion-content
+		.card( ng-repeat="DLL in dato.AOBJ_Dll_Cotizacion" )
+			a.item.item-thumbnail-left(href="#")
+				img(src="{{DLL.Ruta_Imagen_Producto}}")
+				h2 Codigo De Producto:
+				p {{DLL.PK_ID_Producto}}
+				h2 Nombre De Producto:
+				p {{DLL.Nombre_Producto}}
+				h2 Cantidad de productos:
+				p {{DLL.Cantidad_Productos}}
+				h2 Costo De Producto:
+				p {{DLL.Valor_Unitario}}
+				h2 Subtotal orden:
+				p {{DLL.Sub_Total}}

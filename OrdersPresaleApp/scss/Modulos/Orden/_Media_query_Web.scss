@@ -1,0 +1,10 @@
+@include desde(web) {
+   .CL_Producto_Orden
+   {
+   	flex-direction: row !important;
+   }
+   .CL_Imagen_Producto
+   {
+   	width: 50% !important;
+   }
+}

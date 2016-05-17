@@ -1,0 +1,68 @@
+//scss para guardar los mixin que contendran las partes de la pagina
+@mixin ContenidoPagina() {
+	.CL_Modal_Pedido
+	{
+		position: fixed;
+		height: 100%;
+		top:0px;
+		left: 0px;
+		z-index: 100000;
+
+		& .CL_Contenido_Pedido
+
+		{
+			background-color: $Color_6;
+			height: 500px;
+			z-index: 100000;
+
+
+
+		}
+		& .CL_Contenido_Pedido_Datos
+		{
+			
+			height: 500px;
+		}
+	}
+	.CL_CONT_Usuarios
+	{
+		overflow-y: auto;
+		overflow-x:hidden;
+		height: 440px;
+		background: $Color_6;
+	}
+	.Tablero_Trabajo_1 .CL_CONT_Principal_Tablero_Trabajo .CL_CONT_Tablero_Trabajo .CL_CONT_Tablero .CL_CONT_Tablero_Trabajo_1
+	{
+		background: $Color_6;
+	}
+
+	.CL_Informacion_Usuario
+	{
+		height: 70px;
+		cursor: pointer;
+
+
+		& .CL_Informacion_Datos
+		{
+			border-top: solid 1px rgba($Color_3,.1);
+			border-bottom: solid 1px rgba($Color_3,.1);
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+	}
+	.CL_Informacion_Imagen
+	{
+		padding-top: 10px;
+		padding-bottom: 10px;
+
+	}
+
+	.CL_Contenedor_Rutas
+	{
+		min-height: 300px;
+		max-height: 400px;
+		overflow-y:auto;
+		overflow-x:hidden;
+	}
+
+}

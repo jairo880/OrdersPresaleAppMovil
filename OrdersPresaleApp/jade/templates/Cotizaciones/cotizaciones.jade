@@ -1,0 +1,15 @@
+ion-view( view-title="Cotizaciones" )
+	ion-content
+		.card
+			.list
+				a.item.item-thumbnail-left( ng-click="FN_Detalles_Cotizacion($index)" href="#/app/cotizaciones/dllcotizacion" ng-repeat="Co in dato.AOBJ_Cotizaciones" )
+					h2 Codigo De Cotizacion:
+					p {{Co.PK_ID_Cotizacion_Usuario}}
+					h2 Codigo De Usuario: 
+					p {{Co.FK_ID_Usuario}}
+					h2 Fecha De Cotizacion: 
+					p {{Co.Fecha_Cotizacion}}
+					h2 Dirección De Entrega: 
+					p {{Co.Direccion_entrega}}
+					h2 Telefono_Entrega: 
+					p {{Co.Telefono_Entrega}}

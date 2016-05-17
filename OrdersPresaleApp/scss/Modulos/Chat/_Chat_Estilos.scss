@@ -1,0 +1,592 @@
+
+
+@keyframes Efecto_Cargando {
+  0% {opacity: 0.3; transform:translateY(0px);    box-shadow: 0px 0px 3px $Color_2;}
+  50% {opacity: 1; transform: translateY(-10px); background:$Color_5;  box-shadow: 0px 20px 3px $Color_7;}
+  100%  {opacity: 0.3; transform:translateY(0px); box-shadow: 0px 0px 3px $Color_2;}
+}
+
+#SC_Mensajes_Recibidos
+{
+  height: 100%;
+}
+
+#CONT_Mensajes {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: $Color_6;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  z-index: 99999;
+  @include MX_Box_Shadow(0px,0px, 1px, 0px, rgba(0,0,0,3/10));
+  @include MX_Animacion_Normal(1/10, ease, 1/10);
+
+  &.ng-hide-add {
+    animation: 0.5s Ng_Show_Mensaje_Contenedor_Final ease;
+  }
+  /* when showing the picture */
+  &.ng-hide-remove {
+    animation: 0.5s Ng_Show_Mensaje_Contenedor_Inicial ease;
+  }
+}
+.CL_Tamano_Dtll {
+  width: 100% !important;
+}
+.CL_Tamano_Chat
+{
+  width: 100% !important;
+}
+#CONT_Mensajes_Recibidos,
+#CONT_Mensaje_Completo {
+  @include MX_Box-Sizing(border-box);
+  width: 100%;
+  height: 92%;
+  background-color: #fff;
+  overflow: auto;
+  overflow-x: hidden;
+
+}
+.CL_Mensaje {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  @include MX_Box-Sizing(border-box);
+  border-bottom: solid 1px $Color_2;
+  background-color: $Color_6;
+  @include MX_Animacion_Normal(3/10,ease,3/10);
+
+  &:hover {
+    background-color: #eee;
+    cursor: pointer;
+  }
+  &  .CL_Imagen_Usuario
+  {
+    top: 50px;
+  }
+}
+.CL_Imagen_Usuario {
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  position: relative;
+  top:0px;
+  // top: 50px;
+}
+.CL_Imagen_Usuario img {
+  border-radius: 50%;
+  max-width: 100%;
+  height: 100%;
+}
+.CL_Mensaje_Texto {
+  position: relative;
+  width: 100%;
+  padding: 20px 15px;
+
+  @include MX_Box-Sizing(border-box);
+  &:hover 	.CL_Eliminar_Contenido
+  {
+    opacity: 0.3;
+    right: 0px;
+    width: 20%;
+  }
+  & .CL_Eliminar_Contenido
+
+  {
+    background: $Color_12;
+    color:$Color_6;
+    font-weight: bold;
+    opacity: 0;
+    width: 0%;
+    height: 100%;
+    top: 0px;
+    right: -80px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    @include MX_Animacion_Normal(0.1, linear, 0.1);
+
+
+
+  }
+
+
+}
+.CL_Mensaje_Texto .CL_TXT_Mensaje_Usuario{
+  margin: 0px;
+  font-size: 14px;
+  color: $Color_12;
+
+
+}
+p.CL_TXT_Nombre_Usuario {
+  font-weight: bold;
+  font-size: 16px;
+  color: $Color_11;
+}
+p.CL_TXT_Mensaje_Usuario {
+  max-height: 80px;
+  overflow: hidden;
+}
+p.CL_TXT_Hora_Mensaje {
+  position: absolute;
+  right: 3px;
+  font-size: 10px;
+  top: 10px;
+  color: $Color_8;
+
+}
+//mensaje dtll
+.CL_Mensaje_Dtll {
+  display: flex;
+  padding: 20px 5px;
+  width: 100%;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  @include MX_Box-Sizing(border-box);
+  border-bottom: solid 1px #eee;
+  @include MX_Animacion_Normal(0.1, linear, 0.1);
+ 
+}
+.CL_Cont_Info_Dtll {
+  width: 90%;
+  box-shadow: 0 0 1px 0 rgba(0,0,0,0.1);
+  background-color: $Color_25;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 3px;
+  position: relative;
+  top: -3em;
+  @include MX_Box-Sizing(border-box);
+  @include MX_Box_Shadow(0px, 0px, 2px, 0px,rgba(0,0,0,3/10));
+  z-index: 1;
+}
+.CL_Nombre_Usuario_Dtll {
+  font-size: 17px;
+  font-weight: bold;
+}
+.CL_Mensaje_Usuario_Dtll
+{
+
+  @include Text_nav1(15px,$Color_12,100,left);
+
+}
+.CL_Mensaje_Usuario_Dtll {}
+.CL_Hora_Mensaje_Dtll {
+  color: $Color_12;
+}
+.CL_Imagen_Usuario_Mensaje_Dtll {
+  height: 100px;
+  width: 100px;
+  z-index: 2;
+}
+.CL_Imagen_Usuario_Mensaje_Dtll img {
+  border-radius: 50%;
+}
+
+
+
+
+
+//CHAT CON USUARIO
+#CONT_Mensajes_Converzacion
+{
+  height: 100%;
+}
+.CONT_Chat {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.CL_Cabezera_Mensaje
+{
+  background: $Color_12;
+  height: 10%;
+  width: 100%;
+ 
+}
+
+
+.CL_Cotenido_Chat
+{
+  background: $Color_2;
+  height: 67%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;;
+  flex-direction: column;
+  overflow: auto;
+
+  & .CL_Administradores_Disponibles
+  {
+    background: $Color_2;
+    padding: 5px;
+    @include MX_Box-Sizing(border-box);
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;;
+    flex-wrap: wrap;
+    height:510px;
+    @include MX_Bor_Radius(6px,0);
+
+
+    & .CL_Usuario_Admin
+    {
+      width: 33%;
+      display: flex;
+      align-items: center;
+      justify-content: cecenter;
+      flex-direction: column;
+
+      & img
+      {
+        width: 70px;
+        height: 70px;
+        @include MX_Bor_Radius(50%,0);
+
+
+      }
+      & .CL_Nombre_Admin
+      {
+        margin: 0px;
+        @include Texto_Estilo_1(16px,$Color_11,100,center);
+
+
+      }
+      & .CL_Tiempo_Activo
+      {
+        font-size: 10px;
+        margin: 0px;
+      }
+    }
+
+    & .CL_Mensaje_Admin
+    {
+      width: 100%;
+      @include Texto_Estilo_1(16px,$Color_12,100,center);
+
+    }
+  }
+
+  & #CONT_Bottom
+  {
+    height: 100px;
+    width: 100%;
+    background: transparent;
+    @include MX_Box-Sizing(border-box);
+    padding: 2em;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    & #CONT_Estado_Escribiendo
+    {
+      color: $Color_12;
+      text-align: center;
+      width:51%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      @include MX_Bor_Radius(3px,0);
+
+
+      & .CL_Efecto_Cargando
+      {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & span
+        {
+          position: relative;
+          border-radius: 50%;
+          background: $Color_5;
+          width: 10px;
+          margin-right: 1px;
+          height: 10px;
+          animation: Efecto_Cargando 1s infinite ease-in-out;
+
+
+        }
+        & span:nth-child(2){
+          left:5px;
+          animation-delay: .2s;
+        }
+        & span:nth-child(3){
+          left:10px;
+          animation-delay: .4s;
+        }
+
+
+      }
+
+      & p
+      {
+        width: 60%;
+        margin: 0px;
+        @include Texto_Estilo_1(13px,$Color_7,100,left);
+
+      }
+    }
+
+  }
+
+
+
+  & .CL_Mensajes
+  {
+    height: 90%;
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+
+    @include MX_Box-Sizing(border-box);
+
+    & .CL_MensajeUsuario_Remitente, & .CL_MensajeUsuaio_Destinatario
+    {
+      color:$Color_6;
+      margin-bottom: 5px;
+      padding: 15px;
+      width: 100%;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-direction: row-reverse;
+      position: relative;
+
+      @include MX_Box-Sizing(border-box);
+
+      & .CL_Imagen_Usuario
+      {
+        width: 50px;
+        height: 45px;
+        margin: 0px 0px;
+
+        & img
+        {
+          max-width: 100%;
+          height: 100%;
+          @include MX_Bor_Radius(50%,0);
+        }
+
+      }
+      & .CL_Textomensaje_Destinatario,& .CL_Textomensaje_Remitente{
+        background: $Color_11;
+        padding: 15px;
+        width: 80%;
+        height: auto;
+        position: relative;
+        text-transform: capitalize;
+        display: flex;
+        justify-content: space-between;
+        @include MX_Box-Sizing(border-box);
+        @include MX_Bor_Radius(10px,0);
+        @include Texto_Estilo_1(15px,$Color_6,100,left);
+
+        & p
+        {
+          margin: 0px;
+          width: 100%;
+          height: auto;
+          text-rendering: auto;
+          word-wrap: break-word;
+        }
+
+        & span{
+          width: 10px;
+        }
+
+
+
+
+
+      }
+
+      & .CL_Hora_Mensaje
+      {
+        font-size: 10px;
+        position: absolute;
+        left: 2px;
+        bottom: -15px;
+        color: $Color_8;
+      }
+
+    }
+    & .CL_MensajeUsuaio_Destinatario
+    {
+      color:$Color_6;
+      flex-direction: row;
+
+      & .CL_Textomensaje_Destinatario{
+        background: $Color_12;
+        flex-direction: row-reverse;
+
+        & .CL_Destinatario
+        {
+          position: relative;
+          @include MX_Flecha(3,before);
+
+          &:before
+          {
+            left: -24px;
+            border-bottom: 8px solid transparent;
+            /* izquierda flecha */
+            border-top: 8px solid transparent;
+            border-right: 10px solid $Color_12;
+
+          }
+        }
+
+
+      }
+
+    }
+
+    & .CL_MensajeUsuario_Remitente
+    {
+
+
+      & .CL_Textomensaje_Remitente{
+
+        & .CL_Remitente
+        {
+          position: relative;
+          @include MX_Flecha(4,after);
+
+          &:after
+          {
+            left:23px;
+            border-bottom: 8px solid transparent;
+            /* izquierda flecha */
+            border-top: 8px solid transparent;
+            /* derecha flecha */
+            border-left: 10px solid $Color_11;
+            /* base flecha y color*/
+
+          }
+        }
+
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+.CL_Envio_Mensaje
+{
+  height: 40%;
+  width: 100%;
+  background: $Color_6;
+  border-top: solid 1px $Color_2;
+  padding: 10px;
+
+  & p
+  {
+    width: 100%;
+    display: block;
+    @include Texto_Estilo_1(12px,$Color_8,100,left);
+
+  }
+  @include MX_Box-Sizing(border-box);
+
+  & form
+  {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap:wrap;
+    & .TextArea
+    {
+      height: 150px;
+      padding: 3px;
+
+    }
+    & input:nth-child(1)
+    {
+      resize: none;
+      box-sizing: border-box;
+      height: 100%;
+      width: 100%;
+      border:solid 1px $Color_7;
+      padding: 20px 10px;
+      @include Texto_Estilo_1(14px,$Color_11,100,left);
+      @include MX_Box-Sizing(border-box);
+      @include MX_Animacion_Normal(3/10,ease,3/10);
+
+
+
+
+      &:focus
+      {
+        border:solid 1px $Color_7;
+        @include MX_Box_Shadow(0px, 0px, 2px, 0px,$Color_12);
+
+      }
+    }
+
+
+    & input.Btn_Estilo_2
+    {
+      width: 18%;
+      border:tranparent;
+
+    }
+
+
+
+  }
+
+
+}
+#CONT_Nuevo_Mensaje
+{
+  height: 100%;
+}
+.CL_Nuevo_Mensaje
+{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+
+  & p.Cabezera_NuevoMesaneje
+  {
+    @include Texto_Estilo_1(17px,$Color_11,100,left);
+
+  }
+}
+
+.CL_Cotenido_Usuarios_Converzacion
+{
+  overflow-x:hidden;
+
+  & .CL_Mensajes:hover
+  {
+    background-color: $Color_2;
+    cursor: pointer;
+  }
+}
+
+
+@import "_Media_query_Movil";
+@import "_Media_query_Tablet";
+@import "_Media_query_Web";
+@import "_Media_query_Hd";

@@ -1,0 +1,35 @@
+@include desde(tablet) {
+
+	
+	.CL_Agregar,.CL_TotalProducto
+	{
+		width:100%;
+	}
+	#CONT_Listado_Productos 
+	{
+		& #CONT_P_Productos
+		{
+			
+
+			& .CL_P_Imagen {
+				width: 500px;
+				height:350px;
+
+			}
+		}
+
+	}
+	.CL_P_Imagen img {
+        cursor: pointer;
+        max-width: 100%;
+        height: 320px;
+    }
+
+    .CL_P_Imagen {
+        
+        height:400px;
+        @include MX_Box-Sizing(border-box);
+    }
+	
+
+}

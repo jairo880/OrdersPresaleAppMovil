@@ -1,0 +1,297 @@
+//scss para guardar los mixin que contendran las partes de la pagina
+@mixin Contenido_Pagina {
+  .CL_Con_Descripcion_Producto
+  {
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    text-rendering: auto;
+  }
+  .CL_Categoria_Lista{
+    height: 300px;
+    max-height: 350px;
+    overflow-x:hidden;
+    overflow-y:auto;
+  }
+  .CL_Categoria_Lista_Seleccion{
+    cursor: pointer;
+    &:hover{
+
+      opacity: 0.7;
+      background-color: $Color_2;
+    }
+  }
+  #SC_P_Productos
+  {
+    height: auto;
+    padding-top: 70px;
+    background-color: $Color_25;
+
+
+  }
+
+
+  #CONT_P_Productos
+  {
+    border-bottom: solid 1px $Color_2;
+    margin-bottom: 30px;
+    padding: 10px 10px;
+    height: auto;
+    background-color: $Color_6;
+    font-size: 14px;
+    position: relative;
+    overflow: hidden;
+    /*Incluido*/
+    @include MX_Animacion_Normal(0.3, ease, 0.3);
+    @include MX_Box-Sizing(border-box);
+    @include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,2/10));
+
+
+    & .CL_P_Imagen {
+      width: 100%;
+
+    }
+
+
+  }
+  .CL_Producto_Agregado,.CL_Producto_No_Agregado
+  {
+    &:before
+    {
+      content: "s";
+      font-family: ordes-presale;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      color: $Color_6;
+      font-size: 32px;
+      background-color: $Color_10;
+      padding: 37px 0px;
+      width: 69px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: default;
+      @include MX_Box-Sizing(border-box);
+      @include MX_Box_Shadow(0px, 0px, 2px, 0px,rgba(0,0,0,4/10));
+      @include MX_Animacion_Normal(0.3, ease, 0.3);
+      animation: 0.5s Agregado ease;
+      opacity: 1;
+
+
+      @keyframes Agregado {
+        0% { transition-timing-function: ease-in; opacity: 0;top: -300px;}
+        100% { transition-timing-function: ease-in; opacity: 1;top: 0px; overflow: hidden}
+      }
+
+    }
+  }
+  .CL_Producto_No_Agregado
+  {
+    &:before
+    {
+      @include MX_Animacion_Normal(0.3, ease, 0.3);
+
+      animation: 0.5s Removido ease;
+      opacity: 0;
+      top: -300px;
+
+
+      @keyframes Removido {
+        0% { transition-timing-function: ease-in; opacity: 1;top: 0px;}
+        100% { transition-timing-function: ease-in; opacity: 0;top: -300px; overflow: hidden}
+      }
+    }
+  }
+  #CONT_Listado_Productos
+  {
+    height: 100%;
+    padding: 10px;
+
+    @include MX_Box-Sizing(border-box);
+
+
+  }
+
+
+
+
+  //estilos para los contenedores
+  .CONT_Informacion {
+
+    margin-left: 2px;
+    padding: 10px 0;
+  }
+  .CL_P_Imagen {
+
+    height: 200px;
+    @include MX_Box-Sizing(border-box);
+  }
+  .CL_P_Imagen img {
+    cursor: pointer;
+    max-width: 100%;
+    height: 200px;
+  }
+  .ContInfoProducto {
+    width: 100%;
+    padding: 1px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*Incluido*/
+    @include MX_Box-Sizing(border-box);
+  }
+  .CL_TXT_Nombre {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  p.CL_TXT_NombreTitulo {
+    width: 100%;
+    margin: 0;
+    /*Incluido*/
+    @include Texto_Estilo_1(22px,$Color_12,100,left);
+  }
+  .CL_Precio {
+    width: 100%;
+    font-size: 25px;
+    padding: 3px 15px;
+    border-bottom:solid 1px $Color_2;
+    @include MX_Bor_Radius(3px,0);
+    @include Texto_Estilo_1(20px,$Color_12,100,center);
+    @include MX_Box-Sizing(border-box);
+    & p {
+      margin: 0;
+
+      &:before
+      {
+        content: ':';
+        font-family: ordes-presale;
+        color: $Color_6;
+        margin-left: -10px;
+        margin-right: 10px;
+      }
+    }
+  }
+  .CL_ValoracionProducto {
+
+    & .CL_ContOpiniones {
+      border: solid 1px $Color_2;
+      & div {
+        padding: 13px 10px;
+        @include MX_Box-Sizing(border-box);
+      }
+    }
+    & .CL_Datos_Valoracion {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      font-size: 13px;
+      margin: 3px;
+      & span {
+        margin: 2px;
+        color: $Color_18;
+      }
+    }
+    & .CL_Descripcion_Producto {
+      width: 100%;
+      @include Texto_Estilo_1(15px,$Color_8,100,left);
+    }
+  }
+  .CL_HerramientasProducto {
+    border-top: solid 1px $Color_2;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .CL_Cantidad_Productos {
+
+    & #ID_INPUT_Cantidad {
+      padding: 7px 7px 7px 10px;
+      width: 100%;
+      @include MX_Box-Sizing(border-box);
+      @include Text_nav1(16px,$Color_3,600,left);
+    }
+  }
+
+  .CL_Datos {
+    height: auto;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    & p {
+      margin: 0 2px;
+      width: 50%;
+      padding: 3px;
+      color: $Color_12;
+      @include MX_Box-Sizing(border-box);
+    }
+  }
+  .CL_INPUT_Total {
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 5px;
+    margin-left: 3px;
+    background-color:transparent;
+    border: solid 1px transparent;
+    color: $Color_11;
+    width: 50%;
+    @include MX_Box-Sizing(border-box);
+  }
+
+  #CONT_No_Encontrado {
+    /*incluido*/
+    @include MX_Animacion_Normal(0.3, ease, 0.3);
+  }
+  #CONT_No_Encontrado {
+    width: 100%;
+    height: auto;
+    background-color: $Color_6;
+    padding: 10px;
+    /*Flex estilos*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*Incluido*/
+    @include MX_Box-Sizing(border-box);
+    &:hover {
+      opacity: 0.8;
+    }
+    & .CL_TXT_Mensaje {
+      height: auto;
+      width: 35%;
+      height: 100%;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /*Incluido*/
+      @include MX_Box-Sizing(border-box);
+      & p {
+        font-size: 25px;
+        height: 100%;
+        color: $Color_12;
+        margin: 0;
+      }
+    }
+    &.CL_TXT_Mensaje {
+      p {
+        height: 100%;
+        font-weight: bold;
+        margin: 0;
+        border-bottom: solid 1px $Color_11;
+        @include Texto_Btn_1(15px,$Color_2);
+      }
+    }
+  }
+}

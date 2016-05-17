@@ -1,0 +1,53 @@
+@include desde(tablet) {
+	#CONT_C_Portada
+	{
+		height: 300px;
+	}
+	.CL_C_Imagen
+	{
+		position: relative;
+		width: auto;
+		& .CL_C_Imagen_Usuario
+		{
+			width: 120px ;
+			height: 120px;
+		}
+	}
+	.CL_Imagen_Usuario
+	{
+		width: 121px;
+		height: 133px;
+
+	}
+	.CL_C_Activo,.CL_C_Inactivo
+	{
+		left: 24px !important;
+	}
+	.CL_TXT_Texto
+	{
+		padding-left: 5px;
+		width: auto;
+		& p
+		{
+			margin: 0px;
+		}
+		& p:nth-child(1), & p:nth-child(2)
+		{
+			@include Texto_Estilo_1(18px,$Color_6,600,left);
+
+		}
+	}
+	#CONT_C_ImageUsuario
+	{
+		align-items: flex-start !important;
+		justify-content: flex-start !important;
+	}
+	#CONT_C_Modificar_Img_Perfil,#CONT_C_Modificar_Fondo_Perfil
+	{
+		flex-direction:row;
+		flex-wrap:wrap;
+		justify-content: flex-start;
+		align-items: flex-start;
+		align-content: flex-start;
+	}
+}

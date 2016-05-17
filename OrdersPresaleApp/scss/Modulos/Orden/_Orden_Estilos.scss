@@ -1,0 +1,801 @@
+/*MODAL DE ORDEN*/
+
+#CONT_Orden_Pedido{
+  position: fixed;
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+}
+#CONT_Orden_Principal {
+  background-color: $Color_6;
+  height: 700px;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  z-index: 99999;
+  @include MX_Box_Shadow(0px,1px, 3px, 0px, rgba(0,0,0,5/10));
+  @include MX_Animacion_Normal(1/10, ease, 1/10);
+  &.ng-hide-add {
+    animation: 0.5s Ng_Show_Orden_Contenedor_Final ease;
+  }
+  /* when showing the picture */
+  &.ng-hide-remove {
+    animation: 0.5s Ng_Show_Orden_Contenedor_Inicial ease;
+  }
+
+}
+
+.CL_TXT_Titulo_Orden {
+  width: 100%;
+
+}
+#CONT_Orden {
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  padding: 4px;
+  background-color: $Color_25;
+  @include MX_Box-Sizing(border-box);
+  flex: 0 1 80%;
+
+}
+#CONT_Modal {
+  background-color: $Color_2;
+  height: auto;
+  padding: 5px;
+  width: 100%;
+  @include MX_Box-Sizing(border-box);
+}
+#CONT_Header_Info {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: flex-start;
+  @include Texto_Estilo_1(20px,$Color_12,100,center);
+}
+
+
+#CONT_Header_Info,
+#CONT_Herramientas_Orden {
+  background: $Color_6;
+  height: 45px;
+  padding: 10px 10px 31px 10px;
+  margin-bottom: 5px;
+  width: 100%;
+  border-bottom: 1px solid #EEE;
+  @include MX_Box-Sizing(border-box);
+  @include MX_Box_Shadow(0px,0px, 1px, 0px, rgba(0,0,0,2/10));
+
+  & p{
+
+    margin: 0px;
+  }
+}
+#CONT_Suntotal {
+  width: 29%;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 53%;
+  position: relative;
+
+  .CL_TXT_SubTotal {
+    height: 0;
+    position: relative;
+    top: -6px;
+    z-index: 60;
+    left: -42px;
+    margin: 0;
+    @include Texto_Estilo_1(12px,$Color_12,100,center);
+  }
+  & .CL_Orden_Monto {
+    height: 21px;
+    padding: 0 9px;
+    border: transparent;
+    background-color: transparent;
+    position: relative;
+    line-height: 10;
+    width: 60%;
+    margin: 0;
+    cursor: default;
+    @include Texto_Estilo_1(15px,$Color_21,100,right);
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+#CONT_Herramientas_Orden {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  @include MX_Box-Sizing(border-box);
+  padding: 5px;
+  height: 45px;
+  border-bottom: solid 1px $Color_2;
+}
+#CONT_Buscador {
+  width: 80%;
+}
+#CONT_Buscador .CL_Contenedor_Buscador {
+  & .CL_Buscar {
+    font-size: 13px;
+    padding: 4px;
+    color:$Color_3;
+    padding-left: 16px !important;
+    height: 24px !important;
+  }
+  & .CL_Icono_Buscar {
+    font-size: 17px;
+    color: $Color_11;
+  }
+}
+
+#CONT_Botones {
+  width: 48%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 22px;
+
+  & li {
+    color: $Color_7;
+    line-height: 1px;
+    opacity: 0.7;
+
+    &.ng-hide-add {
+      animation: 0.5s Ng_show_Final_4 ease;
+    }
+    /* when showing the picture */
+    &.ng-hide-remove {
+      animation: 0.5s Ng_show_Incial_4 ease;
+    }
+  }
+  & li p {
+    line-height: 0;
+  }
+}
+#CONT_Botones li {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: 25px;
+  justify-content: space-around;
+  align-items: center;
+  //padding: 16px 15px;
+  padding: 3px 10px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  color: $Color_12;
+  @include MX_Bor_Radius(3px, 0);
+  &:hover {
+    opacity: 0.8;
+    color: $Color_3;
+    background-color: $Color_6;
+    margin-right: 7px;
+    @include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,4/10));
+  }
+}
+
+#CONT_Productos_Orden {
+  background: $Color_25;
+  height: 400px;
+  padding: 10px 10px 7px;
+  width: auto;
+  overflow-y: auto;
+}
+/*estilos de los contenedores que se crear al agregar un producto a la orden*/
+.CL_Producto_Orden {
+  border: 1px solid $Color_25;
+  background-color: $Color_6;
+  color: $Color_7;
+  height: auto;
+  margin-bottom: 30px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  @include MX_Box-Sizing(border-box);
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-direction:column;
+  position: relative;
+  padding: 20px 5px;
+  @include MX_Box_Shadow(0px, 0px, 2px, 0px,rgba(0,0,0,4/10));
+
+}
+.CL_Producto_Orden:hover {
+  background: $Color_6;
+  cursor: pointer;
+}
+.CL_Imagen_Producto,
+.CL_Info_Producto {
+  display: flex;
+  align-items: flex-start;
+  flex-flow: wrap;
+  justify-content: space-between;
+  @include MX_Box-Sizing(border-box);
+  padding: 2px;
+  width: 100%;
+  font-size: 15px;
+}
+.CL_Imagen_Producto {
+  margin: 9px;
+  width: 100%;
+  height: 8em;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+
+
+}
+.CL_Imagen_Producto img {
+  height: 100%;
+  @include MX_Bor_Radius(3px,0);
+  max-width: 100%;
+  // @include MX_Box_Shadow(0px, 0px, 6px, 0px,rgba(0,0,0,6/10));
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.CL_TXT_Nombre_Producto_Orden {
+  height: 30px;
+  width: 100%;
+  margin: 0;
+  @include Texto_Estilo_1(15px,$Color_12,600,center);
+}
+.CL_Cantidad_Productos_Orden {
+  border-bottom: 1px solid $Color_2;
+  width: 100%;
+  height: auto;
+  padding: 3px 3px 10px;
+  & p {
+    margin: 0;
+  }
+  & input {
+    border: 1px solid $Color_7;
+    text-align: center;
+    color: $Color_12;
+    padding: 3px;
+    width: 80%;
+    margin: auto;
+    display: block;
+  }
+  & .CL_Limite_Cantidad {
+    font-size: 12px;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+
+    & p:nth-child(1)
+    {
+      margin-left: 3px;
+
+      color: $Color_10;
+    }
+    & p:nth-child(2)
+    {
+      margin-left: 3px;
+
+      color: $Color_21;
+    }
+  }
+}
+.CL_Total {
+  width: 100%;
+  margin: 0;
+  border-bottom: none;
+  height: 100%;
+  & p:nth-child(1),
+  & p:nth-child(3) {
+    font-weight: bold;
+    margin-right: 2px;
+  }
+  & .CL_Precio_Orden {
+
+    padding: 2px;
+    opacity: 0.7;
+    @include Texto_Estilo_1(17px,$Color_10,600,center);
+    margin-bottom: 3px;
+    &:before{
+      content: ':';
+      font-family: ordes-presale;
+      color:$Color_3;
+      margin-right: 10px;
+    }
+  }
+  & .CL_Total_Orden {
+
+    padding: 14px;
+    opacity: 0.7;
+    @include Texto_Estilo_1(13px,$Color_12,600,left);
+    & p {
+      margin: 0;
+    }
+  }
+}
+.CL_Eliminar_Producto {
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  font-size: 25px;
+  right: 0;
+  position: absolute;
+  width: 35px;
+  top: 0;
+  height: 20px;
+  padding: 15px 10px 16px 8px;
+  @include MX_Box-Sizing(border-box);
+  display: flex;
+  align-items: center;
+  &:hover {
+    color: $Color_10;
+  }
+}
+.CL_Producto_Orden,
+#CONT_Mensaje_Producto {
+  @include MX_Animacion_Normal(0.3, ease, 0.3);
+}
+#CON_Listas_Pedios
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  @include MX_Box-Sizing(border-box);
+
+  & p.CL_TXT_Titulo_Orden
+  {
+    border-bottom: solid 1px $Color_2;
+  }
+
+}
+#CONT_Creacion_Lista
+{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 10px;
+  border-bottom: solid 1px $Color_9;
+  @include MX_Box-Sizing(border-box);
+
+  & label
+  {
+    width: 100%;
+    @include Texto_Estilo_1(13px,$Color_12,100,left);
+
+
+
+  }
+  & input
+  {
+    margin-top: 0px;
+  }
+  & a{
+
+    padding: 13px 3px 15px 6px;
+    @include MX_Box-Sizing(border-box);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: center;
+    width: 8%;
+    height: 50%;
+  }
+}
+#CONT_Listas_Creadas
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 100%;
+  padding:2px;
+  @include MX_Box-Sizing(border-box);
+
+
+}
+
+
+#CONT_Dtll_Lista
+{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+
+}
+.CONT_Dtll_Lista
+{
+
+  background-color: $Color_6;
+  position: relative;
+  height: 100%;
+  z-index: 99999;
+  @include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,3/10));
+
+  & .CONT_Listas_Creadas
+  {
+    background-color: $Color_6;
+    margin: 5px;
+    height: 105px;
+    @include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,3/10));
+    @include MX_Box-Sizing(border-box);
+
+    & #Nombre_Lista
+    {
+      border:none;
+      font-size: 17px ;
+    }
+
+  }
+  .CL_Listas_Productos{
+    overflow-y: auto;
+    overflow-x:hidden;
+    background-color: $Color_25;
+    flex: 0 1 80%;
+  }
+
+}
+
+
+#CONT_Mensaje
+{
+  & .CL_Info_Lista
+  {
+    color: #00838f;
+    background-color: #e0f7fa;
+    border-color: #80deea;
+    text-align: center;
+    margin-top: 5px;
+  }
+}
+#CONT_Producto_Lista
+{
+  margin-bottom: 5px;
+  padding: 5px;
+  @include MX_Box-Sizing(border-box);
+  background-color: $Color_6;
+
+}
+#CONT_Lista
+{
+
+  margin-top: 14px;
+  background-color: $Color_25;
+  @include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,3/10));
+  @include MX_Box-Sizing(border-box);
+
+  & .Input_Estilo_1
+  {
+    border:none;
+    font-size: 17px;
+    margin-top: 2px;
+    color: $Color_8;
+    background-color: transparent;
+
+    &:focus
+    {
+      background-color: $Color_6;
+    }
+  }
+}
+
+#CONT_PRODUCTOS
+{
+  overflow: auto;
+  height: 350px;
+  background-color: $Color_6;
+  padding: 10px;
+  @include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,3/10));
+  @include MX_Box-Sizing(border-box);
+
+  & input{
+    padding: 5px;
+
+  }
+
+}
+
+#CONT_Comentarios_Productos
+{
+  position: fixed;
+  z-index: 99997;
+  width: 100%;
+  height: 100%;
+  top:0px;
+  left:0px;
+  @include MX_Animacion_Normal(0.3, ease, 0.3);
+
+
+  &.ng-hide-add {
+    animation: 0.5s Ng_show_Final_4 ease;
+  }
+  /* when showing the picture */
+  &.ng-hide-remove {
+    animation: 0.5s Ng_show_Incial_4 ease;
+  }
+}
+#CONT_Com_Product
+{
+  background-color: $Color_6;
+  z-index: 300;
+  position: relative;
+  height: 100%;
+}
+#CON_Cabezera_Comentarios
+{
+  border-bottom: solid 1px $Color_7;
+  height: 40px;
+}
+#CON_Main_Comentarios
+{
+  height: 100%;
+}
+#CONT_Comentario
+{
+  height: 100%;
+}
+.CL_Comentario_Usuario_Producto{
+
+  max-height: 350px;
+  overflow: auto;
+  flex-wrap:no-wrap;
+  border-top: solid 1px $Color_2;
+  border-bottom: solid 1px $Color_2;
+  padding-top: 20px !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 10px;
+
+}
+#CONT_Comentarios_Listados{
+
+  height: 250px;
+  overflow: auto;
+  overflow-x:hidden;
+  margin-top: 10px;
+
+
+  @include desde(tablet) {
+
+    height: 450px;
+
+  }
+}
+.CL_Imagen_Usuario_Comentario_Producto
+{
+  width: 80px !important;
+  height: 80px !important;
+
+
+  & img
+  {
+    width: 90px;
+    height: 60px;
+  }
+}
+.CL_Mensaje_Usuario_Comentario_Producto
+{
+  height: auto;
+  position: relative;
+
+  @include desde(tablet) {
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+  }
+  @include MX_Flecha(3,after);
+  &:after
+  {
+    visibility:hidden;
+    left: 1px;
+    top:66%;
+    border-bottom: 8px solid transparent;
+
+    border-top: 8px solid transparent;
+    border-right: 10px solid $Color_8;
+
+    // @include desde(tablet) {
+    //     visibility: visible;
+    // }
+
+  }
+}
+.CL_Mensaje_Comentario_Producto
+{
+  background-color: $Color_6;
+  text-rendering: auto;
+  word-wrap: break-word;
+  height: auto;
+  overflow: auto;
+  position: relative;
+  @include MX_Bor_Radius(4px,0);
+  @include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,2/10));
+
+  // @include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,5/10));
+
+
+  & .CONT_Mensaje_Producto
+  {
+    border:transparent;
+    max-height: 200px;
+    min-height: 100px;
+    overflow-y: auto;
+    text-rendering: auto;
+    word-wrap: break-word;
+    cursor: text;
+  }
+
+
+}
+.CL_Imagen_Usuario_Comentario_Producto
+{
+  width: 70px !important;
+  height: 80px !important;
+  & img
+  {
+    width: 45px;
+    height: 48px;
+  }
+
+}
+.CL_Crear_Comentario_Nuevo
+{
+  height: auto;
+  @include MX_Box-Sizing(border-box);
+
+}
+.CL_Herramientas_Comentario_Producto
+{
+  border-top: solid 1px $Color_2;
+  height: 40px;
+  color: $Color_11;
+
+  @include desde(tablet) {
+    #CONT_Orden_Principal {
+      height: 20px;
+    }
+  }
+
+
+  & div:nth-child(2)
+  {
+    color: $Color_5;
+    font-size: 20px;
+
+    &:before
+    {
+      margin-right: 5px;
+      cursor: pointer;
+
+
+    }
+    &:hover
+    {
+      color: $Color_24;
+    }
+  }
+
+
+
+
+}
+.CL_Nombre_Usuario_Comentario_Producto{
+
+  & .CL_Opciones_Comentario
+  {
+    position: absolute;
+    right: 0px;
+    width: 130px;
+    height: 55px;
+    background:$Color_6;
+    @include MX_Box_Shadow(0px, 0px, 2px, 0px,rgba(0,0,0,3/10));
+    top: 25px;
+
+    & .CL_Opcion{
+
+      z-index: 103;
+    }
+
+  }
+}
+#SC_Ordenes_Enviadas
+{
+  position: fixed;
+  background-color: $Color_6;
+  border-left:solid 1px $Color_25;
+  width: 100%;
+  top: 0px;
+  height: 100%;
+  left: 0px;
+  z-index: 99996;
+  @include MX_Box_Shadow(0px, 0px, 2px, 0px,rgba(0,0,0,3/10));
+
+  @include desde(tablet) {
+    width: 50%;
+  }
+
+  & .CL_CONT_Ordenes_Enviadas
+  {
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    cursor: default;
+    z-index: 99999;
+    & .CL_Cabezera_Envio_Orden
+    {
+      height: 40px;
+    }
+
+    & .Cl_CONT_Envio_Orden
+    {
+      height: 84%;
+      border-top:solid 1px $Color_25;
+      overflow: auto;
+
+      @include desde(web) {
+        height: 85%;
+      }
+
+      & .CL_Orden_Enviada
+      {
+        height: auto;
+        margin-top: 5px;
+        max-height: 400px;
+        overflow: auto;
+
+      }
+    }
+  }
+  
+}
+
+.CL_Opciones_Orden_Pedido
+{
+  height: 55px;
+  max-height: 55px;
+  @include MX_Box-Sizing(border-box);
+  background: $Color_28;
+  @include MX_Box_Shadow(0px, 0px, 2px, 0px,rgba(0,0,0,3/10));
+
+}
+
+
+.CL_Btn_Opcion_Orden_Pedido
+{
+  & a 
+  {
+    &:before
+    {
+      font-size: 24px;        
+      color: $Color_6;
+    }
+  }
+}
+
+.CL_Btn_Opcion_Activo
+{
+  & a 
+  {
+    &:before
+    {
+      font-size: 24px;        
+      color: $Color_10;
+    }
+  }
+}
+@import "_Media_query_Movil";
+@import "_Media_query_Tablet";
+@import "_Media_query_Web";
+@import "_Media_query_Hd";

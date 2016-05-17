@@ -1,0 +1,234 @@
+//scss para guardar los mixin que contendran las partes de la pagina
+@mixin ContenidoPagina() {
+ #CONT_Principal_Modulo_Mensajes
+ {
+  background-color: $Color_25;
+  height: 655px;
+  overflow: auto;
+  overflow-x:hidden;
+}
+.CL_Menu_Mensaje
+{
+  background-color: $Color_6;
+  height: 50px;
+  
+  @include MX_Box-Sizing(border-box);
+  @include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,3/10));
+
+  @include desde(tablet) {
+    height: auto;
+  }
+
+}
+.CL_Header_Mensajes
+{
+  background-color: $Color_11;
+  height: 60px;
+  @include MX_Box-Sizing(border-box);
+  @include MX_Box_Shadow(0px, 0px, 2px, 0px,rgba(0,0,0,3/10));
+}
+.CL_Menu_Opcion
+{
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  height: 48px;
+  margin-top: 5px;
+  @include MX_Box-Sizing(border-box);
+  @include MX_Animacion_Normal(1/10, ease, 1/10);
+
+  @include desde(web) {
+   width: 80%;
+
+ }
+
+ &:hover
+ {
+  background-color: $Color_25;
+}
+
+}
+.CL_Elemento_Seleccionado_Nav_Mensaje
+{
+
+
+  @include desde(web) {
+    background-color: $Color_29;
+
+
+    & div:before
+    {
+      color:$Color_6 !important;
+    }
+    & div div
+    {
+      color: $Color_6 !important;
+    }
+
+    &:hover
+    {
+      background-color: $Color_29 !important;
+    }
+  }
+}
+.CL_Icon_Menu_Mensajes{
+  color: $Color_12;
+  margin-left: 10px;
+  @include desde(tablet) {
+    margin-left: 40px;
+  }
+}
+.CL_Envio_Mensaje_Administrador
+{
+  padding-top:20px;
+  @include MX_Box-Sizing(border-box);
+}
+.CL_Envio_Mensaje_Datos
+{
+  margin-bottom: 10px;
+}
+.CL_Formulario_Envio_Mensaje
+{
+  height: 100%;
+}
+.CL_Asociacion_Usuarios_Mensajes{
+  background-color: $Color_6;
+  height: auto;
+  padding: 5px;
+  z-index: 101;
+  @include MX_Box-Sizing(border-box);
+  @include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,3/10));
+
+  
+}
+.CL_Censillo
+{
+  border: none;
+  background-color: transparent;
+  margin-top: 0px;
+
+  
+  &.ng-hide-add {
+    animation: 0.5s Ng_show_Final_4 ease;
+  }
+    /* when showing the picture */
+    &.ng-hide-remove {
+      animation: 0.5s Ng_show_Incial_4 ease;
+    }
+
+
+    &:focus
+    {
+      box-shadow: none !important;
+      border: none !important;
+    }
+  }
+  .CL_Envio_Mensaje_Datos_Contenido
+  {
+    height: 330px;
+    padding: 5px;
+    @include MX_Box-Sizing(border-box);
+
+    & textarea
+    {
+      resize: none;
+      height: 300px;
+      width: 100%;
+      border: transparent;
+      padding: 10px;
+      margin: 0px;
+      @include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,3/10));
+      font-family: 'Ubuntu', sans-serif;
+    }
+  }
+  .CL_Usuarios_Lista
+  {
+    height: 255px;
+    overflow-y: auto;
+    overflow-x:hidden;
+    background-color: $Color_6;
+    position: absolute;
+    left: 0px;
+    top: 110%;
+    z-index: 101;
+    @include MX_Box_Shadow(0px, 0px, 3px, 0px,rgba(0,0,0,3/10));
+
+    &.ng-hide-add {
+      animation: 0.5s Ng_show_Final_4 ease;
+    }
+    /* when showing the picture */
+    &.ng-hide-remove {
+      animation: 0.5s Ng_show_Incial_4 ease;
+    }
+
+  }
+
+  .CL_Usuario_Listado
+  {
+    border-bottom: solid 1px $Color_25;
+    height: 65px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    @include MX_Box-Sizing(border-box);
+    cursor: pointer;
+
+
+
+    &:hover
+    {
+      background-color: $Color_21;
+
+
+    }
+    & div .CL_TXT_Texto_1
+    {
+      cursor: pointer;
+    }
+    &:hover div .CL_TXT_Texto_1
+    {
+      color:$Color_6 !important;
+    }
+
+    & img
+    {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  .CL_Usuario_Seleccionado_Envio
+  {
+    border: solid 1px $Color_25;
+    @include MX_Box-Sizing(border-box);
+    padding: 3px;
+    margin-right: 2px;
+    padding-right: 5px;
+    cursor: pointer;
+    z-index: 101;
+    &:hover
+    {
+      opacity: 0.7;
+    }
+
+    & .CL_Eliminar_1_1
+    {
+      top: 0px;
+      right: 3px;
+    }
+
+  }
+
+  .CL_Usuarios_Seleccionado
+  {
+    max-width: 100px;
+
+  }
+  .CL_Opcion_Mensajes
+  {
+    font-size: 22px;
+    border: solid 1px $Color_7;
+    padding: 5px;
+    width: 60px;
+    height: 40px;
+  }
+
+}

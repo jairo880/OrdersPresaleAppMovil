@@ -1,0 +1,67 @@
+
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button></ion-nav-back-button>
+      <ion-nav-buttons side="Orders Presale">
+        <button menu-toggle="left" class="button icon-menu2"></button>
+        <!--Elemento visible solo para usuarios y usuario sin iniciar sesion-->
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+  <ion-side-menu side="left" ng-init="FN_Capturar_Datos_Usuario_Iniciado()">
+    <ion-content>
+      <ion-list>
+        <section class="Grid_Contenedor"><a id="CONT_Contenedor_Logo" class="Visible-tablet"></a></section>
+        <div id="CONT_Portada" style="background:url({{dato.AOBJ_Datos_Usuario[0].Fondo_Perfil_Usuario}}) 0 45% no-repeat;background-size: 100% auto;">
+          <div id="CONT_Datos_Cuenta" class="Grid_Contenedor now_wrap abcenter">
+            <div class="Grid_Contenedor Base-30">
+              <div class="CL_Imagen_Perfil relative"><img ng-src="{{dato.AOBJ_Datos_Usuario[0].Imagen_Usuario}}" class="CL_Imagen_Icono_4"/><span ng-if="BL_Btns_Ver_Login == false;Bl_Btn_Login_Iniciar_Sesion == false" ng-class="{Activo: dato.AOBJ_Datos_Usuario[0].Disponibilidad == 'Activo', Inactivo:  dato.AOBJ_Datos_Usuario[0].Disponibilidad == 'Inactivo'}" title="Estado actual de tu cuenta" class="Estado_Usuario">
+                  <p></p></span></div>
+            </div>
+            <div class="Grid_Contenedor Base-60 column">
+              <p class="CL_TXT_Texto_3 CL_TXT_Blanco CL_TXT_Texto_Bold">{{dato.AOBJ_Datos_Usuario[0].Nombre_Usuario}}</p>
+              <p ng-show="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol != 5" class="CL_TXT_Texto_1 CL_TXT_Blanco">{{dato.AOBJ_Datos_Usuario[0].Correo_Electronico | limitTo : 17 : 0}}...</p>
+              <p ng-show="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol != 5" class="CL_TXT_Texto_3 CL_TXT_Blanco CL_TXT_Texto_Bold CL_TXT_Icon_Blanco icon-pin-map">{{dato.AOBJ_Datos_Usuario[0].Municipio}}</p>
+            </div>
+          </div>
+        </div>
+        <nav class="CL_Nav">
+          <ul id="CONT_Ul_Nav" ng-init="BL_Gestion_Cuentas_Usuario = false;BL_Gestion_Administrativa=false">
+            <section id="CONT_SC_Paginas" ng-show="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 3 || dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 5 " class="ng_show">
+              <div ng-if="Estado_Logeo == false">
+                <li ng-init="BL_Ver_Opciones = true" ng-class="{border_bottom_1: BL_Ver_Opciones == true,CL_Opcion_Desplegado: BL_Ver_Opciones == true,CL_Opcion_Oculto: BL_Ver_Opciones == false}" class="Grid_Contenedor abcenter"><a ng-click="BL_Ver_Opciones =! BL_Ver_Opciones" class="CL_Btn_Enlace"><span class="CL_TXT_Nav">Opciones</span></a></li>
+                <div ng-show="BL_Ver_Opciones" class="ng_show">
+                  <li class="Grid_Contenedor abcenter"><a ng-click="FN_Desplegar_Login()" class="CL_Btn_Enlace icon-login ng_repeat_anim1"><span class="CL_TXT_Nav">Ingresar</span></a></li>
+                </div>
+              </div>
+              <div ng-if="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 3 || dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 5 ">
+                <li ng-class="{border_bottom_1: BL_Ver_Navegacion == true,CL_Opcion_Desplegado: BL_Ver_Navegacion == true,CL_Opcion_Oculto: BL_Ver_Navegacion == false}" ng-show="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 3 || dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 5 " ng-init="BL_Ver_Navegacion = true" class="Grid_Contenedor abcenter"><a ng-click="BL_Ver_Navegacion =! BL_Ver_Navegacion" class="CL_Btn_Enlace"><span class="CL_TXT_Nav">Navegaci&oacute;n</span></a></li>
+                <div ng-show="BL_Ver_Navegacion" class="ng_show">
+                  <li ng-if="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol != 5" class="Grid_Contenedor abcenter"><a ng-click="FN_Mensaje_Desplegar(true,true,false,false,true)" class="CL_Btn_Enlace icon-ayuda-online"><span class="CL_TXT_Nav">Ayuda</span></a></li>
+                  <li class="Grid_Contenedor abcenter"><a menu-close="menu-close" href="#/app/productos" class="CL_Btn_Enlace icon-galeria1"><span class="CL_TXT_Nav">Productos</span></a></li>
+                  <li ng-if="Estado_Logeo == false" class="Grid_Contenedor abcenter"><a menu-close="menu-close" href="#/app/registro" class="CL_Btn_Enlace icon-registrarme"><span class="CL_TXT_Nav">Registrarme</span></a></li>
+                </div>
+              </div>
+            </section>
+            <section id="CONT_SC_Herramientas">
+              <li ng-class="{border_bottom_1: BL_Ver_Herramientas == true,CL_Opcion_Desplegado: BL_Ver_Herramientas == true,CL_Opcion_Oculto: BL_Ver_Herramientas == false}" ng-show="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 3 || dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 5 " ng-init="BL_Ver_Herramientas = true" class="Grid_Contenedor abcenter"><a ng-click="BL_Ver_Herramientas =! BL_Ver_Herramientas" class="CL_Btn_Enlace"><span class="CL_TXT_Nav">Herramientas</span></a></li>
+              <!--Elemento visible solo para usuarios y usuario sin iniciar sesion-->
+              <div ng-show="BL_Ver_Herramientas" class="ng_show">
+                <div ng-if="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 3 || dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 5 ">
+                  <li ng-if="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 3" class="Grid_Contenedor abcenter"><a href="<?php echo URL; ?>Cliente/Modulo_Mensajes" class="CL_Btn_Enlace icon-inbox-alt"><span class="CL_TXT_Nav">Bandeja de entrada</span><span class="CL_Cantidad">{{dato.NUM_CantidadMensajeUsuario}}</span></a></li>
+                  <li ng-if="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 3 " class="Grid_Contenedor abcenter"><a ng-click="FN_Listar_Mensajes();FN_Mensaje_Desplegar(true,false,false,false,false)" class="CL_Btn_Enlace icon-mensaje"><span class="CL_TXT_Nav">Mensajes</span><span class="CL_Cantidad">{{dato.NUM_CantidadMensajeUsuario}}</span></a></li>
+                  <li ng-if="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 3 " class="Grid_Contenedor abcenter"><a ng-click="FN_Notificacion()" class="CL_Btn_Enlace icon-notificacion"><span class="CL_TXT_Nav">Notificaciones</span><span class="CL_Cantidad"> {{dato.NUM_CantidadNotificaciones}}</span></a></li>
+                  <li class="Grid_Contenedor abcenter"><a menu-close="menu-close" href="#/app/productos" ng-click="FN_Orden()" title="Desplegar menu de orden" class="CL_Btn_Enlace icon-shopping-cart"><span class="CL_TXT_Nav">Mi orden actual</span><span class="CL_Cantidad"> {{dato.NUM_Cantidad_Productos_En_Orden}}</span></a></li>
+                  <li ng-click="FN_Ordenes_Enviadas()" title="Desplegar menu de ordenes enviadas" ng-if="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 3" class="Grid_Contenedor abcenter"><a ng-click="FN_Ordenes_Enviadas(2);FN_Listar_Pedidos_Enviados();FN_Listar_Ordenes_Enviadas()" title="Desplegar menu de ordenes enviadas" class="CL_Btn_Enlace icon-check-clipboard-1"><span class="CL_TXT_Nav">Ordenes enviadas</span></a></li>
+                  <li ng-show="Estado_Logeo == true" class="Grid_Contenedor abcenter"><a ng-click="FN_Cerrar_Sesion()" title="Desplegar menu de orden" class="CL_Btn_Enlace icon-sign-out"><span class="CL_TXT_Nav">Cerrar sesion</span></a></li>
+                </div>
+              </div>
+            </section>
+          </ul>
+        </nav>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

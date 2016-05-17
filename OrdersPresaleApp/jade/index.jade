@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+html(lang="es" ng-app="AppOrders_Presale")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0")
+		meta(name="apple-mobile-web-app-capable" content="yes")
+		//link de fontastic, fuentes de iconos
+		link( rel="shortcut icon" type="image/x-icon"  href="https://dl.dropboxusercontent.com/u/232442887/Allop/img/logo/LogoIcono.png")
+		link(href="https://file.myfontastic.com/Jpco7gv5bXaEnZ8PsDz2Q7/icons.css" rel="stylesheet")
+		link(href='https://fonts.googleapis.com/css?family=Merriweather+Sans|Roboto+Slab|Lato|Ubuntu' rel='stylesheet' type='text/css')
+		link(href='lib/ionic/css/ionic.css' rel='stylesheet' type='text/css')
+		link(href='css/style.css' rel='stylesheet' type='text/css')
+		link(href='css/Templates/Estilos_Generales/Estilos_Generales.css' rel='stylesheet' type='text/css')
+
+		
+		//ionic/angularjs js
+		script(src!="lib/ionic/js/ionic.bundle.js")
+		// cordova script (this will be a 404 during development)
+		script(src!="cordova.js")
+		//libreria
+		script(src!="lib/angular-locale_es-co/angular-locale_es-co.js")
+		script(src!="js/Angularjs/app.js")
+		script(src!="js/Angularjs/Librerias/dirPagination.js")
+		script(src!="lib/angular-locale_es-co/angular-locale_es-co.js")
+		script(src!="lib/ngstorage/ngstorage.js")
+		script(src!="js/Angularjs/Librerias/dirPagination.js")
+
+		script(src!="js/Angularjs/Modelo/Fabrica.js")
+
+		script(src!="js/Angularjs/Controladores/Controlador_Dtll_Cotizacion.js")
+		script(src!="js/Angularjs/Controladores/Controlador_Producto.js")
+		script(src!="js/Angularjs/Controladores/Controlador_Principal.js")
+	body
+
+		ion-nav-view
+		

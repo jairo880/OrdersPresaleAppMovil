@@ -1,0 +1,29 @@
+@include desde(tablet) {
+	#CONT_C_Portada
+	{
+		height: 400px;
+		width: 100%;
+	}
+	
+
+	.CL_C_Imagen
+	{
+		& .CL_C_Imagen_Usuario
+		{
+			width: 100px;
+			height: 100px;
+		}
+	}
+	#CONT_Contenido
+	{
+		width: 95%;
+	} 
+	#CONT_C_Modificar_Img_Perfil,#CONT_C_Modificar_Fondo_Perfil
+	{
+		flex-direction:row;
+		flex-wrap:wrap;
+		justify-content: flex-start;
+		align-items: flex-start;
+		align-content: flex-start;
+	}
+}

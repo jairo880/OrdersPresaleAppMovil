@@ -1,0 +1,452 @@
+
+//CODIGO PARA LA GRID_LAYOUD DE ALLOP
+@mixin MX_GRID_LAYOUT()
+{
+  .Grid_Contenedor {
+    display      : flex;
+    flex-wrap    : wrap;
+    max-width    : 100%;
+    margin-left  : auto;
+    margin-right : auto;
+    width        : 100%;
+
+
+  }
+ 
+  .height_100
+  {
+    height: 100%;
+  }
+  .now_wrap
+  {
+    flex-wrap: nowrap !important;
+  }
+  .Base-auto
+  {
+    width: auto !important;
+  }
+  .Grid_Total {
+    max-width : 100%;
+    width: 100%;
+  }
+
+  .Grid_Item {
+    margin        : 0;
+    padding-left  : 10px;
+    padding-right : 10px;
+    width         : 100%;
+    @include MX_Box-Sizing(border-box);
+
+  }
+  .No_Padding
+  {
+    padding: 0px !important;
+  }
+  .No_Margin
+  {
+    margin: 0px !important;
+  }
+  .Invisible
+  {
+    display: none !important;
+  }
+  .No_Pasar
+  {
+    flex-wrap:nowrap !important;
+  }
+  @for $i from 1 through 20 {
+    .Padding-#{$i*5}
+    {
+      padding: unquote($i*5 + "px");
+    }
+  }
+
+  @for $i from 1 through 20 {
+    .Flex_Grow_#{$i}
+    {
+      flex-grow: unquote($i);
+    }
+  }
+
+
+
+  @for $i from 1 through 20{
+    .Padding-left-#{$i*5}{
+      padding-left  : unquote($i*5 + "px") !important;
+    }
+    .Padding-right-#{$i*5}{
+      padding-right : unquote($i*5 + "px") !important;
+    }
+  }
+  .W_Auto
+  {
+    width: auto;
+  }
+  .H_Auto
+  {
+    height: auto;
+  }
+
+  //Estas propiedades serviran para el posicionamientos agil de elementos
+  .fixed{
+    position: fixed !important;
+  }
+  .absolute
+  {
+    position: absolute !important;
+  }
+  .relative
+  {
+    position: relative !important;
+  }
+  .top
+  {
+    top:10px !important;
+  }
+
+  .bottom
+  {
+    bottom: 10px !important;
+  }
+  .left
+  {
+    left: 10px !important;
+  }
+  .right
+  {
+    right: 10px !important;
+  }
+
+  @for $i from 1 through 100 {
+    .top-#{$i*5}
+    {
+      top: unquote($i*5 + "px") !important;
+    }
+    .bottom-#{$i*5}
+    {
+      bottom: unquote($i*5 + "px") !important;
+    }
+    .left-#{$i*5}
+    {
+      left: unquote($i*5 + "px") !important;
+    }
+    .right-#{$i*5}
+    {
+      right: unquote($i*5 + "px") !important;
+    }
+    //Negativo
+    .top-#{$i*5}_#{$i*5}
+    {
+      top:  unquote("-"+ $i*5 + "px") !important;
+    }
+    .bottom-#{$i*5}_#{$i*5}
+    {
+      bottom:  unquote("-"+ $i*5 + "px") !important;
+    }
+    .left-#{$i*5}_#{$i*5}
+    {
+      left:  unquote("-"+ $i*5 + "px") !important;
+    }
+    .right-#{$i*5}_#{$i*5}
+    {
+      right:  unquote("-"+ $i*5 + "px") !important;
+    }
+
+
+
+
+    ///MARGIN
+
+
+    .margin_top-#{$i*5}
+    {
+      margin-top: unquote($i*5 + "px") !important;
+    }
+    .margin_bottom-#{$i*5}
+    {
+      margin-bottom: unquote($i*5 + "px") !important;
+    }
+    .margin_left-#{$i*5}
+    {
+      margin-left: unquote($i*5 + "px") !important;
+    }
+    .margin_right-#{$i*5}
+    {
+      margin-right: unquote($i*5 + "px") !important;
+    }
+    //Negativo
+    .margin_top-#{$i*5}_#{$i*5}
+    {
+      margin-top:  unquote("-"+ $i*5 + "px") !important;
+    }
+    .margin_bottom-#{$i*5}_#{$i*5}
+    {
+      margin-bottom:  unquote("-"+ $i*5 + "px") !important;
+    }
+    .margin_left-#{$i*5}_#{$i*5}
+    {
+      margin-left:  unquote("-"+ $i*5 + "px") !important;
+    }
+    .margin_right-#{$i*5}_#{$i*5}
+    {
+      margin-right:  unquote("-"+ $i*5 + "px") !important;
+    }
+  }
+
+  // Tamaños Base en porcentajes
+  @for $i from 1 through 20 {
+    .Base-#{$i*5},
+    .Grid_Item.Base-#{$i*5}{
+      width: unquote($i*5 + "%") ;
+    }
+  }
+
+
+
+  // Tamaños Base en fracciones
+  @each $fraccion-nombre, $fraccion in $fracciones{
+    @for $i from 1 through $fraccion{
+      .Base-#{$i}-#{$fraccion},
+      .Grid_Item.Base-#{$i}-#{$fraccion}{
+        width: (100% / $fraccion) * $i ;
+      }
+    }
+  }
+
+
+  // Breakpoints
+  @each $size, $screen-size in $breakpoints{
+    // Loops para tamaños en porcentajes y fracciones
+    @media all and (min-width: $screen-size){
+      // Tamaños en porcentajes
+      @for $i from 1 through 20 {
+        .#{$size}-#{$i*5},
+        .Grid_Item.#{$size}-#{$i*5}{
+          width: unquote($i*5 + "%");
+        }
+      }
+      //Tamaño en fracciones
+      @each $fraccion-nombre, $fraccion in $fracciones{
+        @for $i from 1 through $fraccion{
+          .#{$size}-#{$i}-#{$fraccion},
+          .Grid_Item.#{$size}-#{$i}-#{$fraccion}{
+            width: (100% / $fraccion) * $i;
+          }
+        }
+      }
+      //Padding deacuerdo al media query
+
+      @for $i from 1 through 1{
+        .Padding-#{$size}{
+          padding-left  : 10px !important;
+          padding-right : 10px !important;
+        }
+      }
+
+
+
+      //para hacer visibles e invisible elementos deacuerdo al media query
+      @for $i from 1 through 1{
+        .Visible-#{$size}{
+          display: flex !important;
+        }
+      }
+      @for $i from 1 through 1{
+        .Invisible-#{$size}{
+          display: none !important;
+        }
+      }
+
+    }
+  }
+}
+
+
+
+
+// todo: las clases de alineacion (como justify, top, bottom etc) deben poder aplicarse a un item unico o a todo un container para que se herede en todos sus items.
+
+// Orden de los items
+// usar clases del tipo .size-order-n
+// donde size es un tamaño de ed-grid y n es cualquier entero del 1 al 10.
+@each $size, $screen-size in $breakpoints{
+  @media screen and (min-width: $screen-size){
+    @for $i from 1 through 10 {
+      .#{$size}-order-#{$i} {
+        order: $i;
+      }
+    }
+  }
+}
+
+// Alineacion en el main axis
+.justify {
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+}
+@each $size, $screen-size in $breakpoints {
+  @media all and (min-width: $screen-size){
+    .#{$size}-justify {
+      justify-content: space-between;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+.distribute,
+.distributed {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+@each $size, $screen-size in $breakpoints {
+  @media all and (min-width: $screen-size){
+    .#{$size}-distribute,
+    .#{$size}-distributed {
+      justify-content: space-around;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+.main_center {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+@each $size, $screen-size in $breakpoints {
+  @media all and (min-width: $screen-size){
+    .#{$size}-main-center {
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+.main_start {
+  justify-content: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+}
+@each $size, $screen-size in $breakpoints {
+  @media all and (min-width: $screen-size){
+    .#{$size}-main-start {
+      justify-content: flex-start;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+.main_end {
+  justify-content: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+}
+@each $size, $screen-size in $breakpoints {
+  @media all and (min-width: $screen-size){
+    .#{$size}-main-end {
+      justify-content: flex-end;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+// Alineación en el cross axis
+.cross_start {
+  align-items: flex-start;
+  align-content: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+}
+@each $size, $screen-size in $breakpoints {
+  @media all and (min-width: $screen-size){
+    .#{$size}-cross-start {
+      align-items: flex-start;
+      align-content: flex-start;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+.cross_center {
+  align-items: center;
+  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+@each $size, $screen-size in $breakpoints {
+  @media all and (min-width: $screen-size){
+    .#{$size}-cross-center {
+      align-items: center;
+      align-content: center;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+.cross_end {
+  align-items: flex-end;
+  align-content: flex-end;
+}
+@each $size, $screen-size in $breakpoints {
+  @media all and (min-width: $screen-size){
+    .#{$size}-cross-end {
+      align-items: flex-end;
+      align-content: flex-end;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+// Orientación del container
+.reverse {
+  flex-direction: row-reverse;
+  display: flex;
+  flex-wrap: wrap;
+}
+@each $size, $screen-size in $breakpoints {
+  @media all and (min-width: $screen-size){
+    .#{$size}-reverse {
+      flex-direction: row-reverse;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+.column {
+  flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@each $size, $screen-size in $breakpoints {
+  @media all and (min-width: $screen-size){
+    .#{$size}-column {
+      flex-direction: column;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+.column_reverse {
+  flex-direction: column-reverse;
+}
+@each $size, $screen-size in $breakpoints {
+  @media all and (min-width: $screen-size){
+    .#{$size}-column {
+      flex-direction: column-reverse;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+// Centrado absoluto (vertical y horizontal)
+.abcenter {
+  justify-content: center !important;
+  align-items: center !important;
+  // text-align: center;
+}

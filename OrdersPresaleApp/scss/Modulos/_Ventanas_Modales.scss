@@ -1,0 +1,562 @@
+//Estilso para las ventanas emergentes
+
+@mixin MX_Ventana_Envio_Orden() {
+  #CONT_EnviarOrden {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left:0px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    z-index: 99999;
+    display: flex;
+    &.ng-hide-add {
+      animation: 0.5s Ng_show_Final_4 ease;
+    }
+    /* when showing the picture */
+    &.ng-hide-remove {
+      animation: 0.5s Ng_show_Incial_4 ease;
+    }
+  }
+  #CONT_Enviar_Orden_List {
+    position: relative;
+    width: 100%;
+    background-color: $Color_6;
+    height: 100%;
+    overflow: auto;
+    padding: 10px 5%;
+    z-index: 9999;
+    @include MX_Box-Sizing(border-box);
+    @include MX_Box_Shadow(0px, 0px, 7px, 0px,rgba(0,0,0,5/10));
+
+
+
+  }
+  .CL_TXT_Titulo_Envio {
+    font-size: 25px;
+
+    &:before
+    {
+      margin-right: 5px;
+      color: $Color_10;
+    }
+  }
+  #CONT_Confimar_Datos
+  {
+    display: flex;
+    flex-direction: column;
+    margin-top: 82px;
+    padding: 8px;
+    background-color: $Color_2;
+
+    & .CL_TXT_Texto_Confir
+    {
+      @include Text_nav1(24px,$Color_12,600,left);
+      border-bottom: solid 1px $Color_2;
+      &:before
+      {
+        margin-right: 10px;
+        color: $Color_10;
+      }
+
+    }
+    & label
+    {
+      margin-top: 10px;
+    }
+    & input
+    {
+      width: 40%;
+    }
+
+  }
+}
+//*******ventana confirmacion
+@mixin MX_Ventana_Confirmacion() {
+  #CONT_Confirmacion {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+    z-index: 100016;
+    @include MX_Animacion_Normal(0.2, ease, 0.2);
+    &.ng-hide-add {
+      animation: 0.5s Ng_show_Final_4 ease;
+    }
+    /* when showing the picture */
+    &.ng-hide-remove {
+      animation: 0.5s Ng_show_Incial_4 ease;
+    }
+  }
+  #CONT_Datos {
+    background-color: $Color_6;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    height: auto;
+    padding: 10px;
+    position: fixed;
+    top: 35%;
+    z-index: 99999;
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+    @include MX_Box-Sizing(border-box);
+
+    @include MX_Bor_Radius(3px,0);
+    @include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,5/10));
+    @include MX_Animacion_Normal(0.5, ease, 0.5);
+  }
+  #COT_Confirmacion_Campos {
+    padding: 20px;
+    @include MX_Box-Sizing(border-box);
+    @include Text_nav1(20px,$Color_3,100,center);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .CL_Btns_Confirmacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .CL_TXT_Titulo_Confirmacion {
+    width: 100%;
+    border-bottom: solid 1px $Color_7;
+    margin: 0px;
+    padding-bottom: 19px;
+    margin-bottom: 11px;
+
+    &:before
+    {
+      margin-right: 20px;
+      color: $Color_10;
+    }
+  }
+}
+@mixin MX_Notificaciones_Ventana {
+  #SC_Mensajes
+  {
+    z-index: 99999;
+    position: fixed;
+
+  }
+  #CONT_Notificaciones_Conts
+  {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 80%;
+  }
+  #CONT_Notificacion {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    padding: 5px 0;
+    background-color: $Color_6;
+    z-index: 99999;
+    @include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,3/10));
+    border: solid 1px $Color_2;
+    @include Texto_Estilo_1(17px,$Color_6,100,center);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @include desde(tablet) {
+      width: 400px;
+      height: 55%;
+      top: 50px;
+
+    }
+    &.ng-hide-add {
+      animation: 0.5s Ng_Show_Orden_Contenedor_Final ease;
+    }
+    /* when showing the picture */
+    &.ng-hide-remove {
+      animation: 0.5s Ng_Show_Orden_Contenedor_Inicial ease;
+    }
+    & p.CL_TXT_Titulo_Notifi {
+      color: $Color_12;
+      width: 100%;
+      padding: 3px 0 9px 9px;
+      width: 100%;
+      font-size: 20px;
+      margin: 0px;
+      @include MX_Box-Sizing(border-box);
+
+      &:before
+      {
+        margin-right: 5px;
+        color: $Color_21;
+      }
+    }
+
+  }
+  .CL_Mensaje_Notificaciones {
+    color: $Color_12;
+    width: 85%;
+    text-align: left;
+    font-size: 13px;
+    padding: 13px 30px;
+    @include MX_Box-Sizing(border-box);
+    position: relative;
+    & p
+    {
+      width: 100%;
+    }
+
+    & p.CL_TXT_Tiempo_Estado {
+      position: absolute;
+      right: 10px;
+      text-align: right;
+      top: 0;
+      font-weight: 100;
+      font-size: 10px;
+      opacity: 0.5;
+    }
+    &:hover p.CL_TXT_Tiempo_Estado {
+      opacity: 1;
+    }
+    &:hover .CL_Eliminar_Contenido {
+      opacity: 0.3;
+      right: -5px;
+      width: 25%;
+      text-align: center;
+    }
+    & .CL_Eliminar_Contenido {
+      background: $Color_12;
+      color: $Color_6;
+      font-weight: bold;
+      opacity: 0;
+      width: 0;
+      height: 100%;
+      top: 0;
+      right: -80px;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      @include MX_Animacion_Normal(0.1, linear, 0.1);
+
+    }
+  }
+  .CL_Icono_Notificacion {
+    padding-left: 10px;
+  }
+}
+@mixin MX_Mensaje_Alerta {
+  .CL_CONT_Alertas
+  {
+    width: 460px;
+    max-height: 210px;
+    min-height: 210px;
+    overflow-x:hidden;
+    position: fixed;
+    bottom: 2px;
+    left: 2px;
+    z-index: 100500;
+    overflow-y: hidden;
+    @include desde(tablet) {
+       max-height: 300px;
+    }
+   
+
+
+    &.ng-hide-add {
+      animation: 0.3s Ng_Show_Orden_Contenedor_Final ease;
+    }
+    /* when showing the picture */
+    &.ng-hide-remove {
+      animation: 0.3s Ng_Show_Orden_Contenedor_Inicial ease;
+    }
+  }
+  .Finalizado
+  {
+    color: #ffffff;
+    background-color: rgba(38, 185, 154, 0.88);
+    border-color: rgba(38, 185, 154, 0.88);
+
+    & .Icono_Alerta{
+
+      &:before
+      {
+        content: 's';
+        font-family: ordes-presale;
+        font-size: 20px;
+        color: $Color_6;
+      }
+    }
+
+
+  }
+  .Info
+  {
+    color: #E9EDEF;
+    background-color: rgba(52, 152, 219, 0.88);
+    border-color: rgba(52, 152, 219, 0.88);
+
+    & .Icono_Alerta{
+
+      &:before
+      {
+        content: 'F';
+        font-family: ordes-presale;
+        font-size: 20px;
+        color: $Color_6;
+      }
+    }
+
+
+  }
+  .Alerta
+  {
+    color: #E9EDEF;
+    background-color: rgba(243, 156, 18, 0.88);
+    border-color: rgba(243, 156, 18, 0.88);
+
+    & .Icono_Alerta{
+
+      &:before
+      {
+        content: 'b';
+        font-family: ordes-presale;
+        font-size: 20px;
+        color: $Color_6;
+      }
+    }
+
+
+  }
+  .Error
+  {
+    color: #E9EDEF;
+    background-color: rgba(231, 76, 60, 0.88);
+    border-color: rgba(231, 76, 60, 0.88);
+
+    & .Icono_Alerta{
+
+      &:before
+      {
+        content: 'G';
+        font-family: ordes-presale;
+        font-size: 20px;
+        color: $Color_6;
+      }
+    }
+
+
+  }
+  .Negro
+  {
+    color: #E9EDEF;
+    background-color: rgba(52, 73, 94, 0.88);
+    border-color: rgba(52, 73, 94, 0.88);
+
+    & .Icono_Alerta{
+
+      &:before
+      {
+        content: 'a';
+        font-family: ordes-presale;
+        font-size: 20px;
+        color: $Color_6;
+      }
+    }
+
+
+  }
+  .Blanco
+  {
+    color: $Color_12;
+    background-color: $Color_6;
+    border-color: $Color_6;
+
+    & .Icono_Alerta{
+
+      &:before
+      {
+        content: 'a';
+        font-family: ordes-presale;
+        font-size: 20px;
+        color: $Color_12;
+      }
+    }
+
+
+
+    & .CL_Cerrar
+    {
+      color: $Color_12;
+    }
+
+
+
+  }
+  .CL_Mensaje_Alerta {
+
+    @include MX_Box_Shadow(0px,0px, 3px, 0px, rgba($Color_3, .4));
+    padding: 15px 5px;
+    @include MX_Box-Sizing(border-box);
+    width: auto;
+    min-height: 70px;
+    max-height: 210px;
+    cursor: default;
+    margin-bottom: 25px;
+    position: relative;
+    // @include MX_Bor_Radius(50px,5);
+    // @include MX_Bor_Radius(50px,6);
+
+
+    &.ng-hide-add {
+      animation: 0.3s Ng_Show_Orden_Contenedor_Final ease;
+    }
+    /* when showing the picture */
+    &.ng-hide-remove {
+      animation: 0.3s Ng_Show_Orden_Contenedor_Inicial ease;
+    }
+    & .CL_Titulo_Alerta {
+      height: 100%;
+      padding: 5px;
+      @include MX_Box-Sizing(border-box);
+      border-right: solid 1px $Color_6;
+      & p {
+        margin: 0;
+      }
+      & p:nth-child(1) {
+        height: 50px;
+        width: 50px;
+        img {
+          max-width: 100%;
+          height: 100%;
+          @include MX_Bor_Radius(50%,0);
+        }
+      }
+
+    }
+    .CL_Mensaje_Alert {
+
+      position: relative;
+      padding-left: 50px;
+      padding-right:50px;
+      z-index: 18;
+      @include MX_Box-Sizing(border-box);
+
+
+      & .CL_TXT_Mensaje_Alerta {
+
+        & p {
+          margin: 2px;
+        }
+      }
+    }
+    & .CL_Cerrar
+    {
+      z-index: 20;
+      visibility: hidden;
+    }
+
+  }
+  .CL_Mensaje_Alerta:hover .CL_Cerrar
+  {
+   visibility: visible;
+ }
+
+}
+//ventana de perfil Usuario
+@mixin MX_Perfil_Usuario() {
+  #CONT_Perfil_Opciones_Usuario_P {
+    position: fixed;
+    top: 00px;
+    right: 0px;
+    width: 80%;
+    height: auto;
+    max-height: 400px;
+    overflow: auto;
+    background: $Color_6;
+    z-index: 99999;
+    padding: 4px;
+    /*Flex estilos*/
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    @include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,3/10));
+    @include MX_Box-Sizing(border-box);
+    &.ng-hide-add {
+      animation: 0.5s Ng_Show_Orden_Contenedor_Final ease;
+    }
+    /* when showing the picture */
+    &.ng-hide-remove {
+      animation: 0.5s Ng_Show_Orden_Contenedor_Inicial ease;
+    }
+    @include desde(tablet) {
+      width: 250px;
+      top: 50px;
+    }
+
+    & .CL_Opciones_Cuenta,
+    .CL_Mas_Opciones_Cuenta .CL_Opciones_Cuenta,
+    & .CL_Estado_Usuario .CL_Opciones_Cuenta {
+      width: 100%;
+      padding: 10px 5px;
+      margin-bottom: 2px;
+      @include MX_Box-Sizing(border-box);
+      /*flex estilos*/
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &:hover {
+        background: $Color_2;
+        cursor: pointer;
+      }
+      & p {
+        margin: 0;
+      }
+      & p:nth-child(1) {
+        width: 20%;
+        color: $Color_12;
+      }
+      & a:nth-child(2) {
+        width: 100%;
+        @include Texto_Estilo_1(13px,$Color_12,100,left);
+      }
+    }
+    & .CL_Mas_Opciones_Cuenta {
+      border-bottom: solid 1px $Color_2;
+    }
+    & .CL_Estado_Usuario {
+
+      border-bottom: solid 1px $Color_2;
+
+      & .CL_Opciones_Cuenta p:nth-child(1) {
+        font-size: 15px;
+      }
+      & .CL_Activo {
+        & p:nth-child(1) {
+          color: $Color_13;
+        }
+      }
+      & .CL_Inactivo {
+        & p:nth-child(1) {
+          color: $Color_10;
+        }
+      }
+    }
+  }
+  .CL_TXT_Categoria {
+    @include Texto_Estilo_1(11px,$Color_7,100,left);
+    margin: 1px;
+  }
+
+}

@@ -1,0 +1,116 @@
+@mixin MX_Estilos_Modales {
+
+  #CONT_Modal_Largo
+  {
+    position: fixed;
+    top:0px;
+    left:0px;
+    z-index: 100002;
+    height: 100%;
+
+    & .CL_CON_Modal_Largo
+    {
+
+      height: auto;
+      padding-top: 10px;
+      padding-bottom: 30px;
+
+
+      & .CL_Cont_Contenido_Modal_Largo
+      {
+        background: $Color_6;
+        z-index:999999;
+        border-top:solid 1px $Color_7;
+
+        & .CL_Cont_Cabezera_Modal_Largo
+        {
+          border-bottom:solid 1px $Color_7;
+          height: 50px;
+        }
+        & .CL_Cont_Contenedio_Modal_Largo
+        {
+          height: 80%;
+          padding-top: 10px;
+          padding-bottom: 40px;
+
+          & .CL_Segundo_Titulo_Modal_Largo
+          {
+            height: 50px;
+          }
+          & .CL_Cont_Info_Modal_Largo
+          {
+            height: auto;
+            padding-bottom: 10px;
+
+          }
+          & .CL_Footer_Botones_Modal_Largo
+          {
+            padding-top: 10px;
+            padding-bottom: 5px;
+            border-top:solid 1px $Color_7;
+            height: 45px;
+          }
+        }
+      }
+
+    }
+  }
+ //------------------
+ #CONT_Modal_Corto
+ {
+   position: fixed;
+   top:0px;
+   left:0px;
+   z-index: 100000;
+   height: 100%;
+
+   & .CL_CON_Modal_Corto
+   {
+
+     height: auto;
+     padding-top: 10px;
+     padding-bottom: 30px;
+
+
+     & .CL_Cont_Contenido_Modal_Corto
+     {
+       background: $Color_6;
+       z-index:999999;
+       border-top:solid 1px $Color_7;
+
+       & .CL_Cont_Cabezera_Modal_Corto
+       {
+         border-bottom:solid 1px $Color_7;
+         height: 50px;
+       }
+       & .CL_Cont_Contenedio_Modal_Corto
+       {
+         height: 80%;
+         padding-top: 10px;
+         padding-bottom: 40px;
+
+         & .CL_Segundo_Titulo_Modal_Corto
+         {
+           height: 50px;
+         }
+         & .CL_Cont_Info_Modal_Corto
+         {
+           height: auto;
+           padding-bottom: 10px;
+
+         }
+         & .CL_Footer_Botones_Modal_Corto
+         {
+           padding-top: 10px;
+           padding-bottom: 5px;
+           border-top:solid 1px $Color_7;
+           height: 45px;
+         }
+       }
+     }
+
+   }
+ }
+
+ //----------
+}

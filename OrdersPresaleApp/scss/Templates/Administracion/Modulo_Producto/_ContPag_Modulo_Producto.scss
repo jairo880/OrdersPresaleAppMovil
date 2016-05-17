@@ -1,0 +1,419 @@
+//scss para guardar los mixin que contendran las partes de la pagina
+@mixin ContenidoPagina() {
+	.CL_Tabla_Producto
+	{
+		overflow: auto;
+		height: 500px;
+		width: 1500px;
+		margin-bottom: 100px;
+	}
+	#CONT_Registro_Producto
+	{
+		height: 100%;
+		background: $Color_6;
+		padding-bottom: 50px;
+		padding-top: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		@include MX_Box-Sizing(border-box);
+
+	}
+
+	#FORM_Registro
+	{
+		height: 100%;
+
+		&  #CONT_TITULO{
+			text-align: center;
+		}
+		& label {
+			@include Texto_Estilo_3(12px,$Color_12,100,center);
+			margin-top: 8px;
+			margin-bottom: 8px;
+		}
+
+	}
+
+	#CONT_Derecha,
+	& #CONT_Izquierda {
+		height: auto;
+		padding: 10px;
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-start;
+		flex-direction: column;
+		@include MX_Box-Sizing(border-box);
+	}
+
+	.CL_Imagen_Producto_URL
+	{
+
+		height: 200px;
+		background: rgba($Color_9,.5);
+		border:dashed 2px $Color_8;
+		margin-top:10px;
+
+
+
+		& img
+		{
+			max-width:100%;
+			height: 100%;
+		}
+	}
+
+	.Icon_Imagen:before{
+		font-size: 100px;
+		color: rgba($Color_18, 1);
+	}
+	.CL_COTN_Producto {
+		border-bottom: solid 1px $Color_2;
+		margin-bottom: 5px;
+		padding: 10px 10px;
+		height: 430px;
+		width: 100%;
+		background-color: $Color_6;
+		font-size: 14px;
+		/*Flex estilos*/
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+
+		flex-direction: row;
+
+
+		position: relative;
+		overflow: hidden;
+		/*Incluido*/
+		@include MX_Animacion_Normal(0.3, ease, 0.3);
+		@include MX_Box-Sizing(border-box);
+		@include MX_Box_Shadow(0px, 0px, 2px, 0px,rgba(0,0,0,4/10));
+
+
+		& .CL_CONT_Imagen {
+			width: 100%;
+			height: 250px;
+
+		}
+	}
+	.CL_Producto_Agregado,.CL_Producto_No_Agregado
+	{
+		&:before
+		{
+			content: "s";
+			font-family: ordes-presale;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			color: $Color_6;
+			font-size: 32px;
+			background-color: $Color_10;
+			padding: 37px 0px;
+			width: 69px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: default;
+			@include MX_Box-Sizing(border-box);
+			@include MX_Box_Shadow(0px, 0px, 2px, 0px,rgba(0,0,0,4/10));
+			@include MX_Animacion_Normal(0.3, ease, 0.3);
+			animation: 0.5s Agregado ease;
+			opacity: 1;
+
+
+			@keyframes Agregado {
+				0% { transition-timing-function: ease-in; opacity: 0;top: -300px;}
+				100% { transition-timing-function: ease-in; opacity: 1;top: 0px; overflow: hidden}
+			}
+
+		}
+	}
+	.CL_Producto_No_Agregado
+	{
+		&:before
+		{
+			@include MX_Animacion_Normal(0.3, ease, 0.3);
+
+			animation: 0.5s Removido ease;
+			opacity: 0;
+			top: -300px;
+
+
+			@keyframes Removido {
+				0% { transition-timing-function: ease-in; opacity: 1;top: 0px;}
+				100% { transition-timing-function: ease-in; opacity: 0;top: -300px; overflow: hidden}
+			}
+		}
+	}
+	#Cont_Noencontrado {
+		/*incluido*/
+		@include MX_Animacion_Normal(0.3, ease, 0.3);
+	}
+	.CONT_Informacion {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		margin-left: 2px;
+		padding: 5px 0;
+	}
+	.CL_CONT_Imagen {
+		width:40%;
+		height: 320px;
+		display: flex;
+		align-items:center;
+		justify-content: center;
+		padding: 9px;
+		@include MX_Box-Sizing(border-box);
+	}
+	.CL_CONT_Imagen img {
+		cursor: pointer;
+		max-width: 100%;
+		height: 100%;
+	}
+	.CONT_Info_Producto {
+		width: 100%;
+		padding: 1px 25px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		/*Incluido*/
+		@include MX_Box-Sizing(border-box);
+	}
+	.CL_Nombre_Producto {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		flex-direction: row;
+	}
+	p.CL_TXT_Nombre {
+		margin: 0;
+		/*Incluido*/
+		@include Texto_Estilo_1(22px,$Color_12,100,left);
+	}
+	.CL_Precio {
+		width: 70%;
+		font-size: 25px;
+		background: rgba($Color_21 , .8);
+		padding: 3px 16px;
+		@include MX_Bor_Radius(3px,0);
+		@include Texto_Estilo_1(20px,$Color_6,100,center);
+		@include MX_Box-Sizing(border-box);
+		& p {
+			margin: 0;
+
+			&:before
+			{
+				content: ':';
+				font-family: ordes-presale;
+				color: $Color_6;
+				margin-left: -10px;
+				margin-right: 10px;
+			}
+		}
+	}
+	.CONT_Valoracion_Producto {
+		width: 100%;
+		display: flex;
+		align-items: flex-start;
+		padding: 10px 0;
+		flex-direction:row;
+		justify-content: space-between;
+
+
+		& .CL_CONT_Opiniones {
+			width: 100%;
+			border: solid 1px $Color_2;
+			/*Flex estilos*/
+			display: flex;
+			flex-direction: column;
+			& div {
+				padding: 13px 10px;
+				@include MX_Box-Sizing(border-box);
+			}
+		}
+		& .CL_Datos_Valoracion {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+
+			width: 100%;
+			font-size: 13px;
+			margin: 3px;
+			& span {
+				margin: 2px;
+				color: $Color_18;
+			}
+		}
+		& .CL_Descripcion_Producto {
+			width: 40%;
+			text-rendering: auto;
+			word-wrap: break-word;
+			@include Texto_Estilo_1(15px,$Color_8,100,left);
+		}
+	}
+	.CL_Herramientas_Producto {
+		border-top: solid 1px $Color_2;
+		padding-top: 15px;
+		width: 100%;
+		overflow: hidden;
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+
+		flex-direction: row;
+	}
+	.CL_Opciones_Herramienta {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		width: 100%;
+
+		flex-direction: column;
+		& .CL_CONT_Agregar {
+			width: 100%;
+			@include MX_Box-Sizing(border-box);
+			/*Flex estilos*/
+			display: flex;
+			flex-direction: column;
+			& div {
+				padding: 11px 10px;
+			}
+		}
+	}
+	.CL_Cantidad_Productos {
+		width: 85%;
+		padding: 1px 25px;
+		border-right: solid 1px $Color_2;
+		/*Incluido*/
+		@include MX_Box-Sizing(border-box);
+		& #ID_Input_Cantidad {
+			padding: 7px 7px 7px 10px;
+			width: 60%;
+			@include MX_Box-Sizing(border-box);
+			@include Text_nav1(16px,$Color_3,600,left);
+		}
+	}
+	.CL_Total_Producto {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		/*Incluido*/
+		@include Text_nav1(16px,$Color_12,100,left);
+		@include MX_Box-Sizing(border-box);
+	}
+	.CL_CONT_Datos {
+		height: auto;
+		padding: 5px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-around;
+		& p {
+			margin: 0 2px;
+			width: 50%;
+			padding: 3px;
+			color: $Color_12;
+			@include MX_Box-Sizing(border-box);
+		}
+	}
+	.CL_Total_Input {
+		text-align: center;
+		font-size: 17px;
+		font-weight: bold;
+		padding: 5px;
+		margin-left: 3px;
+		background-color:  transparent;
+		border: solid 1px transparent;
+		color: $Color_11;
+		width: 50%;
+		@include MX_Box-Sizing(border-box);
+	}
+
+	.CL_Form_Registro_Producto
+	{
+		height: 300px;
+		overflow-y:auto;
+		overflow-x:hidden;
+	}
+	#CONT_Promocioens_Prodcuto
+	{
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		z-index: 100001;
+		height: 100%;
+
+		&.ng-hide-add {
+			animation: 0.5s Ng_show_Final_4 ease;
+		}
+		/* when showing the picture */
+		&.ng-hide-remove {
+			animation: 0.5s Ng_show_Incial_4 ease;
+		}
+		& .CL_Cabezera_Promociones_Producto
+		{
+			height: 50px;
+		}
+
+		& .Cl_Promociones_Producto
+		{
+			background-color: $Color_6;
+			@include MX_Box_Shadow(0, 2px, 10px, 2px,rgba(0,0,0,10/5));
+			position: relative;
+			height: 100%;
+			z-index: 99999;
+
+			& .CL_CONT_Promociones_Producto, & .CL_CONT_Promociones
+			{
+				margin-top: 10px;
+				background-color: $Color_6;
+				height: 90%;
+				@include MX_Box_Shadow(0, 0px, 1px, 0px,rgba(0,0,0,10/2));
+				overflow-y: auto;
+				overflow-x: hidden;
+				& .CL_CONT_Promociones
+				{
+					height: 90%;
+
+					& .CL_Promociones_Listadas
+					{
+						height: auto;
+						border-bottom: solid 1px $Color_2;
+						margin-top: 10px;
+						padding-bottom: 20px;
+						padding-top: 10px;
+
+						& .CL_Dll_Promocion
+						{
+							height: 100px;
+							max-height: 300px;
+							overflow: auto;
+
+
+						}
+					}
+
+				}
+			}
+
+
+		}
+	}
+
+	.CL_Edicicion_Producto
+	{
+		height: 300px;
+		overflow-y: auto;
+		overflow-x: hidden;
+		flex-wrap: nowrap !important;
+	}
+
+}

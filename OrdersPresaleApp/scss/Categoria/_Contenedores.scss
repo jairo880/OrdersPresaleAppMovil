@@ -1,0 +1,27 @@
+
+
+.CL_Contenedor_Estilo_1
+{
+	background-color: $Color_6;
+	@include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,3/10));
+	@include MX_Box-Sizing(border-box);
+	height: auto;
+}
+
+.CL_Contenedor_Estilo_2
+{
+	background-color: transparent;
+	@include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,3/10));
+	@include MX_Box-Sizing(border-box);
+	height: auto;
+}
+
+
+.CL_Contenedor_Estilo_3
+{
+	background-color: $Color_6;
+	@include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,3/10));
+	@include MX_Box-Sizing(border-box);
+	@include MX_Bor_Radius(6px,0);
+	height: auto;
+}

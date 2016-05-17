@@ -1,0 +1,93 @@
+ion-side-menus(enable-menu-with-back-views="false")
+	ion-side-menu-content
+		ion-nav-bar.bar-stable
+			ion-nav-back-button
+			ion-nav-buttons(side="Orders Presale")
+				
+				button.button.icon-menu2(menu-toggle="left")
+				//Elemento visible solo para usuarios y usuario sin iniciar sesion
+		ion-nav-view(name="menuContent")
+	ion-side-menu(side="left",ng-init="FN_Capturar_Datos_Usuario_Iniciado()")
+					
+		ion-content
+			ion-list
+				section.Grid_Contenedor
+					a#CONT_Contenedor_Logo.Visible-tablet
+				#CONT_Portada(style="background:url({{dato.AOBJ_Datos_Usuario[0].Fondo_Perfil_Usuario}}) 0 45% no-repeat;background-size: 100% auto;")
+					#CONT_Datos_Cuenta.Grid_Contenedor.now_wrap.abcenter
+						.Grid_Contenedor.Base-30
+							.CL_Imagen_Perfil.relative
+								img.CL_Imagen_Icono_4(ng-src!="{{dato.AOBJ_Datos_Usuario[0].Imagen_Usuario}}")
+								span.Estado_Usuario(ng-if="BL_Btns_Ver_Login == false;Bl_Btn_Login_Iniciar_Sesion == false",ng-class="{Activo: dato.AOBJ_Datos_Usuario[0].Disponibilidad == 'Activo', Inactivo:  dato.AOBJ_Datos_Usuario[0].Disponibilidad == 'Inactivo'}" title="Estado actual de tu cuenta")
+									p
+						.Grid_Contenedor.Base-60.column
+							p.CL_TXT_Texto_3.CL_TXT_Blanco.CL_TXT_Texto_Bold {{dato.AOBJ_Datos_Usuario[0].Nombre_Usuario}}
+							p.CL_TXT_Texto_1.CL_TXT_Blanco(ng-show="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol != 5") {{dato.AOBJ_Datos_Usuario[0].Correo_Electronico | limitTo : 17 : 0}}...
+							p.CL_TXT_Texto_3.CL_TXT_Blanco.CL_TXT_Texto_Bold.CL_TXT_Icon_Blanco.icon-pin-map(ng-show="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol != 5") {{dato.AOBJ_Datos_Usuario[0].Municipio}}
+				//- ion-item.icon-login.CL_TXT_Icon_Gris(menu-close ng-if="Estado_Logeo == false" ng-click="login()") Login
+				//- ion-item.icon-registrarme.CL_TXT_Icon_Gris(menu-close ng-if="Estado_Logeo == false")
+				//- 	a.list(href="#/app/registro") Registrarme
+				//- ion-item.icon-galeria1.CL_TXT_Icon_Gris(menu-close)
+				//- 	a(href="#/app/productos") Productos
+				//- ion-item.icon-shopping-cart.CL_TXT_Icon_Gris.relative.CL_Btn_Enlace(menu-close)
+				//- 	a(href="#/app/productos") Orden actual
+				//- 	span.CL_Cantidad  {{dato.NUM_Cantidad_Productos_En_Orden}}
+				//- ion-item.icon-android-favorite( menu-close ng-if="Estado_Logeo == true" ng-click="FN_Consultar_Cotizaciones()")
+				//- 	a(href="#/app/cotizaciones") Consultar Cotizaciones
+				//- ion-item.ion-backspace(menu-close ng-if="Estado_Logeo==true" ng-click="FN_Cerrar_Session()")
+				//- 	a Cerrar Sessión
+				nav.CL_Nav
+					ul#CONT_Ul_Nav(ng-init="BL_Gestion_Cuentas_Usuario = false;BL_Gestion_Administrativa=false")
+						section#CONT_SC_Paginas.ng_show(ng-show="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 3 || dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 5 ")
+							div(ng-if="Estado_Logeo == false")
+								li.Grid_Contenedor.abcenter(ng-init="BL_Ver_Opciones = true",ng-class="{border_bottom_1: BL_Ver_Opciones == true,CL_Opcion_Desplegado: BL_Ver_Opciones == true,CL_Opcion_Oculto: BL_Ver_Opciones == false}")
+									a.CL_Btn_Enlace(ng-click="BL_Ver_Opciones =! BL_Ver_Opciones")
+										span.CL_TXT_Nav Opciones
+								div.ng_show(ng-show="BL_Ver_Opciones")
+									li.Grid_Contenedor.abcenter
+										a.CL_Btn_Enlace.icon-login.ng_repeat_anim1(ng-click="FN_Desplegar_Login()")
+											span.CL_TXT_Nav Ingresar
+							div(ng-if="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 3 || dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 5 ")
+								li.Grid_Contenedor.abcenter(ng-class="{border_bottom_1: BL_Ver_Navegacion == true,CL_Opcion_Desplegado: BL_Ver_Navegacion == true,CL_Opcion_Oculto: BL_Ver_Navegacion == false}",ng-show="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 3 || dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 5 ",ng-init="BL_Ver_Navegacion = true")
+									a.CL_Btn_Enlace(ng-click="BL_Ver_Navegacion =! BL_Ver_Navegacion")
+										span.CL_TXT_Nav Navegaci&oacute;n
+								div.ng_show(ng-show="BL_Ver_Navegacion")
+									
+									li.Grid_Contenedor.abcenter(ng-if="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol != 5")
+										a.CL_Btn_Enlace.icon-ayuda-online( ng-click="FN_Mensaje_Desplegar(true,true,false,false,true)")
+											span.CL_TXT_Nav Ayuda
+									li.Grid_Contenedor.abcenter
+										a.CL_Btn_Enlace.icon-galeria1( menu-close href="#/app/productos")
+											span.CL_TXT_Nav Productos
+									li.Grid_Contenedor.abcenter(ng-if="Estado_Logeo == false")
+										a.CL_Btn_Enlace.icon-registrarme(menu-close href="#/app/registro")
+											span.CL_TXT_Nav Registrarme
+						section#CONT_SC_Herramientas
+							li.Grid_Contenedor.abcenter(ng-class="{border_bottom_1: BL_Ver_Herramientas == true,CL_Opcion_Desplegado: BL_Ver_Herramientas == true,CL_Opcion_Oculto: BL_Ver_Herramientas == false}",ng-show="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 3 || dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 5 ",ng-init="BL_Ver_Herramientas = true")
+									a.CL_Btn_Enlace(ng-click="BL_Ver_Herramientas =! BL_Ver_Herramientas")
+										span.CL_TXT_Nav Herramientas
+							//Elemento visible solo para usuarios y usuario sin iniciar sesion
+							div.ng_show(ng-show="BL_Ver_Herramientas")
+								div(ng-if="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 3 || dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 5 ")
+									li.Grid_Contenedor.abcenter(ng-if="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 3")
+										a.CL_Btn_Enlace.icon-inbox-alt(href!="<?php echo URL; ?>Cliente/Modulo_Mensajes")
+											span.CL_TXT_Nav Bandeja de entrada
+											span.CL_Cantidad {{dato.NUM_CantidadMensajeUsuario}}
+									li.Grid_Contenedor.abcenter(ng-if="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 3 ")
+										a.CL_Btn_Enlace.icon-mensaje(ng-click="FN_Listar_Mensajes();FN_Mensaje_Desplegar(true,false,false,false,false)")
+											span.CL_TXT_Nav Mensajes
+											span.CL_Cantidad {{dato.NUM_CantidadMensajeUsuario}}
+									li.Grid_Contenedor.abcenter(ng-if="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 3 ")
+										a.CL_Btn_Enlace.icon-notificacion( ng-click="FN_Notificacion()" )
+											span.CL_TXT_Nav Notificaciones
+											span.CL_Cantidad  {{dato.NUM_CantidadNotificaciones}}
+									li.Grid_Contenedor.abcenter
+										a.CL_Btn_Enlace.icon-shopping-cart(menu-close href="#/app/productos" ng-click="FN_Orden()" title="Desplegar menu de orden")
+											span.CL_TXT_Nav Mi orden actual
+											span.CL_Cantidad  {{dato.NUM_Cantidad_Productos_En_Orden}}
+									li.Grid_Contenedor.abcenter(ng-click="FN_Ordenes_Enviadas()" title="Desplegar menu de ordenes enviadas",ng-if="dato.AOBJ_Datos_Usuario[0].FK_ID_Rol == 3")
+										a.CL_Btn_Enlace.icon-check-clipboard-1( ng-click="FN_Ordenes_Enviadas(2);FN_Listar_Pedidos_Enviados();FN_Listar_Ordenes_Enviadas()" title="Desplegar menu de ordenes enviadas")
+											span.CL_TXT_Nav Ordenes enviadas
+									li.Grid_Contenedor.abcenter(ng-show="Estado_Logeo == true")
+										a.CL_Btn_Enlace.icon-sign-out( ng-click="FN_Cerrar_Sesion()" title="Desplegar menu de orden")
+											span.CL_TXT_Nav Cerrar sesion

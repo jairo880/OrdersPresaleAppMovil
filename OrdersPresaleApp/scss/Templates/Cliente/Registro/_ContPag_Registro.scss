@@ -1,0 +1,416 @@
+//scss para guardar los mixin que contendran las partes de la pagina
+@mixin Contenido_Pagina {
+
+  #CONT_Reg_Contenido_Pagina{
+    background: $Color_2;
+    height: 100%;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    @include MX_Box-Sizing(border-box);
+
+  }
+
+  #CONT_Registro
+  {
+    width: 95%;
+    height: 100%;
+    background: $Color_6;
+    padding-bottom: 150px;
+    padding-top: 10px;
+    /*Estilos flex*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    @include MX_Box-Sizing(border-box);
+
+
+  }
+
+  p.CL_TXT_Tipo_Registro
+  {
+    @include Texto_Estilo_1(23px,$Color_12,100,center);
+    width: 100%;
+    border-bottom: solid 1px $Color_7;
+    padding-bottom: 10px;
+  }
+  #FORM_Registro, #CONT_Datos_Empresa {
+    width: 100%;
+    height: 100%;
+
+    @include MX_Box-Sizing(border-box);
+
+
+
+    &  #CONT_Datos_Empresa{
+
+      height: auto;
+    }
+
+    & #CONT_Izquierda,
+    & #CONT_Derecha {
+      height: auto;
+      @include MX_Box-Sizing(border-box);
+
+      &.ng-hide-add {
+        animation: 0.5s Ng_show_Final_4 ease;
+      }
+      /* when showing the picture */
+      &.ng-hide-remove {
+        animation: 0.5s Ng_show_Incial_4 ease;
+      }
+
+
+      & label{
+        @include Texto_Estilo_1(12px,$Color_12,100,center);
+        margin-top: 8px;
+        margin-bottom: 8px;
+
+      }
+
+
+
+      & #SC_Genero{
+        height: 54px;
+        display: flex;
+        align-items: center;
+      }
+
+      & .RadioBtn_1
+      {
+        margin: 10px 5px;
+        color: #3B5998;
+
+
+
+
+      }
+
+    }
+  }
+
+
+  #CONT_R_Botones
+  {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0px;
+    border-bottom: solid 1px $Color_7;
+
+    & button,& input
+    {
+      margin-right: 3%;
+    }
+
+  }
+
+  .CL_Mensaje_Dos
+  {
+    @include MX_Flecha(3,before);
+    margin-left: 15px !important;
+    &:before
+    {   border-bottom: 8px solid transparent !important;
+      /* izquierda flecha */
+      border-top: 8px solid transparent !important;
+      /* derecha flecha */
+      border-right: 10px solid  $Color_10 !important;
+      top:22% !important;
+      left: -20px !important;
+
+
+      border-bottom:10px solid transparent !important;
+
+
+    }
+    & p
+    {
+      border-bottom:none !important;
+    }
+
+  }
+
+  //Estilos para el contenedor de la seleccion imagenes
+  #CONT_C_Contenedor
+  {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+
+  #CONT_C_Portada
+  {
+    height: auto;
+    width: 100%;
+    position: relative;
+ 
+  }
+  #CONT_C_Imagen_Portada
+  {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    & img
+    {
+      max-width: 100%;
+      height: auto;
+
+    }
+  }
+
+  #CONT_C_ImageUsuario,#CONT_C_Edit
+  {
+
+    height: auto;
+    z-index: 100;
+    padding: 10px;
+    @include MX_Box-Sizing(border-box);
+
+  }
+  #CONT_C_Edit{
+    margin-top: -30px;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+  .CL_C_Imagen
+  {
+    position: relative;
+    width: auto;
+    & .CL_C_Imagen_Usuario
+    {
+      width: 50px;
+      height: 50px;
+      @include MX_Bor_Radius(50%,0);
+
+    }
+    & .CL_C_Activo,.CL_C_Inactivo
+    {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: $Color_6;
+      top: 10px;
+      left: 0px;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      @include MX_Bor_Radius(50%,0);
+
+      & p
+      {
+        padding: 5px;
+
+        @include MX_Bor_Radius(50%,0);
+
+      }
+
+
+    }
+    & .CL_C_Activo
+    {
+      & p
+      {
+        background: $Color_14;
+      }
+    }
+    & .CL_C_Inactivo
+    {
+      & p
+      {
+        background-color: $Color_10;
+      }
+    }
+  }
+  .CL_TXT_Texto
+  {
+    padding-left: 5px;
+    width: auto;
+    background-color: rgba($Color_3,.3);
+    @include MX_Box-Sizing(border-box);
+    @include MX_Bor_Radius(4px,0);
+
+
+    & p
+    {
+      margin: 0px;
+    }
+    & p:nth-child(1), & p:nth-child(2)
+    {
+      @include Texto_Estilo_1(15px,$Color_6,600,left);
+
+    }
+
+  }
+
+
+
+  #CONT_C_Imagenes
+  {
+    position: fixed;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    z-index: 100002;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    &.ng-hide-add {
+      animation: 0.5s Ng_show_Final_4 ease;
+    }
+    /* when showing the picture */
+    &.ng-hide-remove {
+      animation: 0.5s Ng_show_Incial_4 ease;
+    }
+
+  }
+  #CONT_Contenido
+  {
+    width: 100%;
+    height: 95%;
+    z-index: 200;
+    background-color: $Color_6;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    @include MX_Box_Shadow(0px, 0px, 5px, 1px,rgba(0,0,0,2/10));
+
+
+
+  }
+  #CONT_C_Modificar_Img_Perfil,#CONT_C_Modificar_Fondo_Perfil
+  {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-flow: column wrap;
+    height: 80%;
+    width: 100%;
+    padding: 10px;
+    overflow: auto;
+    @include MX_Box-Sizing(border-box);
+
+    &.ng-hide-add {
+      animation: 0.5s Ng_show_Final_4 ease;
+    }
+    /* when showing the picture */
+    &.ng-hide-remove {
+      animation: 0.5s Ng_show_Incial_4 ease;
+    }
+
+
+    & #CONT_C_Imagenes_Seleccion
+    {
+      width: 150px;
+      border: solid 1px $Color_7;
+      background-color: $Color_2;
+      margin: 5px;
+      padding: 5px;
+      cursor: pointer;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      @include MX_Box-Sizing(border-box);
+      @include MX_Box_Shadow(0px, 0px, 2px, 0px,rgba(0,0,0,2/10));
+      @include MX_Animacion_Normal(0.1, ease, 0.1);
+
+
+      & img {
+        max-width: 100%;
+        height: 100%;
+
+      }
+      &:hover
+      {
+        opacity: 0.8;
+        border:solid 1px $Color_12;
+      }
+      &:hover:before
+      {
+        content: 's';
+        width: 20px;
+        height: 20px;
+        font-size: 25px;
+        position: absolute;
+        top: -2px;
+        left: 0px;
+        font-family: ordes-presale;
+      }
+    }
+  }
+
+  #CONT_C_Modificar_Fondo_Perfil  #CONT_C_Imagenes_Seleccion
+  {
+    width: 200px;
+    height: 190px;
+  }
+  .CL_Seleccionado
+  {
+    @include MX_Animacion_Normal(0.2, ease, 0.2);
+
+    border:solid 4px $Color_10 !important;
+    &:before
+    {
+      content: 's';
+      width: 20px;
+      height: 20px;
+      font-size: 25px;
+      position: absolute;
+      top: -2px;
+      left: 0px;
+      font-family: ordes-presale;
+      color: $Color_10;
+    }
+  }
+  #CONT_C_Header
+  {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom:solid 1px $Color_2;
+    @include MX_Box-Sizing(border-box);
+
+    & a
+    {
+      margin-right: 20px
+    }
+  }
+  #CONT_C_Footer
+  {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: solid 1px $Color_2;
+    & a
+    {
+      margin-right: 20px
+    }
+  }
+}

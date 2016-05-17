@@ -1,0 +1,19 @@
+@include desde(web) {
+	.CL_C_Imagen
+	{
+		& .CL_C_Imagen_Usuario
+		{
+			width: 150px;
+			height: 150px;
+		}
+		 & .CL_C_Activo,.CL_C_Inactivo
+        {
+        	left: 20px;
+        }
+
+	}
+	 #CONT_C_ImageUsuario,#CONT_C_Edit
+    {
+    	padding:  10px 96px;
+    }
+}

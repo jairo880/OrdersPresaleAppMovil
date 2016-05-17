@@ -1,0 +1,307 @@
+@mixin MX_Tablas_Estilo() {
+  .width_fijo
+  {
+    width: 100% !important;
+  }
+  .CL_Elemento_Seleccionado
+  {
+    background:rgba($Color_21,.3) !important;
+  }
+  %PH_TABLA
+  {
+    margin-top: 10px;
+    background-color: #fff;
+    height: auto;
+    width:auto;
+    padding:5px;
+    padding-left:5px;
+    padding-right:5px;
+
+    @include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,3/10));
+    @include desde(tablet) {
+      width:100%;
+    }
+
+
+    & table {
+      width: 100%;
+      background-color: transparent;
+      border-spacing: 0;
+      @include MX_Box-Sizing(border-box);
+      @include Text_nav1(13px,rgba($Color_11,.7),100,center);
+    }
+    & th {
+      font-weight: bold;
+
+    }
+    & th.Imagen, & td.Imagen
+    {
+      width: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      @include MX_Box-Sizing(border-box);
+
+    }
+
+    & td.CL_Tam_Texarea
+    {
+      width: 180px;
+    }
+
+    & td.CL_Tbl_Icon, & th.CL_Tbl_Icon
+    {
+      width: 20px;
+      color: $Color_3;
+      width: 20px;
+      color: #000;
+      padding: 10px;
+      @include MX_Box-Sizing(border-box);
+      font-size: 18px;
+      &:hover{
+        color:rgba($Color_3,.5);
+      }
+      & button
+
+      {
+        border:none;
+        background-color: none;
+        background: none;
+        cursor: pointer;
+
+        &:disabled {
+          opacity: 0.6;
+          cursor: default;
+        }
+      }
+
+
+    }
+
+    & td,
+    & th {
+      text-align: left;
+      border-bottom: solid 1px #EEE;
+      padding: 5px;
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: auto;
+      width: -moz-available;
+      // width: -moz-min-content;
+      @include MX_Box-Sizing(border-box);
+    }
+    & tbody > tr:nth-child(2n+1) {
+      background-color: #FAFAFA;
+    }
+    & tbody tr:hover
+    {
+      background:rgba($Color_21,.1);
+    }
+    & td {
+      padding: 6px 2px;
+      @include MX_Box-Sizing(border-box);
+    }
+    & td select
+    {
+      width:auto;
+    }
+    & td input.Input_Tabla {
+      max-width: 100px;
+      min-width: 70px;
+      padding: 5px 0 5px 10px;
+      box-shadow: none;
+      border: solid 1px #eee;
+      @include MX_Box-Sizing(border-box);
+
+      &:disabled
+      {
+        background:transparent;
+        border:none;
+      }
+    }
+    & td.CL_TXT_TotalEnvio {
+      font-weight: bold;
+    }
+    & td.CL_Imagen {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    & td.CL_Imagen_Grande
+    {
+      width: 100px;
+      height:100px;
+    }
+    & td.CL_Imagen_Grande  img
+    {
+      border-radius: 0%;
+      max-width: 100%;
+      height: 100%;
+    }
+    & td.CL_Imagen img {
+      border-radius: 50%;
+      max-width: 100%;
+      height: 100%;
+    }
+    & th.CL_Imagen {
+      width: 50px;
+    }
+    & .CL_Botones_Enviar {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 5px;
+    }
+  }
+  .Tabla_Estilo_1 {
+    @extend %PH_TABLA;
+  }
+
+  .Tabla_Estilo_2 {
+    @extend %PH_TABLA;
+
+    & table
+    {
+      & td,
+      & th {
+        border: solid 1px #EEE;
+      }
+      & td.CL_Imagen {
+        border:none;
+      }
+
+    }
+  }
+  .Tabla_Estilo_3 {
+    @extend %PH_TABLA;
+
+    & table
+    {
+
+      & td.CL_Imagen {
+        border:none;
+      }
+      & td,
+      & th {
+        border: solid 1px transparent;
+      }
+
+      & tbody > tr:nth-child(2n+1) {
+        background-color: rgba(153, 204, 153, 0.2);
+      }
+      & tbody > tr:nth-child(3n) {
+        background-color:rgba(160, 153, 204, 0.2);
+      }
+
+    }
+  }
+  .Tabla_Estilo_4 {
+    @extend %PH_TABLA;
+
+    & table
+    {
+      & td.CL_Imagen {
+        border:none;
+      }
+      & td,
+      & th {
+        border: solid 1px transparent;
+      }
+
+      & tbody > tr:nth-child(2n+1) {
+        background-color:rgba(102, 153, 204, 0.2);
+      }
+      & tbody > tr:nth-child(3n) {
+        background-color: rgba(193, 204, 153, 0.2);
+      }
+    }
+  }
+  .CL_Registro_Base_50{
+    width: 50% !important;
+  }
+  .CL_Registro_Base_100{
+    width: 100% !important;
+  }
+  .Tablero_Trabajo_1
+  {
+    //-----------------------------
+    & .CL_CONT_Principal_Tablero_Trabajo
+    {
+      height: 585px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      & .CL_CONT_Tablero_Trabajo
+      {
+        height: 100%;
+        @include MX_Box_Shadow(0px, 0px, 2px, 0px,rgba(0,0,0,3/10));
+
+        & .CL_CONT_Tablero_Trabajo_2.Barra_Derecho_Desplegado
+        {
+          width: 100%;
+          @include MX_Animacion_Normal(1/10, ease, 1/10);
+
+        }
+        & .CL_CONT_Tablero_Trabajo_2.Barra_Derecho_Oculto
+        {
+          width: 0px;
+          overflow: hidden;
+          @include MX_Animacion_Normal(1/10, ease, 1/10);
+
+        }
+        & .CL_CONT_Tablero_Trabajo_2
+        {
+          height: 100%;
+          background-color:  rgba($Color_3,.1);
+          overflow-y: auto;
+          overflow-x:hidden;
+        }
+        & .CL_CONT_Tablero.Barra_Izquierda_Oculto
+        {
+          width: 0px;
+          overflow: hidden;
+        }
+        & .CL_CONT_Tablero.BL_Ocultar_Barra_Izquierda
+
+        {
+          width: 100%;
+          @include MX_Animacion_Normal(1/10, ease, 1/10);
+        }
+        & .CL_CONT_Tablero
+        {
+          height: 100%;
+          background-color: $Color_6;
+          @include MX_Animacion_Normal(1/10, ease, 1/10);
+
+          & .CL_Cabezera_Tablero_Trabajo
+          {
+            height: 60px;
+            background-color: $Color_27;
+            border-left:solid 1px rgba($Color_3,.1);
+          }
+
+
+          & .CL_CONT_Tablero_Trabajo_1
+          {
+            height: 50px;
+            border-top: solid 1px rgba($Color_3,.1);
+            background-color: $Color_27;
+            overflow-y: auto;
+            overflow-x:hidden;
+            min-height: 470px;
+            max-height: 470px;
+
+
+            &.CL_Informacion_Tablero_1
+            {
+              height: 70px;
+              cursor: default;
+            }
+          }
+        }
+      }
+    }
+  }
+}

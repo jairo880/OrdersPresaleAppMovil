@@ -1,0 +1,8 @@
+//scss para guardar los mixin que contendran las partes de la pagina
+@mixin ContenidoPagina() {
+  #CONT_Consultar_Usuarios{
+
+    min-height: 900px;
+    max-height: 100%;
+  }
+}

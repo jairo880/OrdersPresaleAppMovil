@@ -1,0 +1,191 @@
+//scss para guardar los mixin que contendran las partes de la pagina
+@mixin Contenido_Pagina {
+
+  #CONT_Reg_Contenido_Pagina{
+    background: $Color_2;
+    height: 100%;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    @include MX_Box-Sizing(border-box);
+
+  }
+
+  #CONT_Registro
+  {
+    width: 90%;
+    height: 100%;
+    background: $Color_6;
+    padding-bottom: 150px;
+    padding-top: 10px;
+    /*Estilos flex*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    @include MX_Box-Sizing(border-box);
+
+
+    & #CONT_R_Titulo
+    {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-bottom: solid 1px $Color_2;
+
+      & img
+      {
+        width: 50px;
+        height: 50px;
+        @include MX_Bor_Radius(50%,0);
+        padding-bottom: 10px;
+
+      }
+
+      & p
+      {
+        @include Texto_Estilo_1(25px,$Color_11,100,center);
+        margin: 0px;
+
+      }
+
+
+    }
+  }
+
+  #FORM_Registro, #CONT_Datos_Empresa {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+
+    @include MX_Box-Sizing(border-box);
+
+
+
+    &  #CONT_Datos_Empresa{
+
+      height: auto;
+    }
+
+    & #CONT_Izquierda,
+    & #CONT_Derecha {
+      height: auto;
+      padding: 10px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-direction: column;
+      @include MX_Box-Sizing(border-box);
+
+      &.ng-hide-add {
+        animation: 0.5s Ng_show_Final_4 ease;
+      }
+      /* when showing the picture */
+      &.ng-hide-remove {
+        animation: 0.5s Ng_show_Incial_4 ease;
+      }
+
+
+      & label{
+        @include Texto_Estilo_1(12px,$Color_12,100,center);
+        margin-top: 8px;
+        margin-bottom: 8px;
+
+      }
+
+
+      & .Input_Estilo_1
+      {
+        margin: 5px 0px ;
+        padding: 7px;
+      }
+
+
+      & #SC_Genero{
+        height: 54px;
+        display: flex;
+        align-items: center;
+      }
+
+      & .RadioBtn_1
+      {
+        margin: 30px 3px;
+        color: #3B5998;
+
+
+
+
+      }
+
+    }
+  }
+
+  #CONT_R_Pregunta
+  {
+
+
+    @include MX_Box-Sizing(border-box);
+
+
+    &.ng-hide-add {
+      animation: 0.5s Ng_show_Final_4 ease;
+    }
+    /* when showing the picture */
+    &.ng-hide-remove {
+      animation: 0.5s Ng_show_Incial_4 ease;
+    }
+    & p
+    {
+      width: 100%;
+      border-bottom: solid 1px $Color_7;
+      padding: 10px;
+    }
+  }
+  #CONT_R_Botones
+  {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: solid 1px $Color_7;
+    padding: 60px 0px;
+    border-bottom: solid 1px $Color_7;
+
+    & button,& input
+    {
+      margin-right: 3%;
+    }
+
+  }
+
+  .CL_Mensaje_Dos
+  {
+    @include MX_Flecha(3,before);
+    margin-left: 15px !important;
+    &:before
+    {   border-bottom: 8px solid transparent !important;
+      /* izquierda flecha */
+      border-top: 8px solid transparent !important;
+      /* derecha flecha */
+      border-right: 10px solid  $Color_10 !important;
+      top:22% !important;
+      left: -20px !important;
+
+
+      border-bottom:10px solid transparent !important;
+
+
+    }
+    & p
+    {
+      border-bottom:none !important;
+    }
+
+  }
+}

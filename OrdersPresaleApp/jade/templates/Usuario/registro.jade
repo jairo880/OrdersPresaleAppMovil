@@ -1,0 +1,30 @@
+ion-view( view-title="Formulario de registro" )
+	ion-content
+		div(ui-view="login")
+			.card
+				.list
+					label.item.item-input.item-floating-label
+						span.input-label Nombre De Usuario
+						input(ng-model="AOBJ_Registro_Usuario.Nombre_Usuario" type="text" placeholder="Nombre De Usuario" minlength="3")
+					label.item.item-input.item-floating-label
+						span.input-label Contraseña
+						input(ng-model="AOBJ_Registro_Usuario.Contrasenia" type="text" placeholder="Contraseña" minlength="3")
+					label.item.item-input.item-floating-label
+						span.input-label Email
+						input(ng-model="AOBJ_Registro_Usuario.Correo_Electronico" type="text" placeholder="Email" minlength="3")
+					label.item.item-input.item-floating-label
+						span.input-label Municipio
+						input(ng-model="AOBJ_Registro_Usuario.Municipio" type="text" placeholder="Municipio" minlength="3")
+					label.item.item-input.item-floating-label
+						span.input-label Departamento
+						input(ng-model="AOBJ_Registro_Usuario.Departamento" type="text" placeholder="Departamento" minlength="3")
+					label.item.item-input.item-floating-label
+						span.input-label Telefono Celular
+						input(ng-model="AOBJ_Registro_Usuario.Telefono_celular" type="text" placeholder="Telefono Celular" minlength="3")
+					select(name="Empresa" ng-model="AOBJ_Registro_Usuario.Posee_Empresa")
+						option(value="SI",ng-click="AOBJ_Registro_Usuario.Posee_Empresa = 'SI'") SI
+						option( value="NO",ng-click="AOBJ_Registro_Usuario.Posee_Empresa = 'NO'" ) NO
+					br
+					br
+					.Botones
+						button.button.button-dark.button-full(ng-disabled="!AOBJ_Registro_Usuario.Nombre_Usuario || !AOBJ_Registro_Usuario.Contrasenia ||  !AOBJ_Registro_Usuario.Correo_Electronico || !AOBJ_Registro_Usuario.Municipio || !AOBJ_Registro_Usuario.Departamento || !AOBJ_Registro_Usuario.Telefono_celular" ng-click="FN_Registrar_Usuario()") Registrarse

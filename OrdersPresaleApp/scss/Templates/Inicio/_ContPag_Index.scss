@@ -1,0 +1,42 @@
+//scss para guardar los mixin que contendran las partes de la pagina
+@mixin ContenidoPagina() {
+  
+  /*CSS IMPORTADO DESDE MIXIN CONTENIDOPAGINA*/
+  //contendio de la pagina web
+  #CONT_Btn_Pasar_Pagina {
+    height: 70px;
+    text-align: center;
+    color: $Color_6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & a
+    {
+      border-radius: 50%;
+      background: $Color_21;
+      @include MX_Box_Shadow(0px, 0px, 5px, 1px,rgba(0,0,0,2/10));
+      width: 44px;
+      height: 44px;
+    }
+  }
+  .CL_Arrow:before {
+    cursor: pointer;
+    color: $Color_6;
+    text-decoration: none;
+    font-size: 35px;
+    line-height: 0;
+  }
+  #CONT_Contenido {
+    background: $Color_25;
+    height: auto;
+    padding: 10px 0 30px;
+  }
+  .CL_TXT_Titulo_Pagina {
+    @include Text_nav1(30px,$Color_3,600,center);
+    line-height: 0;
+    margin-left: 1%;
+  }
+
+
+}

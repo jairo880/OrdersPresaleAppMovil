@@ -1,0 +1,138 @@
+//animaciones de la pagina keyframes y transitions
+//Animaciones
+@mixin MX_Animacion_Normal($Duracion1, $Tipo, $Duracion2) {
+  -moz-transition: all $Duracion1+s $Tipo $Duracion2+s;
+  -ms-transition: all $Duracion1+s $Tipo $Duracion2+s;
+  -o-transition: all $Duracion1+s $Tipo $Duracion2+s;
+  -webkit-transition: all $Duracion1+s $Tipo $Duracion2+s;
+  transition: all $Duracion1+s $Tipo $Duracion2+s;
+}
+
+@mixin MX_Cubic_beizer_Scale($Scale) {
+  -webkit-transform: scale($Scale);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transform: scale($Scale);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+//Keyframes
+
+@mixin MX_Animaciones_Angular() {
+  /*Animaciones con angular utilizando la propiedad ng-active*/
+  //Animacion general para el ng-repeat
+  .ng_repeat_anim1.ng-enter
+  {
+    opacity: 0;
+    transform:scale(0);
+  }
+  .ng_repeat_anim1.ng-enter-active
+  {
+    opacity: 1;
+    margin-left: 0;
+    transform:scale(1);
+
+  }
+  .ng_repeat_anim1.ng-leave{
+    opacity: 1;
+    margin-left: 0;
+    transform:scale(1);
+
+  }
+  .ng_repeat_anim1.ng-leave-active
+  {
+    opacity: 0;
+    transform:scale(1);
+  }
+  .ng-hide-add {
+    animation: 0.5s Ng_Show_AnimacionGeneral_Final ease;
+  }
+  /* when showing the picture */
+  .ng-hide-remove {
+    animation: 0.5s Ng_Show_AnimacionGeneral_Inicial ease;
+  }
+  //Animacion para el ng-show de angular, esta animacion llama al keyframe de el efecto login
+  .ng_show
+  {
+   
+    &.ng-hide-add {
+      animation: 0.5s Ng_show_Final_4 ease;
+    }
+    /* when showing the picture */
+    &.ng-hide-remove {
+      animation: 0.5s Ng_show_Incial_4 ease;
+    }   
+  }
+
+  .ng_repeat_amiacion_1
+  {
+    & .animate-enter,
+    & .animate-leave {
+      opacity: 0;
+      transform:scale(0);
+    }
+
+    & .animate-leave.animate-leave-active,
+    & .animate-enter {
+
+      opacity: 1;
+      margin-left: 0;
+      transform:scale(1);
+    }
+
+    & .animate-enter.animate-enter-active,
+    & .animate-leave {
+      opacity: 1;
+      margin-left: 0;
+      transform:scale(1);
+    }
+  }
+
+  @keyframes Ng_Show_AnimacionGeneral_Inicial {
+    0% { transition-timing-function: ease-in; opacity: 0;margin-left: -500px; overflow: hidden}
+    100% { opacity: 1; margin: 0;overflow: auto; }
+
+  }
+  @keyframes Ng_Show_AnimacionGeneral_Final {
+    0% { transition-timing-function: ease-in; opacity: 1;margin-left: -500px;}
+    100% { transition-timing-function: ease-in; opacity: 0;margin-left: -500px; overflow: hidden}
+  }
+
+  //***************************keyframe para orden
+  @keyframes Ng_Show_Orden_Contenedor_Inicial {
+    0% { transition-timing-function: ease-in; opacity: 0; width: 0px;height: 0px;overflow: hidden; transform: scale(0)}
+    100% { opacity: 1;overflow: auto; transform: scale(1) }
+  }
+
+  @keyframes Ng_Show_Orden_Contenedor_Final {
+    0% {transition-timing-function: ease-in; opacity: 1; }
+    100% {transition-timing-function: ease-in; opacity: 0; width: 300px;height: 0px;overflow: hidden; transform: scale(1)}
+  }
+  //***************************keyframe para  mensaje contenedor(chay y nuevo mensaje)
+  @keyframes Ng_Show_Mensaje_Contenedor_Inicial {
+    0% { transition-timing-function: ease-in; opacity: 0;height: 0px;overflow: hidden;}
+    40% { transition-timing-function: ease-in; transition-timing-function: ease-in; }
+    60% { opacity: 1;overflow: auto; }
+    80% { }
+    100% { }
+  }
+  @keyframes Ng_Show_Mensaje_Contenedor_Final {
+    0% { opacity: 1;overflow: auto; }
+    100% { opacity: 0;height: 0px;overflow: hidden; }
+  }
+  @keyframes Ng_Show_Mensaje_Contenedor_Final {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  //**********************keyframe para la animacion de login
+  @keyframes Ng_show_Incial_4 {
+    0% { transition-timing-function: ease-in; opacity: 0;}
+    40% { transition-timing-function: ease-in; transition-timing-function: ease-in; }
+    100% { opacity: 1; margin: 0;}
+  }
+  /* light speed out */
+  @keyframes Ng_show_Final_4 {
+    0% { opacity: 1; margin: 0; }
+    100% { opacity: 0; }
+  }
+
+}

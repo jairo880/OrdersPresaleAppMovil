@@ -1,0 +1,270 @@
+
+
+
+@mixin MX_Input_Estilos {
+
+  .Input_Estilo_1 {
+    background: $Color_6;
+    border:2px solid $Color_20;
+    margin-top: 20px;
+    padding: 9px;
+    width: 100%;
+    /*Incluido*/
+    @include Text_nav1(13px,$Color_3,100,left);
+    @include MX_Box-Sizing(border-box);
+    @include MX_Animacion_Normal(2/10, ease, 2/10);
+    @include MX_Bor_Radius(5px,0);
+
+
+    &:focus,
+    &:hover {
+      cursor: text;
+      border:1px solid $Color_2;
+      @include MX_Box_Shadow(0px,0px, 1px, 0px, rgba($Color_3,.6));
+
+    }
+    &:disabled
+    {
+      background-color: $Color_2;
+      cursor:default;
+      color: $Color_11;
+    }
+    @include desde(movil) {
+      font-size: 13px;
+      padding: 9px;
+
+    }
+    @include desde(tablet) {
+      font-size: 14px;
+      padding: 10px;
+
+    }
+    @include desde(web) {
+      font-size: 15px;
+      padding: 5px;
+
+    }
+    @include desde(Hd) {
+      font-size: 21px;
+
+    }
+  }
+
+  .Input_Estilo_2 {
+    background: $Color_6;
+    border:1px solid $Color_2;
+    margin-top: 20px;
+    padding: 9px;
+    width: 100%;
+    /*Incluido*/
+    @include Text_nav1(13px,rgba($Color_3,.6),100,left);
+    @include MX_Box-Sizing(border-box);
+    @include MX_Animacion_Normal(2/10, ease, 2/10);
+
+    &:focus,
+    &:hover {
+      cursor: text;
+      // border:1px solid transparent;
+      // border-bottom: solid 1px $Color_12;
+
+    }
+
+    @include desde(movil) {
+      font-size: 13px;
+      padding: 9px;
+
+    }
+    @include desde(tablet) {
+      font-size: 14px;
+      padding: 10px;
+
+    }
+    @include desde(web) {
+      font-size: 15px;
+      padding: 9px;
+
+    }
+    @include desde(Hd) {
+      font-size: 21px;
+
+    }
+
+  }
+  .Input_Estilo_3 {
+    background: $Color_6;
+    border:1px solid transparent;
+    border-bottom: solid 1px $Color_2;
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    /*Incluido*/
+    @include Text_nav1(15px,$Color_3,100,left);
+    @include MX_Box-Sizing(border-box);
+    @include MX_Animacion_Normal(2/10, ease, 2/10);
+
+    &:focus,
+    &:hover {
+      cursor: text;
+      border:1px solid transparent;
+      border-bottom: solid 1px $Color_11;
+    }
+  }
+
+  .Textarea_Estilo_1
+  {
+    background: $Color_6;
+    border:1px solid $Color_20;
+    margin-top: 20px;
+    padding: 8px;
+    width: 100%;
+    resize:none;
+    /*Incluido*/
+    @include Text_nav1(11px,$Color_3,100,left);
+    @include MX_Box-Sizing(border-box);
+    @include MX_Animacion_Normal(2/10, ease, 2/10);
+    @include MX_Bor_Radius(5px,0);
+
+
+    &:focus,
+    &:hover {
+      cursor: text;
+      border:1px solid $Color_21;
+      @include MX_Box_Shadow(0px,0px, 5px, 0px, $Color_21);
+
+    }
+    &:disabled
+    {
+      background-color: $Color_2;
+      cursor:default;
+      color: $Color_11;
+    }
+    @include desde(movil) {
+      font-size: 13px;
+      padding: 8px;
+
+    }
+    @include desde(tablet) {
+      font-size: 14px;
+      padding: 9px;
+
+    }
+    @include desde(web) {
+      font-size: 15px;
+      padding: 5px;
+
+    }
+    @include desde(Hd) {
+      font-size: 21px;
+
+    }
+  }
+  .Input_Estilo_4 {
+    background: $Color_6;
+    border:1px solid $Color_20;
+    margin-top: 20px;
+    padding: 8px;
+    width: 100%;
+    /*Incluido*/
+    @include Text_nav1(11px,$Color_3,100,left);
+    @include MX_Box-Sizing(border-box);
+    @include MX_Animacion_Normal(2/10, ease, 2/10);
+    @include MX_Bor_Radius(5px,0);
+
+
+    &:focus,
+    &:hover {
+      cursor: text;
+      border:1px solid rgba($Color_3,.6);
+
+    }
+    &:disabled
+    {
+      background-color: $Color_2;
+      cursor:default;
+      color: $Color_11;
+    }
+    @include desde(movil) {
+      font-size: 13px;
+      padding: 8px;
+
+    }
+    @include desde(tablet) {
+      font-size: 14px;
+      padding: 9px;
+
+    }
+    @include desde(web) {
+      font-size: 15px;
+      padding: 5px;
+
+    }
+    @include desde(Hd) {
+      font-size: 21px;
+
+    }
+  }
+  .Textarea_Estilo_2
+  {
+    background: transparent;
+    border:1px solid transparent;
+    margin-top: 20px;
+    padding: 8px;
+    width: 100%;
+    resize:none;
+    /*Incluido*/
+    @include Text_nav1(11px,$Color_3,100,left);
+    @include MX_Box-Sizing(border-box);
+    @include MX_Animacion_Normal(2/10, ease, 2/10);
+    @include MX_Bor_Radius(5px,0);
+
+
+    &:focus,
+    &:hover {
+      cursor: text;
+      margin-top: 20px;
+      padding: 8px;
+      border:1px solid $Color_21;
+
+
+
+    }
+    &:disabled
+    {
+      background-color:transparent;
+      cursor:default;
+      color: $Color_11;
+
+
+      &:focus,
+      &:hover {
+        cursor: text;
+        border:none;
+
+      }
+    }
+    @include desde(movil) {
+      font-size: 13px;
+      padding: 8px;
+
+    }
+    @include desde(tablet) {
+      font-size: 14px;
+      padding: 9px;
+
+    }
+    @include desde(web) {
+      font-size: 15px;
+      padding: 5px;
+
+    }
+    @include desde(Hd) {
+      font-size: 21px;
+
+    }
+  }
+
+
+
+
+
+}

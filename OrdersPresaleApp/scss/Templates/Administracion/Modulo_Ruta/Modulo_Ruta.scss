@@ -1,0 +1,12 @@
+//Archivo base de estilso para la pagina web
+@import "../../../Base_Orders_Presale/Orders_Presale_Base";
+//importo los css personales de la pagina
+@import "_ContPag_Modulo_Ruta";
+//importados del archivo personal
+@include ContenidoPagina();
+
+
+@import "_Media_query_Movil";
+@import "_Media_query_Tablet";
+@import "_Media_query_Web";
+@import "_Media_query_Hd";

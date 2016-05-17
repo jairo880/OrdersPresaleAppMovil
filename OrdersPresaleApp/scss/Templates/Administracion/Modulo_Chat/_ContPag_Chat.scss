@@ -1,0 +1,160 @@
+//scss para guardar los mixin que contendran las partes de la pagina
+@mixin ContenidoPagina() {
+ #CONT_Principal_Modulo_Chat
+ {
+  background-color: $Color_25;
+  height: 655px;
+  overflow: auto;
+  overflow-x:hidden;
+}
+.CL_CONT_Usuarios
+{
+  overflow-y: auto;
+  overflow-x:hidden;
+  height: 440px;
+  background: $Color_6;
+}
+.Tablero_Trabajo_1 .CL_CONT_Principal_Tablero_Trabajo .CL_CONT_Tablero_Trabajo .CL_CONT_Tablero .CL_CONT_Tablero_Trabajo_1
+{
+  background: $Color_6;
+}
+
+.CL_Informacion_Usuario
+{
+  height: 70px;
+  cursor: pointer;
+
+
+  & .CL_Informacion_Datos
+  {
+    border-top: solid 1px rgba($Color_3,.1);
+    border-bottom: solid 1px rgba($Color_3,.1);
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+.CL_Informacion_Imagen
+{
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+}
+
+.CL_Contenedor_Comentarios_Chat
+{
+  height: 329px;
+  overflow: hidden;
+  overflow-y:auto;
+
+}
+
+//Estilos para los contenedores de ng-repeat del chat
+//Contenedor principal
+.CL_Cont_Comentarios
+{
+  & .CL_Imagen_Chat
+  {
+
+  }
+  & .CL_Comentario_Chat
+  {
+
+  }
+
+  & .CL_Comentario_Remitente
+  {
+    background-color: $Color_12;
+    padding-bottom: 20px;
+    color:$Color_6;
+    @include MX_Flecha(4,before);
+    @include MX_Box_Shadow(0px, 0px, 2px, 0px,rgba(0,0,0,4/10));
+    text-rendering: auto;
+    word-wrap: break-word;
+    & .CL_Texto_Mensaje_Comentario
+    {
+      max-width: 320px;
+      max-height: 400px;
+      overflow-y: auto;
+      font-family: 'Ubuntu', sans-serif !important;
+
+    }
+    
+    &:before
+    {
+      top: 5px;
+      right: -9px;
+      left: auto;
+      border-bottom: 15px solid transparent;
+      /* izquierda flecha */
+      border-top: 15px solid transparent;
+      /* derecha flecha */
+      border-left: 12px solid $Color_12;
+
+    }
+    
+    & .CL_Feche_Comentario_Remitente
+    {
+      position: relative;
+      bottom: -16px;
+      right: -71%;
+      width: auto;
+      left: auto;
+      font-size: 10px;
+
+      &:before
+      {
+        color: $Color_6;
+      }
+    }
+  }
+
+  & .CL_Comentario_Destinatario
+  {
+    background-color: $Color_6;
+    padding-bottom: 20px;
+    color:$Color_8;
+    @include MX_Flecha(3,before);
+    @include MX_Box_Shadow(0px, 0px, 2px, 0px,rgba(0,0,0,4/10));
+    text-rendering: auto;
+    word-wrap: break-word;
+    & .CL_Texto_Mensaje_Comentario
+    {
+      max-width: 320px;
+      max-height: 400px;
+      overflow-y: auto;
+      font-family: 'Ubuntu', sans-serif !important;
+
+
+    }
+
+    &:before
+    {
+      top: 5px;
+      left: -9px;
+      border-bottom: 15px solid transparent;
+      /* izquierda flecha */
+      border-top: 15px solid transparent;
+      /* derecha flecha */
+      border-right: 15px solid $Color_6;
+
+    }
+
+
+    & .CL_Feche_Comentario_Destinatario
+    {
+      position: absolute;
+      bottom: -3px;
+      left: 1%;
+      width: auto;
+      font-size: 10px !important;
+
+      &:before
+      {
+        color: $Color_11;
+      }
+    }
+  }
+
+}
+
+}

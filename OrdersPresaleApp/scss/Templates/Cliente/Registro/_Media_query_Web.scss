@@ -1,0 +1,16 @@
+@include desde(web) {
+	.CL_TXT_Texto
+	{
+		padding-left: 5px;
+		width: auto;
+		& p
+		{
+			margin: 0px;
+		}
+		& p:nth-child(1), & p:nth-child(2)
+		{
+			@include Texto_Estilo_1(20px,$Color_6,600,left);
+
+		}
+	}
+}

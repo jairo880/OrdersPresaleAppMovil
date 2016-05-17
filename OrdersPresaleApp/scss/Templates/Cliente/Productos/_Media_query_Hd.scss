@@ -1,0 +1,17 @@
+@include desde(hd) {
+	#CONT_Listado_Productos 
+	{
+		& #CONT_P_Productos
+		{
+		
+
+
+			& .CL_P_Imagen {
+				width: 500px;
+				height:70%;
+
+			}
+		}
+		
+	}
+}

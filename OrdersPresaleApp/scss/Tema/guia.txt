@@ -1,0 +1,1 @@
+estos archivos contendran partes especificas de la pagina header,footer,etc

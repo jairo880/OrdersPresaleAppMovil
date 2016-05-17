@@ -1,0 +1,21 @@
+//scss para guardar los mixin que contendran las partes de la pagina
+@mixin ContenidoPagina() {
+  .CONT_Gestion_De_Contenido
+  {
+    @include MX_Box-Sizing(border-box);
+
+
+
+  }
+  .CONT_Gestion_De_Contenido_Tabla
+  {
+    height: auto;
+    overflow: auto;
+
+    @include MX_Box-Sizing(border-box);
+  }
+  .CL_Imagen_Nueva
+  {
+    max-height: 300px;
+  }
+}

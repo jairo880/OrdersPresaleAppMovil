@@ -1,0 +1,279 @@
+
+
+//Propiedades
+//Box-shadow
+@mixin MX_Box_Shadow($x, $y, $blur, $opacidad, $Color) {
+  -moz-box-shadow: ($x $y $blur $opacidad $Color);
+  -ms-box-shadow: ($x $y $blur $opacidad $Color);
+  -o-box-shadow: ($x $y $blur $opacidad $Color);
+  -webkit-box-shadow: ($x $y $blur $opacidad $Color);
+  box-shadow: ($x $y $blur $opacidad $Color);
+}
+//Border-radius
+@mixin MX_Bor_Radius($Valor, $Tipo) {
+  @if $Tipo == 0 {
+    -moz-border-radius: $Valor;
+    -khtml-border-radius: $Valor;
+    -webkit-border-radius: $Valor;
+    border-radius: $Valor;
+  }
+  @else if $Tipo == 1 {
+    -moz-border-top-left-radius: $Valor;
+    -khtml-border-top-left-radius: $Valor;
+    -webkit-border-top-left-radius: $Valor;
+    border-top-left-radius: $Valor;
+  }
+  @else if $Tipo == 2 {
+    -moz-border-top-right-radius: $Valor;
+    -khtml-border-top-right-radius: $Valor;
+    -webkit-border-top-right-radius: $Valor;
+    border-top-right-radius: $Valor;
+  }
+  @else if $Tipo == 3 {
+    -moz-border-bottom-left-radius: $Valor;
+    -khtml-border-bottom-left-radius: $Valor;
+    -webkit-border-bottom-left-radius: $Valor;
+    border-bottom-left-radius: $Valor;
+  }
+  @else if $Tipo == 4 {
+    -moz-border-bottom-right-radius: $Valor;
+    -khtml-border-bottom-right-radius: $Valor;
+    -webkit-border-bottom-right-radius: $Valor;
+    border-bottom-right-radius: $Valor;
+  }
+  @else if $Tipo == 5 {
+    -moz-border-bottom-right-radius: $Valor;
+    -khtml-border-bottom-right-radius: $Valor;
+    -webkit-border-bottom-right-radius: $Valor;
+    border-bottom-right-radius: $Valor;
+    -moz-border-bottom-left-radius: $Valor;
+    -khtml-border-bottom-left-radius: $Valor;
+    -webkit-border-bottom-left-radius: $Valor;
+    border-bottom-left-radius: $Valor;
+  }
+  @else if $Tipo == 6 {
+    -moz-border-top-right-radius: $Valor;
+    -khtml-border-top-right-radius: $Valor;
+    -webkit-border-top-right-radius: $Valor;
+    border-top-right-radius: $Valor;
+    -moz-border-top-left-radius: $Valor;
+    -khtml-border-top-left-radius: $Valor;
+    -webkit-border-top-left-radius: $Valor;
+    border-top-left-radius: $Valor;
+  }
+  @else if $Tipo == 7 {
+    -moz-border-top-right-radius: $Valor;
+    -khtml-border-top-right-radius: $Valor;
+    -webkit-border-top-right-radius: $Valor;
+    border-top-right-radius: $Valor;
+    -moz-border-bottom-right-radius: $Valor;
+    -khtml-border-bottom-right-radius: $Valor;
+    -webkit-border-bottom-right-radius: $Valor;
+    border-bottom-right-radius: $Valor;
+  }
+  @else if $Tipo == 8 {
+    -moz-border-top-left-radius: $Valor;
+    -khtml-border-top-left-radius: $Valor;
+    -webkit-border-top-left-radius: $Valor;
+    border-top-left-radius: $Valor;
+    -moz-border-bottom-left-radius: $Valor;
+    -khtml-border-bottom-left-radius: $Valor;
+    -webkit-border-bottom-left-radius: $Valor;
+    border-bottom-left-radius: $Valor;
+  }
+}
+//Box-sizing
+@mixin MX_Box-Sizing($TipoBox) {
+  -webkit-box-sizing: $TipoBox;
+  -moz-box-sizing: $TipoBox;
+  box-sizing: $TipoBox;
+}
+
+@mixin MX_Imagen_Folder_Proyect($Encarpetado, $url, $Tamaño, $Repeat, $TodoContenido) {
+  @if $TodoContenido == 1 {
+    //para imagenes circulares
+    $Ruta: $Encarpetado+$url;
+    background: url(#{$Ruta});
+    background-repeat: $Repeat;
+    -webkit-background-size: $Tamaño;
+    -moz-background-size: $Tamaño;
+    -o-background-size: $Tamaño;
+    background-size: $Tamaño;
+    background-position: center;
+    @include MX_Bor_Radius(50%,0);
+  }
+  @else if $TodoContenido == 2 {
+    //para imagenes normales
+    $Ruta: $Encarpetado+$url;
+    background: url(#{$Ruta});
+    background-repeat: $Repeat;
+    -webkit-background-size: $Tamaño;
+    -moz-background-size: $Tamaño;
+    -o-background-size: $Tamaño;
+    background-size: $Tamaño;
+    background-position: center;
+  }
+}
+
+
+@mixin MX_Imagen_Folder_Web($url, $Tamaño, $Repeat, $TodoContenido) {
+  @if $TodoContenido == 1 {
+    //para imagenes circulares
+    background: url(#{$url});
+    background-repeat: $Repeat;
+    -webkit-background-size: $Tamaño;
+    -moz-background-size: $Tamaño;
+    -o-background-size: $Tamaño;
+    background-size: $Tamaño;
+    background-position: center;
+    @include MX_Bor_Radius(50%,0);
+  }
+  @else if $TodoContenido == 2 {
+    //para imagenes normales
+    background: url(#{$url});
+    background-repeat: $Repeat;
+    -webkit-background-size: $Tamaño;
+    -moz-background-size: $Tamaño;
+    -o-background-size: $Tamaño;
+    background-size: $Tamaño;
+    background-position: center;
+  }
+}
+
+
+@mixin MX_Estilo_Imagen() {
+  %PH_Imagen
+  {
+    max-width: 100% !important;
+    height: auto;
+    margin: 10px;
+    &:hover
+    {
+      opacity: 0.8;
+    }
+  }
+
+  .CL_Imagen_1
+  {
+    @include MX_Bor_Radius(50%,0);
+    @extend %PH_Imagen;
+  }
+  .CL_Imagen_2
+  {
+    @include MX_Bor_Radius(5%,0);
+    @extend %PH_Imagen;
+  }
+  .CL_Imagen_3
+  {
+    @include MX_Bor_Radius(2%,0);
+    padding: 3px;
+    border:solid 1px $Color_7;
+    @extend %PH_Imagen;
+  }
+  .CL_Imagen_4
+  {
+    @include MX_Bor_Radius(0px,0);
+    @extend %PH_Imagen;
+  }
+  .CL_Imagen_Icono_1
+  {
+    height: 40px;
+    width: 40px ;
+    @include MX_Bor_Radius(50%,0);
+    @extend %PH_Imagen;
+  }
+  .CL_Imagen_Icono_2
+  {
+    height: 45px;
+    width: 45px;
+    @include MX_Bor_Radius(50%,0);
+    @extend %PH_Imagen;
+  }
+  .CL_Imagen_Icono_3
+  {
+    height: 50px;
+    width: 50px;
+    @include MX_Bor_Radius(50%,0);
+    @extend %PH_Imagen;
+  }
+   .CL_Imagen_Icono_4
+  {
+    height: 60px;
+    width: 60px;
+    @include MX_Bor_Radius(50%,0);
+    @extend %PH_Imagen;
+  }
+    .CL_Imagen_Icono_5
+  {
+    height: 70px;
+    width: 70px;
+    @include MX_Bor_Radius(50%,0);
+    @extend %PH_Imagen;
+  }
+    .CL_Imagen_Icono_6
+  {
+    height: 80px;
+    width: 80px;
+    @include MX_Bor_Radius(50%,0);
+    @extend %PH_Imagen;
+  }
+    .CL_Imagen_Icono_7
+  {
+    height: 90px;
+    width: 90px;
+    @include MX_Bor_Radius(50%,0);
+    @extend %PH_Imagen;
+  }
+
+
+}
+
+@mixin MX_Estilo_Icono() {
+  %PH_Icono
+  {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:$Color_6;
+    font-family: 'Ubuntu', sans-serif;
+    text-transform: uppercase;
+    @include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,5/10));
+    @include MX_Bor_Radius(50%,0);
+
+
+    &:hover
+    {
+      opacity: 0.8;
+    }
+  }
+
+  .CL_Icono_1
+  {
+    @extend %PH_Icono;
+    background-color: $Color_24;
+
+
+  }
+  .CL_Icono_2
+  {
+    @extend %PH_Icono;
+    background-color: $Color_5;
+
+  }
+  .CL_Icono_3
+  {
+
+    @extend %PH_Icono;
+    background-color: $Color_11;
+
+  }
+  .CL_Icono_4
+  {
+    @extend %PH_Icono;
+    background-color: $Color_12;
+
+  }
+}

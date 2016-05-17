@@ -1,0 +1,55 @@
+link(href='../css/style.css' rel='stylesheet' type='text/css')
+ion-modal-view
+	ion-header-bar
+		h1.title Inicar sesion
+		.buttons
+			.button.button-clear.icon-cancelar3(ng-click="FN_Cerrar_Login()")
+	ion-content
+				//- img#logo(src="../img/LogoAllopColor.png" alt="")
+				//- label.item.item-input.item-floating-label
+				//- 	span.input-label Nombre De Usuario
+				//- 	input(ng-model="Persona.Usuario_Nombre" type="text" placeholder="Nombre De Usuario" minlength="3")
+				//- label.item.item-input.item-floating-label
+				//- 	span.input-label Contraseña
+				//- 	input(ng-model="Persona.Contrasenia"  type="password" placeholder="Contraseña" minlength="3")
+				//- br
+				//- .Botones
+				//- 	.button.button-dark.button-full(ng-disabled="!Persona.Usuario_Nombre || !Persona.Contrasenia" ng-click="FN_Iniciar_Sesion(Persona)") Iniciar Sessión
+		#CONT_Login_Form.Grid_Contenedor.Base-100.tablet-90.web-35.abcenter.distributed
+				img.CL_Img_Login(ng-src="{{dato.AOBJ_Datos_Usuario[0].Imagen_Usuario}}", alt="usuario")
+				p.CL_TXT_Texto_4.CL_TXT_Gris.center(ng-show="BL_Login_Recup == true") Ingresar
+				p.CL_TXT_Texto_4.CL_TXT_Gris.center(ng-show="BL_Login_Recup == false") Recuperar contraseña
+				p.CL_Eliminar_1_1(ng-click="FN_Cerrar_Login()")
+				//Formulario para iniciar sesion
+				form#FORM_Login(name="Form_Login" ng-show="BL_Login_Recup == true" ng-submit="FN_Iniciar_Sesion(LG)")
+					label(for="#INPUT_Usuario") Usuario
+					input#INPUT_Usuario.Input_Estilo_1(maxlength="15",minlength="3",type="text",name="Usuario_Nombre",ng-model="LG.Usuario_Nombre",placeholder="Ingresa tu nombre de usuario",required)
+					//Mensaje de validacion
+					div#CONT_Mensaje_Validacion(ng-show="!Form_Login.$pristine && Form_Login.Usuario_Nombre.$error.required ")
+						p.icon-login Ingresa tu usuario
+					div#CONT_Mensaje_Validacion(ng-show="!Form_Login.Usuario_Nombre.$valid && !Form_Login.$pristine && !Form_Login.Usuario_Nombre.$error.required")
+						p.icon-login La cantidad de caracteres es muy corta
+					label(#INPUT_Contrasenia) Contraseña
+					input#INPUT_Contrasenia.Input_Estilo_1(maxlength="15",minlength="7 ",type="password" name="Contrasenia" ng-model="LG.Contrasenia" placeholder="Ingresa tu contraseña"  required )
+					//Mensaje de validacion
+					div#CONT_Mensaje_Validacion(ng-show="!Form_Login.$pristine && Form_Login.Contrasenia.$error.required")
+						p.icon-key Ingresa tu contraseña
+					div#CONT_Mensaje_Validacion(ng-show="!Form_Login.Contrasenia.$valid && !Form_Login.$pristine && !Form_Login.Contrasenia.$error.required ")
+						p.icon-login La cantidad de caracteres es muy corta
+					a.CL_TXT_Enlace_1.CL_TXT_Gris(href!="<?php echo URL; ?>Cliente/Registro") Crear cuenta	
+					a.CL_TXT_Enlace_1.CL_TXT_Gris(ng-click="dato.BL_Login_Recup = false") Recuperar contraseña	
+					#CONT_Btnes
+						input.Btn_Estilo_6(type="submit" ng-disabled="!Form_Login.$valid" value="Iniciar Sesión" )
+						a.Btn_Estilo_5(ng-click="FN_Cerrar_Login()") Cancelar
+				//Formulario para recuperar contraseña		
+				form#FORM_Login(name="Form_Recuperar_Password"  ng-show="dato.BL_Login_Recup == false" ng-submit="FN_Recuperar_contrasenia(RC)")
+					label(for="#INPUT_Email") Email
+					input#INPUT_Email.Input_Estilo_1(maxlength="30",minlength="7 ",type="email" name="Correo"  ng-model="RC.Correo" placeholder="Correo electronico" required)
+					//Mensaje de validacion
+					div#CONT_Mensaje_Validacion(ng-show="!Form_Recuperar_Password.$pristine && Form_Recuperar_Password.Correo.$error.required")
+						p.icon-negocio Ingrese un correo valido
+					div#CONT_Mensaje_Validacion(ng-show="!Form_Recuperar_Password.Correo.$valid && !Form_Recuperar_Password.$pristine && !Form_Recuperar_Password.Correo.$error.required ")
+						p.icon-login La cantidad de caracteres es muy corta
+					#CONT_Btnes
+						input.Btn_Estilo_6( type="submit" ng-disabled="!Form_Recuperar_Password.$valid " value="Recuperar contraseña") 
+						a.icon-login-2.Btn_Estilo_5(ng-click="BL_Login_Recup = true") Iniciar sesi&oacute;n

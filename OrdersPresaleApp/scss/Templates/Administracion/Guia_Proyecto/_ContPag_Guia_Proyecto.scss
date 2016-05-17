@@ -1,0 +1,287 @@
+//scss para guardar los mixin que contendran las partes de la pagina
+@mixin ContenidoPagina() {
+  #CONT_Titulo
+  {
+    padding: 20px 10px 20px 30px;
+    @include MX_Box-Sizing(border-box);
+    display: flex;
+    align-items:flex-start;
+    justify-content:flex-start;
+
+
+    & p
+    {
+      @include Texto_Estilo_1(15px,$Color_11,600,left);
+      display: flex;
+      margin: 0px;
+      &:before
+      {
+        color: tomato;
+        font-size: 20px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  #CONT_Estructura_Carpetas
+  {
+    width: 100%;
+    @include MX_Box-Sizing(border-box);
+    background-color: #F3F3F4;
+    display: flex;
+    align-items:flex-start;
+    justify-content:space-arround;
+    flex-wrap:wrap;
+
+
+  }
+  #CONT_Contenido
+  {
+    @include MX_Box-Sizing(border-box);
+    // background-color: #FFFFFF;
+    // box-shadow:1px solid rgba(0,0,0,.07);
+    @include MX_Bor_Radius(2px,0);
+
+    & .CL_Bloques
+    {
+
+
+      & li
+      {
+
+        padding:10px;
+        list-style: none;
+        background-color: #FFFFFF;
+        // margin: 0px 25px 25px 5px;
+        text-rendering: auto;
+        word-wrap: break-word;
+        @include MX_Box-Sizing(border-box);
+        @include MX_Bor_Radius(3px,0);
+        position: relative;
+
+
+
+      }
+      & .CL_Diseno
+      {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        background-color: #FFFFFF;
+        border: 1px solid rgba(0,0,0,.07);
+
+        & .Color:nth-child(even)
+        {
+          background-color:$Color_22;
+        }
+        .Color,.Color2
+        {
+          height: 50px;
+          background-color: $Color_23;
+          margin: 1px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-rendering: auto;
+          word-wrap: break-word;
+          @include Texto_Estilo_1(10px,$Color_6,600,center);
+        }
+        .Color2
+        {
+          background-color: $Color_23;
+        }
+        & a
+        {
+          width: auto;
+          margin-left: 15px;
+        }
+        & select
+        {
+          margin-left: 15px;
+        }
+        & .Btn_Circular_1, & .Btn_Circular_2, & .Btn_Circular_3
+        {
+          position: relative;
+          bottom: 0px;
+          right: 0px;
+          margin-left: 20px;
+        }
+      }
+
+      & li .CL_TXT_Descripcion
+      {
+        margin-left: 15px;
+        margin-top: 5px;
+        line-height:32px;
+        @include Texto_Estilo_1(15px,$Color_12,100,left);
+        cursor: pointer;
+
+        & i
+        {
+          @include Texto_Estilo_1(13px,$Color_5,600,left);
+          margin: 0px 5px;
+        }
+
+        &:before
+        {
+
+          margin-right: 15px;
+          color: $Color_5;
+          font-size: 20px;
+
+        }
+
+      }
+    }
+
+  }
+  #SC_Genero
+  {
+    height: 48px;
+    margin-top: 11px;
+  }
+  .CL_Titulo_Grid
+  {
+    @include Texto_Estilo_3(50px,$Color_3,600,center);
+
+  }
+
+  .CL_Titulo_Contenedor
+  {
+    padding-bottom: 10px;
+    width: 100%;
+    @include Texto_Estilo_1(18px,$Color_3,600,left);
+
+    &:before
+    {
+
+      margin-right: 15px;
+      color: $Color_10;
+      font-size:16px;
+
+    }
+
+    & span
+    {
+      margin-left: 10px;
+      @include Texto_Estilo_1(18px,$Color_21,600,left);
+    }
+
+  }
+
+
+
+  .CL_Txt_1
+  {
+    padding: 5px;
+    text-transform: uppercase;
+    width: 100%;
+    border-bottom: solid 1px $Color_7;
+    @include Texto_Estilo_1(16px,#404040,100,left);
+
+    &:before
+    {
+
+      margin-right: 15px;
+      color: $Color_10;
+
+    }
+
+  }
+  .CL_TXT_I
+  {
+    color: $Color_6 !important;
+    margin-left: 5px;
+    background-color: $Color_22;
+    border: solid 1px transparent;
+    padding: 5px;
+    margin: 5px;
+    @include MX_Bor_Radius(3px,0);
+
+    &:hover{
+      border:solid 1px $Color_21;
+      background-color: $Color_23;
+      color: $Color_6;
+    }
+  }
+  #CONT_Barra
+  {
+    width: 100%;
+    padding: 10px;
+    background-color: $Color_6;
+    color: $Color_6;
+    height: auto;
+    display: flex;
+    flex-direction:column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: hidden;
+    @include MX_Box-Sizing(border-box);
+    @include MX_Animacion_Normal(0.2, ease, 0.2);
+    @include MX_Box_Shadow(0px, 0px, 2px, 0px,rgba(0,0,0,3/10));
+
+
+    & li:nth-child(3) a.CL_Btn_Enlace
+    {
+      &:before{
+        color:$Color_10;
+      }
+    }
+    & li:nth-child(4) a.CL_Btn_Enlace
+    {
+      &:before{
+        color:$Color_5;
+      }
+    }
+    & li:nth-child(5) a.CL_Btn_Enlace
+    {
+      &:before{
+        color:orange;
+      }
+    }
+    & li:nth-child(6) a.CL_Btn_Enlace
+    {
+      &:before{
+        color:$Color_3;
+      }
+    }
+    & li:nth-child(1) a.CL_Btn_Enlace
+    {
+      &:before{
+        color:$Color_10;
+      }
+    }
+    & li
+    {
+      &:before
+
+      {
+        margin-right: 20px;
+      }
+    }
+
+  }
+  #Ejemplo_Registro
+  {
+    background-color: $Color_25;
+    padding-top: 50px;
+    @include MX_Box-Sizing(border-box);
+
+    & #FORM_Registro_Ejemplo
+    {
+      @include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,5/10));
+      background-color: $Color_6;
+      margin-bottom: 50px;
+
+    }
+  }
+
+
+
+
+
+
+
+}

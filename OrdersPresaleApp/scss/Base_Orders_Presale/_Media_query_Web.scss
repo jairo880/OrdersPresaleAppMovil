@@ -1,0 +1,21 @@
+@include desde(web) {
+	.CL_Body_Menu_Desplegado
+	{
+		width: 81.2%;
+		margin-left: 250px;
+	}
+	.CL_Body_Menu_Oculto
+	{
+		width: auto;
+		margin-left: 0px;
+	}
+	 .CL_Header_Menu_Desplegado
+    {
+        width: 100% !important;
+    }
+    .CL_Header_Menu_Oculto
+
+    {
+        width: 83% !important;
+    }
+}

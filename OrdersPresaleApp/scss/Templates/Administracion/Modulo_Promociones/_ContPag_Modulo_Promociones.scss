@@ -1,0 +1,17 @@
+//scss para guardar los mixin que contendran las partes de la pagina
+@mixin ContenidoPagina() {
+  #FORM_Registro_Promocion
+  {
+    @include MX_Box_Shadow(0px, 0px, 1px, 0px,rgba(0,0,0,5/10));
+    background-color: $Color_6;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    padding-top: 50px;
+    @include MX_Box-Sizing(border-box);
+
+  }
+  #CONT_Registro_Promocion
+  {
+    background-color: $Color_25;
+  }
+}

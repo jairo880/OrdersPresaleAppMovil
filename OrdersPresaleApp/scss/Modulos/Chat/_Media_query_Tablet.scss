@@ -1,0 +1,17 @@
+@include desde(tablet) {
+	.CL_Tamano_Dtll {
+		width: 450px !important;
+	}
+	.CL_Tamano_Chat
+	{
+		width: 590px !important;
+	}
+	#CONT_Mensajes {
+		width: 600px;
+	}
+	.CL_Envio_Mensaje
+	{
+		height: 10%;
+	}
+
+}

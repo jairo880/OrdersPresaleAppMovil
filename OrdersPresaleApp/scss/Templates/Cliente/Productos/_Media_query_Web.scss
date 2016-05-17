@@ -1,0 +1,22 @@
+@include desde(web) {
+	.CL_HerramientasProducto 
+	{
+		flex-direction:row;
+	}
+	#CONT_Listado_Productos 
+	{
+		& #CONT_P_Productos
+		{
+			
+
+			& .CL_P_Imagen {
+				width: 500px;
+				height:auto;
+
+			}
+		}
+
+		
+
+	}
+}
